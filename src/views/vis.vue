@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div class="vis">
     <div ref="page-title">
       锦江区网络理政
     </div>
@@ -33,7 +33,7 @@ import {
   DatePicker,
 } from 'element-ui'
 
-export const index = {
+export const vis = {
   mixins: [BuiltInMixin],
 
   components: {
@@ -52,5 +52,5 @@ export const index = {
     }
   },
 }
-export default index
+export default vis
 </script>
