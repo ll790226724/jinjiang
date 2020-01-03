@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@byzanteam/vis-components": "lastest",
+    "@byzanteam/vis-components": "../../vis-components",
     "element-ui": "latest",
     "axios": "^0.19.0",
     "lodash": "^4.17.15",

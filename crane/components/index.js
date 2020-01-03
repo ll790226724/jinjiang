@@ -10,7 +10,28 @@ module.exports = {
     {
       id: 'page-title',
       component: 'div',
-      content: '锦江区网络理政'
+      content: '锦江区网络理政',
+      props: {
+        $style: {
+          color: '#2e2e2e',
+          fontSize: '34px',
+          $fontWeight: 500,
+          textAlign: 'center',
+          letterSpacing: '1px'
+        }
+      }
+    },
+    {
+      id: 'page-tip',
+      component: 'label',
+      content: '* 该数据截至时间 2019年12月31日',
+      props: {
+        $style: {
+          color: '#2e2e2e',
+          fontSize: '14px',
+          $fontWeight: 400,
+        }
+      }
     },
     {
       id: 'departments-loader',

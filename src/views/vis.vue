@@ -1,8 +1,11 @@
 <template>
   <div class="vis">
-    <div ref="page-title">
+    <div ref="page-title" :style="{color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px'}">
       锦江区网络理政
     </div>
+    <label ref="page-tip" :style="{color: '#2e2e2e', fontSize: '14px', fontWeight: 400}">
+      * 该数据截至时间 2019年12月31日
+    </label>
     <data-loader ref="departments-loader" v-slot="{ results: results }" url="" method="post" :style="{width: '160px', position: 'absolute', top: '15px', left: '1147px'}">
       <vis-select ref="departments-select" v-if="results" :options="[{label: '东光街道办事处', uuid: 1}, {label: '牛市口街道办事处', uuid: 2}]" v-model="craneStates.department" placeholder="所有承办部门" />
     </data-loader>

@@ -8,7 +8,7 @@ module.exports = {
   },
   modules: {
     '@byzanteam/vis-components': {
-      version: 'lastest',
+      version: '../../vis-components',
       style: {
         type: 'normal',
         path: 'dist/index.css',
