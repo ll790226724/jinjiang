@@ -24,6 +24,13 @@ module.exports = {
         path: 'dist/carbonium.css',
       },
     },
+    'element-ui': {
+      version: 'latest',
+      style: {
+        type: 'normal',
+        path: 'lib/theme-chalk/index.css',
+      },
+    },
   },
   pages: [
     wllz

@@ -1,3 +1,79 @@
 body {
   background-color: #dde8f3;
 }
+
+.el-picker-panel {
+  top: 40px !important;
+  left: 1041px !important;
+  border: none;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.el-picker-panel .el-picker-panel__body {
+  background-color: #2e3e57;
+}
+
+.el-picker-panel.el-popper[x-placement^=bottom] .popper__arrow {
+  display: none;
+}
+
+.el-picker-panel .el-date-range-picker__content.is-left {
+  border-right: none;
+}
+
+.el-picker-panel .el-date-range-picker__header {
+  color: #4fa8f1;
+}
+
+.el-picker-panel .el-picker-panel__icon-btn {
+  color: rgb(255, 255, 255);
+}
+
+.el-picker-panel .el-date-table td.in-range div {
+  background-color: transparentize(#4fa8f1, .9);
+}
+
+.el-picker-panel .el-date-table td.start-date span,
+.el-picker-panel .el-date-table td.end-date span {
+  background-color: #4fa8f1;
+}
+
+.el-picker-panel .el-date-table td, th {
+  color: white;
+}
+
+.el-picker-panel .el-date-table th {
+  border-bottom-color: transparentize(#4fa8f1, .9);
+}
+
+.el-picker-panel .el-date-table td.prev-month,
+.el-picker-panel .el-date-table td.next-month {
+  color: transparentize(white, .5);
+}
+
+.el-date-editor.el-input__inner {
+  height: 32px;
+  background-color: #2e3e57;
+  border: none;
+}
+
+.el-date-editor.el-input__inner .el-range-input {
+  color: white;
+  background-color: transparent;
+  text-align: left;
+}
+
+.el-date-editor.el-input__inner .el-range-input::placeholder {
+  color: transparentize(white, 0.3);
+}
+
+.el-date-editor.el-input__inner .el-range__icon {
+  padding-top: 1px;
+}
+
+.el-date-editor.el-input__inner .el-range-separator {
+  padding: 0;
+  padding-top: 1px;
+  color: rgba(255, 255, 255, 0.7);
+}

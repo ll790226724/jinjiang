@@ -6,6 +6,7 @@ import plugins from './plugins/index'
 
 import '@byzanteam/vis-components/dist/index.css'
 import '@byzanteam/carbonium/dist/carbonium.css'
+import 'element-ui/lib/theme-chalk/index.css'
 import './styles/reset.css'
 
 plugins.install()
