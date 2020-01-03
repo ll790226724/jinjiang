@@ -29,6 +29,7 @@ module.exports = {
     {
       id: 'page-tip',
       component: 'label',
+      position: [429, 30],
       content: '* 该数据截至时间 2019年12月31日',
       props: {
         $style: {
@@ -41,7 +42,7 @@ module.exports = {
     {
       id: 'departments-loader',
       component: '@byzanteam/vis-components/data-loader',
-      position: [1147, 15],
+      position: [1117, 12],
       exports: {
         results: 'results',
       },
@@ -67,7 +68,7 @@ module.exports = {
     {
       id: 'datetime-picker-wrapper',
       component: 'div',
-      position: [1327, 15],
+      position: [1310, 12],
       children: [
         {
           id: 'datetime-picker',

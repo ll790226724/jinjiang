@@ -11,7 +11,7 @@ body {
 }
 
 .el-picker-panel .el-picker-panel__body {
-  background-color: #2e3e57;
+  background-color: #ffffff;
 }
 
 .el-picker-panel.el-popper[x-placement^=bottom] .popper__arrow {
@@ -23,7 +23,7 @@ body {
 }
 
 .el-picker-panel .el-date-range-picker__header {
-  color: #4fa8f1;
+  color: #1b74ef;
 }
 
 .el-picker-panel .el-picker-panel__icon-btn {
@@ -31,49 +31,80 @@ body {
 }
 
 .el-picker-panel .el-date-table td.in-range div {
-  background-color: transparentize(#4fa8f1, .9);
+  background-color: rgba(27, 116, 239, .1);
 }
 
 .el-picker-panel .el-date-table td.start-date span,
 .el-picker-panel .el-date-table td.end-date span {
-  background-color: #4fa8f1;
+  border-radius: .3rem;
+  background-color: #1b74ef;
 }
 
 .el-picker-panel .el-date-table td, th {
-  color: white;
+  color: #2e2e2e;
 }
 
 .el-picker-panel .el-date-table th {
-  border-bottom-color: transparentize(#4fa8f1, .9);
+  border-bottom-color: rgba(27, 116, 239, .1);
 }
 
 .el-picker-panel .el-date-table td.prev-month,
 .el-picker-panel .el-date-table td.next-month {
-  color: transparentize(white, .5);
+  color: rgba(46, 46, 46, .5);
 }
 
 .el-date-editor.el-input__inner {
   height: 32px;
-  background-color: #2e3e57;
+  background-color: #ffffff;
   border: none;
 }
 
+.el-date-editor .el-range__close-icon {
+  color: rgba(46, 46, 46, .7);
+}
+
 .el-date-editor.el-input__inner .el-range-input {
-  color: white;
+  color: rgba(46, 46, 46, .7);
   background-color: transparent;
   text-align: left;
 }
 
 .el-date-editor.el-input__inner .el-range-input::placeholder {
-  color: transparentize(white, 0.3);
+  color: rgba(46, 46, 46, .7);
 }
 
 .el-date-editor.el-input__inner .el-range__icon {
   padding-top: 1px;
+  color: rgba(46, 46, 46, .7);
 }
 
 .el-date-editor.el-input__inner .el-range-separator {
   padding: 0;
   padding-top: 1px;
   color: rgba(255, 255, 255, 0.7);
+}
+
+.select-trigger-inputting {
+  border: transparent !important;
+  box-shadow: none !important;
+}
+
+.select-trigger-inputting .select-trigger-inputting__content {
+  color: rgba(46, 46, 46, .7) !important;
+  font-weight: 500 !important;
+  max-width: 125px !important;
+}
+
+.select-trigger-inputting .select-trigger-inputting__content div {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.select-trigger-inputting .select-trigger-inputting__placeholder {
+  color: rgba(46, 46, 46, .7) !important;
+}
+
+.select-trigger-inputting .select-trigger-inputting__icon {
+  color: rgba(46, 46, 46, .7) !important;
 }
