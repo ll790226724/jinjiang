@@ -5,7 +5,12 @@ module.exports = {
     name: 'vis',
   },
   title: '锦江区网络理政',
-  states: {},
+  states: [
+    {
+      id: 'department',
+      value: ''
+    }
+  ],
   components: [
     {
       id: 'page-title',
@@ -52,7 +57,6 @@ module.exports = {
           id: 'departments-select',
           component: '@byzanteam/vis-components/vis-select',
           props: {
-            'v-if': 'results',
             $options: "[{label: '东光街道办事处', uuid: 1}, {label: '牛市口街道办事处', uuid: 2}]",
             'v-model': 'craneStates.department',
             placeholder: '所有承办部门',
