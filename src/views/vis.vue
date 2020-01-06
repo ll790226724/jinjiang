@@ -33,6 +33,9 @@
     <data-loader :style="{width: '330px', height: '200px', position: 'absolute', top: '311px', left: '26px'}">
       <donut labelKey="label" valueKey="value" :data="craneStates.donutData" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1b74ef', '#15c689', '#ffba08', '#bb4430', '#a2aebb', '#7b92b5']}" :innerRadius="0.55" :legendOptions="{label: {fill: '#2e2e2e', fontSize: '14px'}, offset: [12, 0], position: 'right', align: ['center', 'start'], layout: 'vertical'}" />
     </data-loader>
+    <data-loader :style="{position: 'absolute', top: '576px', left: '33px'}">
+      <ranking :data="craneStates.rankingData" :keys="{label: 'label', value: 'value'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px'}" :valueStyle="{color: '#2e2e2e', fontSize: '16px', lineHeight: '24px'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['rgba(27, 116, 239)', 'rgba(27, 116, 239, .5)']}" />
+    </data-loader>
   </div>
 </template>
 
@@ -44,6 +47,7 @@ import {
   BrickTooltip,
   Icon,
   DigitalRoll,
+  Ranking,
 } from '@byzanteam/vis-components'
 import {
   DatePicker,
@@ -61,6 +65,7 @@ export const vis = {
     BrickTooltip,
     Icon,
     DigitalRoll,
+    Ranking,
     DatePicker,
     Donut,
   },
@@ -70,6 +75,7 @@ export const vis = {
       craneStates: {
         department: '',
         donutData: [{label: '表扬', value: 10}, {label: '求助', value: 10}, {label: '咨询', value: 30}, {label: '投诉举报', value: 20}],
+        rankingData: [{label: '东光街道办事处', value: 10}, {label: '牛市口街道办事处', value: 10}, {label: '双桂路街道办事处', value: 30}, {label: '督院街街道办事处', value: 20}],
       },
     }
   },

@@ -1,5 +1,6 @@
 const banlishuliang = require('./banjianshuliang')
 const donut = require('./donut')
+const ranking = require('./ranking')
 
 module.exports = {
   route: {
@@ -18,6 +19,15 @@ module.exports = {
         {label: '求助', value: 10},
         {label: '咨询', value: 30},
         {label: '投诉举报', value: 20}
+      ]
+    },
+    {
+      id: 'rankingData',
+      value: [
+        {label: '东光街道办事处', value: 10},
+        {label: '牛市口街道办事处', value: 10},
+        {label: '双桂路街道办事处', value: 30},
+        {label: '督院街街道办事处', value: 20}
       ]
     }
   ],
@@ -165,6 +175,7 @@ module.exports = {
       ]
     },
     banlishuliang,
-    donut
+    donut,
+    ranking
   ]
 }
