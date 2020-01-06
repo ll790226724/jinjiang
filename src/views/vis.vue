@@ -24,11 +24,11 @@
       </span>
     </label>
     <div ref="banlishuliang">
-      <digital-roll titlePosition="left" :content="{title: '当月办件数量', digital: 1876, suffix: '件'}" :digitalStyle="{color: '#ffffff', fontSize: '26px'}" :titleStyle="{color: '#ffffff', fontSize: '14px'}" :suffixStyle="{color: '#ffffff', fontSize: '14px'}" />
-      <div :style="{display: 'flex'}">
-        <digital-roll titlePosition="bottom" :content="{title: '满意度', digital: 98.12, suffix: '%'}" :digitalStyle="{color: '#2e2e2e', fontSize: '26px'}" :titleStyle="{color: '#2e2e2e', fontSize: '14px'}" :suffixStyle="{color: '#8f919f', fontSize: '14px'}" :options="{decimalPlaces: '2'}" />
-        <digital-roll titlePosition="bottom" :content="{title: '逾期率', digital: 98.12, suffix: '%'}" :digitalStyle="{color: '#2e2e2e', fontSize: '26px'}" :titleStyle="{color: '#2e2e2e', fontSize: '14px'}" :suffixStyle="{color: '#8f919f', fontSize: '14px'}" :options="{decimalPlaces: '2'}" />
-      </div>
+      <div :style="{width: '330px', height: '120px', backgroundColor: '#1b74ef', borderRadius: '4px', position: 'absolute', top: '26px', left: '26px'}" />
+      <digital-roll titlePosition="left" :style="{width: '194px', height: '44px', position: 'absolute', top: '61px', left: '63px'}" :content="{title: '当月办件数量', digital: 1876, suffix: '件'}" :digitalStyle="{color: '#ffffff', fontSize: '26px'}" :titleStyle="{color: '#ffffff', fontSize: '14px'}" :suffixStyle="{color: '#ffffff', fontSize: '14px'}" />
+      <div :style="{display: 'flex', width: '330px', height: '100px', backgroundColor: '#e9f1fc', borderRadius: '4px', position: 'absolute', top: '147px', left: '26px'}" />
+      <digital-roll titlePosition="bottom" :style="{width: '100px', height: '56px', position: 'absolute', top: '169px', left: '85px'}" :content="{title: '满意度', digital: 98.12, suffix: '%'}" :digitalStyle="{color: '#2e2e2e', fontSize: '26px'}" :titleStyle="{color: '#2e2e2e', fontSize: '14px'}" :suffixStyle="{color: '#8f919f', fontSize: '14px'}" :options="{decimalPlaces: '2'}" />
+      <digital-roll titlePosition="bottom" :style="{width: '100px', height: '56px', position: 'absolute', top: '169px', left: '230px'}" :content="{title: '逾期率', digital: 98.12, suffix: '%'}" :digitalStyle="{color: '#2e2e2e', fontSize: '26px'}" :titleStyle="{color: '#2e2e2e', fontSize: '14px'}" :suffixStyle="{color: '#8f919f', fontSize: '14px'}" :options="{decimalPlaces: '2'}" />
     </div>
     <data-loader :style="{width: '330px', height: '200px', position: 'absolute', top: '311px', left: '26px'}">
       <donut labelKey="label" valueKey="value" :data="craneStates.donutData" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1b74ef', '#15c689', '#ffba08', '#bb4430', '#a2aebb', '#7b92b5']}" :innerRadius="0.55" :legendOptions="{label: {fill: '#2e2e2e', fontSize: '14px'}, offset: [12, 0], position: 'right', align: ['center', 'start'], layout: 'vertical'}" />
