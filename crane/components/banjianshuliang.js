@@ -30,7 +30,8 @@ module.exports = {
         },
         $digitalStyle: {
           color: '#ffffff',
-          fontSize: '26px'
+          fontSize: '26px',
+          fontFamily: 'Oswald-Regular'
         },
         $titleStyle: {
           color: '#ffffff',
@@ -71,7 +72,8 @@ module.exports = {
         },
         $digitalStyle: {
           color: '#2e2e2e',
-          fontSize: '26px'
+          fontSize: '26px',
+          fontFamily: 'Oswald-Regular'
         },
         $titleStyle: {
           color: '#2e2e2e',
@@ -102,7 +104,8 @@ module.exports = {
         },
         $digitalStyle: {
           color: '#2e2e2e',
-          fontSize: '26px'
+          fontSize: '26px',
+          fontFamily: 'Oswald-Regular'
         },
         $titleStyle: {
           color: '#2e2e2e',

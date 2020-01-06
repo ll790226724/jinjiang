@@ -110,7 +110,7 @@ module.exports = {
     {
       id: 'weather-text',
       component: '@byzanteam/vis-components/brick-tooltip',
-      position: [123, 27],
+      position: [259, 80],
       props: {
         content: "窗口办理量下降2%",
         placement: "bottom-right",
@@ -125,15 +125,19 @@ module.exports = {
           paddingLeft: '6px',
           dispaly: 'flex',
           alignItems: 'center',
-          display: 'flex'
+          display: 'flex',
+          $zIndex: 4
         }
       },
       children: [
         {
           id: 'weather-text-value',
           component: 'span',
-          content: '2%',
           children: [
+            {
+              component: 'span',
+              content: '2%',
+            },
             {
               id: 'weather-text-icon',
               component: '@byzanteam/vis-components/icon',
