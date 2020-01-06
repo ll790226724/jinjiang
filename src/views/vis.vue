@@ -17,6 +17,12 @@
         <icon ref="weather-text-icon" name="caret-down" size="16px" color="white" :style="{margin: '0 4px'}" />
       </span>
     </brick-tooltip>
+    <label :style="{dispaly: 'flex', alignItems: 'center', color: '#2e2e2e', fontSize: '18px', fontWeight: 500, letterSpacing: '0.9px', position: 'absolute', top: '277px', left: '38px'}">
+      <span />
+      <span>
+        诉求性质
+      </span>
+    </label>
     <div ref="banlishuliang">
       <digital-roll titlePosition="left" :content="{title: '当月办件数量', digital: 1876, suffix: '件'}" :digitalStyle="{color: '#ffffff', fontSize: '26px'}" :titleStyle="{color: '#ffffff', fontSize: '14px'}" :suffixStyle="{color: '#ffffff', fontSize: '14px'}" />
       <div :style="{display: 'flex'}">
@@ -24,6 +30,9 @@
         <digital-roll titlePosition="bottom" :content="{title: '逾期率', digital: 98.12, suffix: '%'}" :digitalStyle="{color: '#2e2e2e', fontSize: '26px'}" :titleStyle="{color: '#2e2e2e', fontSize: '14px'}" :suffixStyle="{color: '#8f919f', fontSize: '14px'}" :options="{decimalPlaces: '2'}" />
       </div>
     </div>
+    <data-loader :style="{width: '330px', height: '200px', position: 'absolute', top: '311px', left: '26px'}">
+      <donut labelKey="label" valueKey="value" :data="craneStates.donutData" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1b74ef', '#15c689', '#ffba08', '#bb4430', '#a2aebb', '#7b92b5']}" :innerRadius="0.55" :legendOptions="{label: {fill: '#2e2e2e', fontSize: '14px'}, offset: [12, 0], position: 'right', align: ['center', 'start'], layout: 'vertical'}" />
+    </data-loader>
   </div>
 </template>
 
@@ -39,6 +48,9 @@ import {
 import {
   DatePicker,
 } from 'element-ui'
+import {
+  Donut,
+} from '@byzanteam/graphite'
 
 export const vis = {
   mixins: [BuiltInMixin],
@@ -50,12 +62,14 @@ export const vis = {
     Icon,
     DigitalRoll,
     DatePicker,
+    Donut,
   },
 
   data () {
     return {
       craneStates: {
         department: '',
+        donutData: [{label: '表扬', value: 10}, {label: '求助', value: 10}, {label: '咨询', value: 30}, {label: '投诉举报', value: 20}],
       },
     }
   },

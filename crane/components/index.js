@@ -1,4 +1,5 @@
 const banlishuliang = require('./banjianshuliang')
+const donut = require('./donut')
 
 module.exports = {
   route: {
@@ -9,6 +10,15 @@ module.exports = {
     {
       id: 'department',
       value: ''
+    },
+    {
+      id: 'donutData',
+      value: [
+        {label: '表扬', value: 10},
+        {label: '求助', value: 10},
+        {label: '咨询', value: 30},
+        {label: '投诉举报', value: 20}
+      ]
     }
   ],
   components: [
@@ -130,6 +140,31 @@ module.exports = {
         },
       ]
     },
-    banlishuliang
+    {
+      component: 'label',
+      position: [38, 277],
+      props: {
+        $style: {
+          dispaly: 'flex',
+          alignItems: 'center',
+          color: '#2e2e2e',
+          fontSize: '18px',
+          $fontWeight: 500,
+          letterSpacing: '0.9px'
+        }
+      },
+      children: [
+        {
+          component: 'span',
+          content: ''
+        },
+        {
+          component: 'span',
+          content: '诉求性质'
+        }
+      ]
+    },
+    banlishuliang,
+    donut
   ]
 }
