@@ -39,10 +39,19 @@
     <data-loader :style="{position: 'absolute', top: '576px', left: '33px'}">
       <ranking :data="craneStates.rankingData" :keys="{label: 'label', value: 'value'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px'}" :valueStyle="{color: '#2e2e2e', fontSize: '16px', lineHeight: '24px'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['rgba(27, 116, 239)', 'rgba(27, 116, 239, .5)']}" />
     </data-loader>
+    <data-loader :style="{width: '1089px', height: '417px', position: 'absolute', top: '104px', left: '417px'}">
+      <v-chart :options="{tooltip: {trigger: 'axis'}, legend: {data: Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name})}, color: ['#15c689','#bb4430', '#ffba08', '#a2aebb', '#1b74ef','#74797f'], xAxis: [{type: 'category', axisLabel: {rotate: 45, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: craneStates.chartLabels, axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '天', max: 10, min: 0, boundaryGap: [0.2, 0.2], axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], bottom: 0, handleStyle: {color: '#1b74ef'}}, series: craneStates.chartLegend.map(item => {return {...craneStates.chartLegendsMap[item], data: craneStates.echartData.map(data => data[item])}})}" />
+    </data-loader>
   </div>
 </template>
 
 <script>
+import ECharts from 'vue-echarts'
+import 'echarts/lib/chart/bar'
+import 'echarts/lib/chart/line'
+import 'echarts/lib/component/tooltip'
+import 'echarts/map/js/world'
+
 import BuiltInMixin from '../mixins/built_in'
 import {
   DataLoader,
@@ -71,6 +80,7 @@ export const vis = {
     Ranking,
     DatePicker,
     Donut,
+    'v-chart': ECharts,
   },
 
   data () {
@@ -79,6 +89,10 @@ export const vis = {
         department: '',
         donutData: [{label: '表扬', value: 10}, {label: '求助', value: 10}, {label: '咨询', value: 30}, {label: '投诉举报', value: 20}],
         rankingData: [{label: '东光街道办事处', value: 10}, {label: '牛市口街道办事处', value: 10}, {label: '双桂路街道办事处', value: 30}, {label: '督院街街道办事处', value: 20}],
+        echartData: [{label: '公安分局', aa: 80, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2}, {label: '综合行政执法局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2}, {label: '合江亭街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2}, {label: '成龙路街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2}, {label: '退役军人事务局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2}, {label: '龙舟路街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2}, {label: '人社局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2}, {label: '住房建设和交通运输局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2}, {label: '三圣街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4}, {label: '社会事物科', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4}],
+        chartLegendsMap: {aa: {name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 12}, bb: {name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 12}, cc: {name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 12}, dd: {name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 12}, ee: {name: '回访情况', type: 'line', yAxisIndex: 1}, ff: {name: '平均回复时间', type: 'line', yAxisIndex: 1}},
+        chartLabels: ['公安分局', '综合行政执法局', '合江亭街道办事处', '成龙路街道办事处', '退役军人事务局', '龙舟路街道办事处', '人社局', '住房建设和交通运输局', '三圣街道办事处', '社会事物科'],
+        chartLegend: ['aa', 'bb', 'cc', 'dd', 'ee', 'ff'],
       },
     }
   },
