@@ -57,14 +57,6 @@ module.exports = {
         ff: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
       }
     },
-    {
-      id: 'chartLabels',
-      value: ['公安分局', '综合行政执法局', '合江亭街道办事处', '成龙路街道办事处', '退役军人事务局', '龙舟路街道办事处', '人社局', '住房建设和交通运输局', '三圣街道办事处', '社会事物科']
-    },
-    {
-      id: 'chartLegend',
-      value: ['aa', 'bb', 'cc', 'dd', 'ee', 'ff']
-    }
   ],
   components: [
     {

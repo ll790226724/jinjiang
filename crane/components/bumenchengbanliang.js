@@ -20,7 +20,7 @@ module.exports = {
             right: '80px',
           },
           $color: "['#15c689','#bb4430', '#ffba08', '#a2aebb', '#1b74ef','#74797f']",
-          $xAxis: "[{type: 'category', axisLabel: {rotate: 45, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: craneStates.chartLabels, axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}]",
+          $xAxis: "[{type: 'category', axisLabel: {rotate: 45, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: craneStates.echartData.map((item) => {return item.label}), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}]",
           $yAxis: "[{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '天', max: 10, min: 0, boundaryGap: [0.2, 0.2], axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}]",
           $dataZoom: {
             type: 'slider',
@@ -31,7 +31,7 @@ module.exports = {
               color: '#1b74ef'
             },
           },
-          $series: "craneStates.chartLegend.map(item => {return {...craneStates.chartLegendsMap[item], data: craneStates.echartData.map(data => data[item])}})"
+          $series: "Object.keys(craneStates.chartLegendsMap).map(item => {return {...craneStates.chartLegendsMap[item], data: craneStates.echartData.map(data => data[item])}})"
         }
       }
     }
