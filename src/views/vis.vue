@@ -45,6 +45,9 @@
     <data-loader :style="{width: '1089px', height: '245px', position: 'absolute', top: '566px', left: '417px'}">
       <v-chart :options="{tooltip: {trigger: 'axis'}, legend: {data: Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name}), right: '80px'}, color: ['#1b74ef'], xAxis: [{type: 'category', axisLabel: {rotate: 45, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: craneStates.echartData.map((item) => {return item.label}), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#2e2e2e'], type: 'dashed'}}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], bottom: 0, handleStyle: {color: '#1b74ef'}}, series: [{type: 'line', symbolSize: 8, lineStyle: {width: 3}, data: craneStates.echartData.map((item) => {return item.aa})}]}" />
     </data-loader>
+    <data-loader v-slot="{ results: results }" url="/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01" method="get" :style="{width: '330px', height: '290px', position: 'absolute', top: '576px', left: '1570px'}">
+      <vertical-bar v-if="results" :data="results.map((result) => ({label: result[1], count: result[0]}))" labelKey="label" valueKey="count" :mainAxis="{labelStyle: {rotate: -45, size: 14, fill: '#666666'}, labelLength: 7, lineStyle: {stroke: 'transparent'}}" :crossAxis="{range: {count: 5}, lineStyle: {stroke: 'transparent'}, labelStyle: {size: 16, fill: '#666666'}, unit: {content: '件', fill: '#666666'}}" :gap="{outer: 3.3}" :series="['#1b74ef']" :theme="{background: 'transparent'}" />
+    </data-loader>
   </div>
 </template>
 
@@ -69,6 +72,7 @@ import {
 } from 'element-ui'
 import {
   Donut,
+  VerticalBar,
 } from '@byzanteam/graphite'
 
 export const vis = {
@@ -83,6 +87,7 @@ export const vis = {
     Ranking,
     DatePicker,
     Donut,
+    VerticalBar,
     'v-chart': ECharts,
   },
 

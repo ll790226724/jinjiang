@@ -3,6 +3,7 @@ const donut = require('./donut')
 const ranking = require('./ranking')
 const bumenchengbanliang = require('./bumenchengbanliang')
 const jiejianqushi = require('./jiejianqushi')
+const suqiuleixing = require('./suqiuleixing')
 
 module.exports = {
   route: {
@@ -210,6 +211,7 @@ module.exports = {
     donut,
     ranking,
     bumenchengbanliang,
-    jiejianqushi
+    jiejianqushi,
+    suqiuleixing
   ]
 }
