@@ -16,7 +16,8 @@ module.exports = {
             trigger: 'axis',
           },
           $legend: {
-            $data: 'Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name})'
+            $data: 'Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name})',
+            right: '80px',
           },
           $color: "['#15c689','#bb4430', '#ffba08', '#a2aebb', '#1b74ef','#74797f']",
           $xAxis: "[{type: 'category', axisLabel: {rotate: 45, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: craneStates.chartLabels, axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}]",
