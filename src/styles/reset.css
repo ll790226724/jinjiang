@@ -114,6 +114,14 @@ body {
   height: 100% !important;
 }
 
+.tooltip {
+  background-color: #313c56 !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  top: 110.928px !important;
+  left: 253.654px !important;
+}
+
 @font-face {
   font-family: 'Oswald-Regular';
   src:
