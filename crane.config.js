@@ -4,7 +4,7 @@ module.exports = {
   name: '锦江区网络理政',
   size: [1920, 1080],
   requestSettings: {
-    baseURL: 'http://xjh.cdyoue.com/vis-backend',
+    baseURL: 'http://vis.cdyoue.com:35004',
   },
   modules: {
     '@byzanteam/vis-components': {
