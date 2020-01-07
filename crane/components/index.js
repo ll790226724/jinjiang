@@ -2,6 +2,7 @@ const banlishuliang = require('./banjianshuliang')
 const donut = require('./donut')
 const ranking = require('./ranking')
 const bumenchengbanliang = require('./bumenchengbanliang')
+const jiejianqushi = require('./jiejianqushi')
 
 module.exports = {
   route: {
@@ -34,15 +35,15 @@ module.exports = {
     {
       id: 'echartData',
       value: [
-        {label: '公安分局', aa: 80, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2},
-        {label: '综合行政执法局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2},
+        {label: '公安分局', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2},
+        {label: '综合行政执法局', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2},
         {label: '合江亭街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2},
-        {label: '成龙路街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2},
-        {label: '退役军人事务局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2},
-        {label: '龙舟路街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2},
-        {label: '人社局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2},
+        {label: '成龙路街道办事处', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2},
+        {label: '退役军人事务局', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2},
+        {label: '龙舟路街道办事处', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2},
+        {label: '人社局', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2},
         {label: '住房建设和交通运输局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2},
-        {label: '三圣街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4},
+        {label: '三圣街道办事处', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4},
         {label: '社会事物科', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4},
       ]
     },
@@ -208,6 +209,7 @@ module.exports = {
     banlishuliang,
     donut,
     ranking,
-    bumenchengbanliang
+    bumenchengbanliang,
+    jiejianqushi
   ]
 }
