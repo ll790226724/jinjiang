@@ -1,6 +1,6 @@
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [417, 104],
+  position: [330, 104],
   exports: {
     results: 'results',
   },
@@ -8,7 +8,7 @@ module.exports = {
     $url: "`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='${craneStates.filterRange[0]}'&end='${craneStates.filterRange[1]}'`",
     method: 'get',
     $style: {
-      width: '1089px',
+      width: '1300px',
       height: '417px'
     },
   },

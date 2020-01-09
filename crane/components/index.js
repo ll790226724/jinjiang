@@ -75,10 +75,10 @@ module.exports = {
     {
       id: 'chartLegendsMap',
       value: {
-        aa: { name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 12 },
-        bb: { name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 12 },
-        cc: { name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 12 },
-        dd: { name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 12 },
+        aa: { name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        bb: { name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        cc: { name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        dd: { name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
         ee: { name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8 },
         ff: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
       }
