@@ -10,7 +10,7 @@
       <vis-select ref="departments-select" :options="[{label: '东光街道办事处', uuid: 1}, {label: '牛市口街道办事处', uuid: 2}]" v-model="craneStates.department" placeholder="所有承办部门" />
     </data-loader>
     <div ref="datetime-picker-wrapper" :style="{position: 'absolute', top: '12px', left: '1310px'}">
-      <date-picker ref="datetime-picker" type="daterange" valueFormat="yyyy-MM-dd" format="yyyy-MM-dd" size="small" :unlinkPanels="true" v-model="craneStates.filter_range" start-placeholder="开始日期" end-placeholder="结束日期" range-separator=" " />
+      <date-picker ref="datetime-picker" type="daterange" valueFormat="yyyy-MM-dd" format="yyyy-MM-dd" size="small" :unlinkPanels="true" v-model="craneStates.filterRange" start-placeholder="开始日期" end-placeholder="结束日期" range-separator=" " />
     </div>
     <brick-tooltip ref="weather-text" content="窗口办理量下降2%" placement="bottom-right" :style="{width: '59px', height: '23px', backgroundColor: '#205bf6', borderRadius: '4px', color: '#ffffff', fontFamily: 'Oswald-Light', lineHeight: '1', paddingLeft: '6px', dispaly: 'flex', alignItems: 'center', display: 'flex', zIndex: 4, position: 'absolute', top: '80px', left: '259px'}">
       <span ref="weather-text-value">
@@ -95,6 +95,7 @@ export const vis = {
     return {
       craneStates: {
         department: '',
+        filterRange: ['1991-01-01', '2020-01-07'],
         donutData: [{label: '表扬', value: 10}, {label: '求助', value: 10}, {label: '咨询', value: 30}, {label: '投诉举报', value: 20}],
         rankingData: [{label: '东光街道办事处', value: 10}, {label: '牛市口街道办事处', value: 10}, {label: '双桂路街道办事处', value: 30}, {label: '督院街街道办事处', value: 20}],
         echartData: [{label: '公安分局', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2}, {label: '综合行政执法局', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2}, {label: '合江亭街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2}, {label: '成龙路街道办事处', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2}, {label: '退役军人事务局', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2}, {label: '龙舟路街道办事处', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2}, {label: '人社局', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2}, {label: '住房建设和交通运输局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2}, {label: '三圣街道办事处', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4}, {label: '社会事物科', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4}],

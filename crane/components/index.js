@@ -16,6 +16,10 @@ module.exports = {
       value: ''
     },
     {
+      id: 'filterRange',
+      value: ['1991-01-01', '2020-01-07']
+    },
+    {
       id: 'donutData',
       value: [
         {label: '表扬', value: 10},
@@ -128,7 +132,7 @@ module.exports = {
             format: 'yyyy-MM-dd',
             size: 'small',
             $unlinkPanels: 'true',
-            'v-model': 'craneStates.filter_range',
+            'v-model': 'craneStates.filterRange',
             'start-placeholder': '开始日期',
             'end-placeholder': '结束日期',
             'range-separator': ' ',
