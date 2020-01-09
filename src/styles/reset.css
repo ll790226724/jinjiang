@@ -92,7 +92,6 @@ body {
 .select-trigger-inputting .select-trigger-inputting__content {
   color: rgba(46, 46, 46, .7) !important;
   font-weight: 500 !important;
-  max-width: 125px !important;
 }
 
 .select-trigger-inputting .select-trigger-inputting__content div {
