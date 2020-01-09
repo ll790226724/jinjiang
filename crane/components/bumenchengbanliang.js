@@ -36,6 +36,7 @@ module.exports = {
             type: 'slider',
             show: true,
             $xAxisIndex: "[0]",
+            $top: 405,
             $bottom: 0,
             $handleStyle: {
               color: '#1b74ef'
