@@ -35,6 +35,8 @@ module.exports = {
             $handleStyle: {
               color: '#1b74ef'
             },
+            $startValue: 0,
+            $endValue: 19,
           },
           $series: "Object.keys(craneStates.chartLegendsMap).map(item => {return {...craneStates.chartLegendsMap[item], data: craneStates.echartData.map(data => data[item])}})"
         }
