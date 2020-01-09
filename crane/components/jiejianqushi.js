@@ -26,7 +26,7 @@ module.exports = {
             }
           },
           $color: "['#1b74ef']",
-          $xAxis: "[{type: 'category', axisLabel: {rotate: 45, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#2e2e2e'], type: 'dashed'}}}]",
+          $xAxis: "[{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#2e2e2e'], type: 'dashed'}}}]",
           $yAxis: "[{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}]",
           $dataZoom: {
             type: 'slider',
@@ -36,6 +36,8 @@ module.exports = {
             $handleStyle: {
               color: '#1b74ef'
             },
+            $startValue: 0,
+            $endValue: 19,
           },
           $series: "[{type: 'line', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]"
         }
