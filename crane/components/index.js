@@ -89,13 +89,16 @@ module.exports = {
       id: 'page-title',
       component: 'div',
       content: '锦江区网络理政',
+      position: [822, 12],
       props: {
         $style: {
           color: '#2e2e2e',
           fontSize: '34px',
           $fontWeight: 500,
           textAlign: 'center',
-          letterSpacing: '1px'
+          letterSpacing: '1px',
+          $lineHeight: 1,
+          display: 'inline-block',
         }
       }
     },
