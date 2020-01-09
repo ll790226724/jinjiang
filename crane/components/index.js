@@ -100,8 +100,8 @@ module.exports = {
         results: 'results',
       },
       props: {
-        url: '',
-        method: 'post',
+        $url: '`/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`',
+        method: 'get',
         $style: {
           width: '160px',
         },
@@ -111,7 +111,8 @@ module.exports = {
           id: 'departments-select',
           component: '@byzanteam/vis-components/vis-select',
           props: {
-            $options: "[{label: '东光街道办事处', uuid: 1}, {label: '牛市口街道办事处', uuid: 2}]",
+            'v-if': 'results',
+            $options: "results.map(result => ({label: result[0], uuid: result[0]}))",
             'v-model': 'craneStates.department',
             placeholder: '所有承办部门',
           },
