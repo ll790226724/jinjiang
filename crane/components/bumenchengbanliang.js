@@ -19,6 +19,11 @@ module.exports = {
         $options: {
           tooltip: {
             trigger: 'axis',
+            backgroundColor: '#ffffff',
+            $textStyle: {
+              color: '#2e2e2e',
+              fontSize: '14px',
+            }
           },
           $legend: {
             $data: 'Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name})',
