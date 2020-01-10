@@ -135,6 +135,40 @@ body {
   left: 253.654px !important;
 }
 
+.digital-roll--left > .digital-roll__container{
+  padding-left: 4px;
+}
+
+.ranking {
+  padding: 0 !important;
+}
+
+.ranking__line, .ranking__line-bg{
+  height: 3px !important;
+  border-radius: 1.5px !important;
+}
+
+.ranking__line-bg{
+  margin-top: 2px !important;
+}
+
+
+table tr:nth-child(odd) {
+  background-color: #EEF6FE80;
+}
+
+table {
+  border-spacing: 0;
+}
+
+.carbo-legend__item{
+  padding-left: 0 !important;
+}
+
+.ranking__block{
+  margin-bottom: 18px !important;
+}
+
 @font-face {
   font-family: 'Oswald-Regular';
   src:
