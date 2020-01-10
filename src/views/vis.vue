@@ -63,7 +63,7 @@
       <ranking ref="department-ranking-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" />
     </data-loader>
     <data-loader ref="percentage-number" v-slot="{ results: results }" :url="`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='2019-11-01','2019-11-15'&end='2019-11-01','2019-11-05'`" method="get" :data="[[0]]" :style="{width: '70px', height: '22px', boxSizing: 'border-box', color: '#FFFFFF', fontSize: '16px', paddingLeft: '4px', paddingRight: '6px', backgroundColor: '#155EC2', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderRadius: '2px', position: 'absolute', top: '80px', left: '259px'}">
-      <brick-tooltip content="窗口办理量下降2%" placement="bottom-right" :style="{borderRadius: '4px', color: '#ffffff', fontFamily: 'Oswald-Light', lineHeight: '1', paddingLeft: '6px', dispaly: 'flex', alignItems: 'center', display: 'flex'}">
+      <brick-tooltip content="窗口办理量下降2%" placement="bottom-right" :style="{borderRadius: '4px', color: '#ffffff', fontFamily: 'Oswald-Light', lineHeight: '1', alignItems: 'center', display: 'flex', flexGrow: '1', justifyContent: 'space-between'}">
         <div :style="{display: 'flex'}">
           <div ref="percentage-number" :style="{fontFamily: 'Oswald-Light'}">
             {{results[0][2]}}%

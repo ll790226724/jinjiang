@@ -26,10 +26,10 @@ module.exports = {
           color: '#ffffff',
           fontFamily: 'Oswald-Light',
           lineHeight: 1,
-          paddingLeft: '6px',
-          dispaly: 'flex',
           alignItems: 'center',
           display: 'flex',
+          flexGrow: 1,
+          justifyContent: 'space-between'
         }
       },
       children: [
