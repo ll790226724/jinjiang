@@ -183,7 +183,6 @@ module.exports = {
           dispaly: 'flex',
           alignItems: 'center',
           display: 'flex',
-          $zIndex: 4
         }
       },
       children: [

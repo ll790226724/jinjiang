@@ -14,7 +14,6 @@ module.exports = {
     method: 'get',
     $data: "[[0]]",
     $style: {
-      zIndex: '2',
       width: '120px',
       height: '58px',
     },

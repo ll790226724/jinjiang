@@ -120,7 +120,6 @@ module.exports = {
           letterSpacing: '1px',
           $lineHeight: 1,
           display: 'inline-block',
-          zIndex: 2,
         }
       }
     },
@@ -150,16 +149,10 @@ module.exports = {
         },
       ],
     },
-
     {
       id: 'datetime-picker-wrapper',
       component: 'div',
       position: [1310, 12],
-      props: {
-        $style: {
-          zIndex: 2,
-        },
-      },
       children: [
         {
           id: 'datetime-picker',

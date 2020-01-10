@@ -1,12 +1,12 @@
 <template>
   <div class="vis">
-    <div ref="page-title" :style="{color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px', lineHeight: 1, display: 'inline-block', position: 'absolute', top: '12px', left: '822px', zIndex: 2}">
+    <div ref="page-title" :style="{color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px', lineHeight: 1, display: 'inline-block', position: 'absolute', top: '12px', left: '822px'}">
       锦江区网络理政
     </div>
     <data-loader ref="departments-loader" v-slot="{ results: results }" url="/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01" method="get" :style="{width: '160px', position: 'absolute', top: '12px', left: '1117px'}">
       <vis-select ref="departments-select" :options="results.map( (item, index) => { return {label: item[0], uuid: index } } )" v-model="craneStates.department" placeholder="所有承办部门" />
     </data-loader>
-    <div ref="datetime-picker-wrapper" :style="{zIndex: '2', position: 'absolute', top: '12px', left: '1310px'}">
+    <div ref="datetime-picker-wrapper" :style="{position: 'absolute', top: '12px', left: '1310px'}">
       <date-picker ref="datetime-picker" type="daterange" valueFormat="yyyy-MM-dd" format="yyyy-MM-dd" size="small" :unlinkPanels="true" v-model="craneStates.filter_range" start-placeholder="开始日期" end-placeholder="结束日期" range-separator=" " />
     </div>
     <img ref="background" src="/jinjiang/images/bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
@@ -28,6 +28,12 @@
       诉求类型
     </div>
     <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '859px', left: '432px'}" />
+    <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '89px', left: '448px'}">
+      部门承办量 & 回访情况 & 平均回复时间
+    </div>
+    <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '541px', left: '448px'}">
+      接件趋势
+    </div>
     <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '851px', left: '448px'}">
       重复投诉统计
     </div>
@@ -39,13 +45,13 @@
     <div ref="event-suffix" :style="{color: '#2E2E2E80', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '46px', left: '1681px'}">
       /件
     </div>
-    <data-loader ref="deal-number" v-slot="{ results: results }" :url="`/v1/components/89b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01`" method="get" :data="[[0]]" :style="{zIndex: '2', width: '194px', height: '44px', position: 'absolute', top: '61px', left: '63px'}">
+    <data-loader ref="deal-number" v-slot="{ results: results }" :url="`/v1/components/89b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01`" method="get" :data="[[0]]" :style="{width: '194px', height: '44px', position: 'absolute', top: '61px', left: '63px'}">
       <digital-roll ref="deal-number-total" titlePosition="left" :content="{title: '当月办件数量', digital: results[0][0], suffix: '件'}" :options="{separator: ''}" :titleStyle="{color: 'rgba(255, 255, 255)', fontSize: '14px', fontWeight: '500'}" :suffixStyle="{fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '36px', color: '#FFFFFF', fontWeight: '400', fontFamily: 'Oswald'}" />
     </data-loader>
-    <data-loader ref="satisfaction" v-slot="{ results: results }" :url="`/v1/components/8ab74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2019-11-01&end=2019-12-06`" method="get" :data="[[0]]" :style="{zIndex: '2', width: '100px', height: '56px', position: 'absolute', top: '169px', left: '85px'}">
+    <data-loader ref="satisfaction" v-slot="{ results: results }" :url="`/v1/components/8ab74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2019-11-01&end=2019-12-06`" method="get" :data="[[0]]" :style="{width: '100px', height: '56px', position: 'absolute', top: '169px', left: '85px'}">
       <digital-roll ref="satisfaction-content" titlePosition="bottom" :content="{title: '满意度', digital: results[0][0], suffix: '%'}" :titleStyle="{color: '#2E2E2E', fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '26px', color: '#2E2E2E', fontFamily: 'Oswald', fontWeight: '400', format: '11.11', letterSpacing: '0.6'}" :suffixStyle="{fontSize: '14px', color: '#8F919F', fontWeight: '400'}" :options="{separator: ',', decimalPlaces: '2'}" />
     </data-loader>
-    <data-loader ref="overdue" v-slot="{ results: results }" :url="`/v1/components/8bb74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2019-11-01&end=2019-11-22`" method="get" :data="[[0]]" :style="{zIndex: '2', width: '120px', height: '58px', position: 'absolute', top: '169px', left: '230px'}">
+    <data-loader ref="overdue" v-slot="{ results: results }" :url="`/v1/components/8bb74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2019-11-01&end=2019-11-22`" method="get" :data="[[0]]" :style="{width: '120px', height: '58px', position: 'absolute', top: '169px', left: '230px'}">
       <digital-roll ref="overdue-content" titlePosition="bottom" :content="{title: '逾期率', digital: results[0][0], suffix: '%'}" :titleStyle="{color: '#2E2E2E', fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '26px', color: '#2E2E2E', fontFamily: 'Oswald', fontWeight: '400', format: '11.11', letterSpacing: '0.6'}" :suffixStyle="{fontSize: '14px', color: '#8F919F', fontWeight: '400'}" :options="{separator: ',', decimalPlaces: '2'}" />
     </data-loader>
     <data-loader ref="demand-donut" v-slot="{ results: results }" :url="`/v1/components/b9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01`" method="get" :data="[{label: '投诉性质', amount: 12}]" :style="{width: '490px', height: '200px', position: 'absolute', top: '311px', left: '-10px'}">
@@ -54,8 +60,8 @@
     <data-loader ref="department-ranking" v-slot="{ results: results }" :url="`/v1/components/c9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '316px', maxHeight: '470px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '576px', left: '33px'}">
       <ranking ref="department-ranking-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" />
     </data-loader>
-    <data-loader ref="percentage-number" v-slot="{ results: results }" :url="`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='2019-11-01','2019-11-15'&end='2019-11-01','2019-11-05'`" method="get" :data="[[0]]" :style="{zIndex: '2', width: '70px', height: '22px', boxSizing: 'border-box', color: '#FFFFFF', fontSize: '16px', paddingLeft: '4px', paddingRight: '6px', backgroundColor: '#155EC2', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderRadius: '2px', position: 'absolute', top: '80px', left: '259px'}">
-      <brick-tooltip content="窗口办理量下降2%" placement="bottom-right" :style="{borderRadius: '4px', color: '#ffffff', fontFamily: 'Oswald-Light', lineHeight: '1', paddingLeft: '6px', dispaly: 'flex', alignItems: 'center', display: 'flex', zIndex: 4}">
+    <data-loader ref="percentage-number" v-slot="{ results: results }" :url="`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='2019-11-01','2019-11-15'&end='2019-11-01','2019-11-05'`" method="get" :data="[[0]]" :style="{width: '70px', height: '22px', boxSizing: 'border-box', color: '#FFFFFF', fontSize: '16px', paddingLeft: '4px', paddingRight: '6px', backgroundColor: '#155EC2', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderRadius: '2px', position: 'absolute', top: '80px', left: '259px'}">
+      <brick-tooltip content="窗口办理量下降2%" placement="bottom-right" :style="{borderRadius: '4px', color: '#ffffff', fontFamily: 'Oswald-Light', lineHeight: '1', paddingLeft: '6px', dispaly: 'flex', alignItems: 'center', display: 'flex'}">
         <div :style="{display: 'flex'}">
           <div ref="percentage-number" :style="{fontFamily: 'Oswald-Light'}">
             {{results[0][2]}}%
