@@ -1,5 +1,8 @@
 <template>
   <div class="vis">
+    <div ref="page-title" :style="{color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px', lineHeight: 1, display: 'inline-block', position: 'absolute', top: '12px', left: '822px', zIndex: 2}">
+      锦江区网络理政
+    </div>
     <data-loader ref="departments-loader" v-slot="{ results: results }" url="/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01" method="get" :style="{width: '160px', position: 'absolute', top: '12px', left: '1117px'}">
       <vis-select ref="departments-select" :options="results.map( (item, index) => { return {label: item[0], uuid: index } } )" v-model="craneStates.department" placeholder="所有承办部门" />
     </data-loader>
