@@ -107,6 +107,14 @@ module.exports = {
 
   components: [
     {
+      id: 'background',
+      component: 'img',
+      position: [0, 0],
+      props: {
+        src: '/jinjiang/images/bg.png'
+      },
+    },
+    {
       id: 'page-title',
       component: 'div',
       content: '锦江区网络理政',
@@ -171,16 +179,6 @@ module.exports = {
         },
       ],
     },
-
-    {
-      id: 'background',
-      component: 'img',
-      position: [0, 0],
-      props: {
-        src: '/jinjiang/images/bg.png'
-      },
-    },
-
     {
       id: 'digital-background-top',
       component: 'div',
@@ -258,7 +256,22 @@ module.exports = {
         }
       },
     },
-
+    {
+      id: 'repeat-demand-circle',
+      component: 'div',
+      position: [432, 89],
+      props: {
+        $style: {
+          boxSizing: 'content-box',
+          height:'6px',
+          width: '6px',
+          borderRadius: '5px',
+          borderWidth: '2px',
+          borderColor: '#2E2E2E',
+          borderStyle: 'solid',
+        }
+      },
+    },
     {
       id: 'department-title',
       component: 'div',
@@ -353,6 +366,22 @@ module.exports = {
         },
       },
       content: '部门承办量 & 回访情况 & 平均回复时间',
+    },
+    {
+      id: 'repeat-demand-circle',
+      component: 'div',
+      position: [432, 547],
+      props: {
+        $style: {
+          boxSizing: 'content-box',
+          height:'6px',
+          width: '6px',
+          borderRadius: '5px',
+          borderWidth: '2px',
+          borderColor: '#2E2E2E',
+          borderStyle: 'solid',
+        }
+      },
     },
     {
       id: 'repeat-demand-title',
