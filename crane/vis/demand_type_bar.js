@@ -1,6 +1,6 @@
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [1570, 576],
+  position: [1530, 576],
   exports: {
     results: 'results',
   },
@@ -9,7 +9,7 @@ module.exports = {
     method: 'get',
     $data: "[{label: '投诉类型', amount: 12}]",
     $style: {
-      width: '330px',
+      width: '384px',
       height: '290px'
     },
   },
