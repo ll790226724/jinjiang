@@ -346,7 +346,36 @@ module.exports = {
         }
       },
     },
-
+    {
+      id: 'repeat-demand-title',
+      component: 'div',
+      position: [448, 89],
+      props: {
+        $style: {
+          color: '#2E2E2E',
+          fontSize: '18px',
+          fontWeight: '500',
+          textAlign: 'left',
+          letterSpacing: '0.9',
+        },
+      },
+      content: '部门承办量 & 回访情况 & 平均回复时间',
+    },
+    {
+      id: 'repeat-demand-title',
+      component: 'div',
+      position: [448, 541],
+      props: {
+        $style: {
+          color: '#2E2E2E',
+          fontSize: '18px',
+          fontWeight: '500',
+          textAlign: 'left',
+          letterSpacing: '0.9',
+        },
+      },
+      content: '接件趋势',
+    },
     {
       id: 'repeat-demand-title',
       component: 'div',
@@ -362,7 +391,6 @@ module.exports = {
       },
       content: '重复投诉统计',
     },
-
     {
       id: 'right-background',
       component: 'div',
