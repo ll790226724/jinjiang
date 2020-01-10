@@ -22,9 +22,6 @@ module.exports = {
         content: "窗口办理量下降2%",
         placement: "bottom-right",
         $style: {
-          width: '59px',
-          height: '23px',
-          backgroundColor: '#205bf6',
           borderRadius: '4px',
           color: '#ffffff',
           fontFamily: 'Oswald-Light',
@@ -53,30 +50,25 @@ module.exports = {
                   fontFamily: 'Oswald-Light',
                 },
               },
-              content: '{{results[0][2]}}'
+              content: '{{results[0][2]}}%'
             },
             {
-              id: 'percentage-after',
-              component: 'div',
-              content: '%',
+              id: 'up-icon',
+              component: 'img',
+              props: {
+                'v-if': 'results[0][2] > 0',
+                src: '/jinjiang/images/icon-up.svg',
+              },
+            },
+            {
+              id: 'down-icon',
+              component: 'img',
+              props: {
+                'v-if': 'results[0][2] < 0',
+                src: '/jinjiang/images/icon-down.svg',
+              },
             },
           ],
-        },
-        {
-          id: 'up-icon',
-          component: 'img',
-          props: {
-            'v-if': 'results[0][2] > 0',
-            src: '/jinjiang/images/icon-up.svg',
-          },
-        },
-        {
-          id: 'down-icon',
-          component: 'img',
-          props: {
-            'v-if': 'results[0][2] < 0',
-            src: '/jinjiang/images/icon-down.svg',
-          },
         },
       ]
     },
