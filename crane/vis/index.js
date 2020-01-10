@@ -7,6 +7,8 @@ const percentage = require('./percentage');
 const eventSource = require('./event_source');
 const demandTypeBar = require('./demand_type_bar');
 const table = require('./table');
+const bumenchengbanliang = require('./bumenchengbanliang')
+const jiejianqushi = require('./jiejianqushi')
 
 module.exports = {
   route: {
@@ -46,7 +48,61 @@ module.exports = {
     {
       id: 'reg',
       value: /[,，]/g,
-    }
+    },
+    {
+      id: 'department',
+      value: ''
+    },
+    {
+      id: 'filterRange',
+      value: ['1991-01-01', '2020-01-07']
+    },
+    {
+      id: 'echartData',
+      value: [
+        {label: '公安分局', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2},
+        {label: '综合行政执法局', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2},
+        {label: '合江亭街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2},
+        {label: '成龙路街道办事处', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2},
+        {label: '退役军人事务局', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2},
+        {label: '龙舟路街道办事处', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2},
+        {label: '人社局', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2},
+        {label: '住房建设和交通运输局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2},
+        {label: '三圣街道办事处', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4},
+        {label: '社会事物科', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4},
+        {label: '公安分局1', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2},
+        {label: '综合行政执法局1', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2},
+        {label: '合江亭街道办事处1', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2},
+        {label: '成龙路街道办事处1', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2},
+        {label: '退役军人事务局1', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2},
+        {label: '龙舟路街道办事处1', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2},
+        {label: '人社局1', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2},
+        {label: '住房建设和交通运输局1', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2},
+        {label: '三圣街道办事处1', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4},
+        {label: '社会事物科1', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4},
+        {label: '公安分局2', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2},
+        {label: '综合行政执法局2', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2},
+        {label: '合江亭街道办事处2', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2},
+        {label: '成龙路街道办事处2', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2},
+        {label: '退役军人事务局2', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2},
+        {label: '龙舟路街道办事处2', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2},
+        {label: '人社局2', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2},
+        {label: '住房建设和交通运输局2', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2},
+        {label: '三圣街道办事处2', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4},
+        {label: '社会事物科2', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4},
+      ]
+    },
+    {
+      id: 'chartLegendsMap',
+      value: {
+        aa: { name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        bb: { name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        cc: { name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        dd: { name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        ee: { name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8 },
+        ff: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
+      }
+    },
   ],
 
   components: [
@@ -70,7 +126,6 @@ module.exports = {
           component: '@byzanteam/vis-components/vis-select',
           props: {
             $options: 'results.map( (item, index) => { return {label: item[0], uuid: index } } )',
-            // $options: "[{label: '东光街道办事处', uuid: 1}, {label: '牛市口街道办事处', uuid: 2}]",
             'v-model': 'craneStates.department',
             placeholder: '所有承办部门',
           },
@@ -360,6 +415,8 @@ module.exports = {
     percentage,
     eventSource,
     demandTypeBar,
-    table
+    table,
+    bumenchengbanliang,
+    jiejianqushi
   ],
 };

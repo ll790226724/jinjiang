@@ -1,52 +1,99 @@
 <template>
   <div class="vis">
-    <div ref="page-title" :style="{color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px', lineHeight: 1, display: 'inline-block', position: 'absolute', top: '12px', left: '822px'}">
-      锦江区网络理政
-    </div>
-    <label ref="page-tip" :style="{color: '#2e2e2e', fontSize: '14px', fontWeight: 400, position: 'absolute', top: '30px', left: '429px'}">
-      * 该数据截至时间 2019年12月31日
-    </label>
-    <data-loader ref="departments-loader" v-slot="{ results: results }" :url="`/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '160px', position: 'absolute', top: '12px', left: '1117px'}">
-      <vis-select ref="departments-select" v-if="results" :options="results.map(result => ({label: result[0], uuid: result[0]}))" v-model="craneStates.department" placeholder="所有承办部门" />
+    <data-loader ref="departments-loader" v-slot="{ results: results }" url="/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01" method="get" :style="{width: '160px', position: 'absolute', top: '12px', left: '1117px'}">
+      <vis-select ref="departments-select" :options="results.map( (item, index) => { return {label: item[0], uuid: index } } )" v-model="craneStates.department" placeholder="所有承办部门" />
     </data-loader>
-    <div ref="datetime-picker-wrapper" :style="{position: 'absolute', top: '12px', left: '1310px'}">
-      <date-picker ref="datetime-picker" type="daterange" valueFormat="yyyy-MM-dd" format="yyyy-MM-dd" size="small" :unlinkPanels="true" v-model="craneStates.filterRange" start-placeholder="开始日期" end-placeholder="结束日期" range-separator=" " />
+    <div ref="datetime-picker-wrapper" :style="{zIndex: '2', position: 'absolute', top: '12px', left: '1310px'}">
+      <date-picker ref="datetime-picker" type="daterange" valueFormat="yyyy-MM-dd" format="yyyy-MM-dd" size="small" :unlinkPanels="true" v-model="craneStates.filter_range" start-placeholder="开始日期" end-placeholder="结束日期" range-separator=" " />
     </div>
-    <brick-tooltip ref="weather-text" content="窗口办理量下降2%" placement="bottom-right" :style="{width: '59px', height: '23px', backgroundColor: '#205bf6', borderRadius: '4px', color: '#ffffff', fontFamily: 'Oswald-Light', lineHeight: '1', paddingLeft: '6px', dispaly: 'flex', alignItems: 'center', display: 'flex', zIndex: 4, position: 'absolute', top: '80px', left: '259px'}">
-      <span ref="weather-text-value">
-        <span>
-          2%
-        </span>
-        <icon ref="weather-text-icon" name="caret-down" size="16px" color="white" :style="{margin: '0 4px'}" />
-      </span>
-    </brick-tooltip>
-    <label :style="{dispaly: 'flex', alignItems: 'center', color: '#2e2e2e', fontSize: '18px', fontWeight: 500, letterSpacing: '0.9px', position: 'absolute', top: '277px', left: '38px'}">
-      <span />
-      <span>
-        诉求性质
-      </span>
-    </label>
-    <div ref="banlishuliang">
-      <div :style="{width: '330px', height: '120px', backgroundColor: '#1b74ef', borderRadius: '4px', position: 'absolute', top: '26px', left: '26px'}" />
-      <digital-roll titlePosition="left" :style="{width: '194px', height: '44px', position: 'absolute', top: '61px', left: '63px'}" :content="{title: '当月办件数量', digital: 1876, suffix: '件'}" :digitalStyle="{color: '#ffffff', fontSize: '26px', fontFamily: 'Oswald-Regular'}" :titleStyle="{color: '#ffffff', fontSize: '14px'}" :suffixStyle="{color: '#ffffff', fontSize: '14px'}" />
-      <div :style="{display: 'flex', width: '330px', height: '100px', backgroundColor: '#e9f1fc', borderRadius: '4px', position: 'absolute', top: '147px', left: '26px'}" />
-      <digital-roll titlePosition="bottom" :style="{width: '100px', height: '56px', position: 'absolute', top: '169px', left: '85px'}" :content="{title: '满意度', digital: 98.12, suffix: '%'}" :digitalStyle="{color: '#2e2e2e', fontSize: '26px', fontFamily: 'Oswald-Regular'}" :titleStyle="{color: '#2e2e2e', fontSize: '14px'}" :suffixStyle="{color: '#8f919f', fontSize: '14px'}" :options="{decimalPlaces: '2'}" />
-      <digital-roll titlePosition="bottom" :style="{width: '100px', height: '56px', position: 'absolute', top: '169px', left: '230px'}" :content="{title: '逾期率', digital: 98.12, suffix: '%'}" :digitalStyle="{color: '#2e2e2e', fontSize: '26px', fontFamily: 'Oswald-Regular'}" :titleStyle="{color: '#2e2e2e', fontSize: '14px'}" :suffixStyle="{color: '#8f919f', fontSize: '14px'}" :options="{decimalPlaces: '2'}" />
+    <img ref="background" src="/jinjiang/images/bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
+    <div ref="digital-background-top" :style="{height: '120px', width: '330px', backgroundColor: '#1B74EF', borderRadius: '4px', position: 'absolute', top: '26px', left: '26px'}" />
+    <div ref="digital-background-bottom" :style="{height: '100px', width: '330px', backgroundColor: '#E9F1FC', borderRadius: '4px', position: 'absolute', top: '147px', left: '26px'}" />
+    <div ref="demand-type-circle" :style="{height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '284px', left: '42px'}" />
+    <div ref="demand-type-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '277px', left: '58px'}">
+      诉求性质
     </div>
-    <data-loader :style="{width: '330px', height: '200px', position: 'absolute', top: '311px', left: '26px'}">
-      <donut labelKey="label" valueKey="value" :data="craneStates.donutData" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1b74ef', '#15c689', '#ffba08', '#bb4430', '#a2aebb', '#7b92b5']}" :innerRadius="0.55" :legendOptions="{label: {fill: '#2e2e2e', fontSize: '14px'}, offset: [12, 0], position: 'right', align: ['center', 'start'], layout: 'vertical'}" />
+    <div ref="department-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '548px', left: '42px'}" />
+    <div ref="department-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '541px', left: '58px'}">
+      部门承办量
+    </div>
+    <div ref="department-suffix" :style="{color: '#2E2E2E80', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '546px', left: '166px'}">
+      /件
+    </div>
+    <div ref="demand-bar-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '548px', left: '1580px'}" />
+    <div ref="demand-bar-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '542px', left: '1596px'}">
+      诉求类型
+    </div>
+    <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '859px', left: '432px'}" />
+    <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '851px', left: '448px'}">
+      重复投诉统计
+    </div>
+    <div ref="right-background" :style="{width: '330px', height: '841px', backgroundImage: 'linear-gradient(#1B74EF12, #1B74EF00)', borderRadius: '4px', position: 'absolute', top: '26px', left: '1564px'}" />
+    <div ref="event-source-circle" :style="{height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '50px', left: '1580px'}" />
+    <div ref="event-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '42px', left: '1596px'}">
+      事件来源
+    </div>
+    <div ref="event-suffix" :style="{color: '#2E2E2E80', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '46px', left: '1681px'}">
+      /件
+    </div>
+    <data-loader ref="deal-number" v-slot="{ results: results }" :url="`/v1/components/89b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01`" method="get" :data="[[0]]" :style="{zIndex: '2', width: '194px', height: '44px', position: 'absolute', top: '61px', left: '63px'}">
+      <digital-roll ref="deal-number-total" titlePosition="left" :content="{title: '当月办件数量', digital: results[0][0], suffix: '件'}" :options="{separator: ''}" :titleStyle="{color: 'rgba(255, 255, 255)', fontSize: '14px', fontWeight: '500'}" :suffixStyle="{fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '36px', color: '#FFFFFF', fontWeight: '400', fontFamily: 'Oswald'}" />
     </data-loader>
-    <data-loader :style="{position: 'absolute', top: '576px', left: '33px'}">
-      <ranking :data="craneStates.rankingData" :keys="{label: 'label', value: 'value'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px'}" :valueStyle="{color: '#2e2e2e', fontSize: '16px', lineHeight: '24px'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['rgba(27, 116, 239)', 'rgba(27, 116, 239, .5)']}" />
+    <data-loader ref="satisfaction" v-slot="{ results: results }" :url="`/v1/components/8ab74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2019-11-01&end=2019-12-06`" method="get" :data="[[0]]" :style="{zIndex: '2', width: '100px', height: '56px', position: 'absolute', top: '169px', left: '85px'}">
+      <digital-roll ref="satisfaction-content" titlePosition="bottom" :content="{title: '满意度', digital: results[0][0], suffix: '%'}" :titleStyle="{color: '#2E2E2E', fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '26px', color: '#2E2E2E', fontFamily: 'Oswald', fontWeight: '400', format: '11.11', letterSpacing: '0.6'}" :suffixStyle="{fontSize: '14px', color: '#8F919F', fontWeight: '400'}" :options="{separator: ',', decimalPlaces: '2'}" />
+    </data-loader>
+    <data-loader ref="overdue" v-slot="{ results: results }" :url="`/v1/components/8bb74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2019-11-01&end=2019-11-22`" method="get" :data="[[0]]" :style="{zIndex: '2', width: '120px', height: '58px', position: 'absolute', top: '169px', left: '230px'}">
+      <digital-roll ref="overdue-content" titlePosition="bottom" :content="{title: '逾期率', digital: results[0][0], suffix: '%'}" :titleStyle="{color: '#2E2E2E', fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '26px', color: '#2E2E2E', fontFamily: 'Oswald', fontWeight: '400', format: '11.11', letterSpacing: '0.6'}" :suffixStyle="{fontSize: '14px', color: '#8F919F', fontWeight: '400'}" :options="{separator: ',', decimalPlaces: '2'}" />
+    </data-loader>
+    <data-loader ref="demand-donut" v-slot="{ results: results }" :url="`/v1/components/b9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01`" method="get" :data="[{label: '投诉性质', amount: 12}]" :style="{width: '490px', height: '200px', position: 'absolute', top: '311px', left: '-10px'}">
+      <donut ref="demand-donut-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" labelKey="label" valueKey="amount" :innerRadius="0.53" :percentage="true" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1B74EF', '#15C689', '#FFBA08', '#BB4430', '#A2AEBB', '#7B92B5'], whitespace: 'nowrap'}" :legendOptions="{size: '100px', align: ['center', 'start'], layout: 'vertical', label: {fill: '#2E2E2E', size: 14}, position: 'right', offset: [-115, 0]}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {name: 'circle-small', size: 14}}" />
+    </data-loader>
+    <data-loader ref="department-ranking" v-slot="{ results: results }" :url="`/v1/components/c9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '316px', maxHeight: '470px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '576px', left: '33px'}">
+      <ranking ref="department-ranking-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" />
+    </data-loader>
+    <data-loader ref="percentage-number" v-slot="{ results: results }" :url="`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='2019-11-01','2019-11-15'&end='2019-11-01','2019-11-05'`" method="get" :data="[[0]]" :style="{zIndex: '2', width: '70px', height: '22px', boxSizing: 'border-box', color: '#FFFFFF', fontSize: '16px', paddingLeft: '4px', paddingRight: '6px', backgroundColor: '#155EC2', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderRadius: '2px', position: 'absolute', top: '80px', left: '259px'}">
+      <div :style="{display: 'flex'}">
+        <div ref="percentage-number" :style="{fontFamily: 'Oswald-Light'}">
+          {{results[0][2]}}
+        </div>
+        <div ref="percentage-after">
+          %
+        </div>
+      </div>
+      <img ref="up-icon" v-if="results[0][2] > 0" src="/jinjiang/images/icon-up.svg" :style="{}" />
+      <img ref="down-icon" v-if="results[0][2] < 0" src="/jinjiang/images/icon-down.svg" :style="{}" />
+    </data-loader>
+    <data-loader ref="event-ranking" v-slot="{ results: results }" url="/v1/components/f3b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01" method="get" :data="[{label: '事件来源', amount: 12}]" :style="{boxSizing: 'border-box', width: '300px', maxHeight: '433px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '76px', left: '1580px'}">
+      <ranking ref="event-ranking-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80']}" />
+    </data-loader>
+    <data-loader v-slot="{ results: results }" url="/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01" method="get" :data="[{label: '投诉类型', amount: 12}]" :style="{width: '330px', height: '290px', position: 'absolute', top: '576px', left: '1570px'}">
+      <vertical-bar v-if="results" :data="results.map((result) => ({label: result[1], count: result[0]}))" labelKey="label" valueKey="count" :mainAxis="{labelStyle: {rotate: -45, size: 14, fill: '#666666'}, labelLength: 7, lineStyle: {stroke: 'transparent'}}" :crossAxis="{range: {count: 5}, lineStyle: {stroke: 'transparent'}, labelStyle: {size: 16, fill: '#666666'}, unit: {content: '件', fill: '#666666'}}" :gap="{outer: 3}" :series="['#1b74ef']" :theme="{background: 'transparent'}" />
+    </data-loader>
+    <data-loader ref="repeat-complain-table" v-slot="{ results: results }" :data="{data: [['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 22],['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 32],['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12],['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12],], schema: [{field: 'summary', type: String},{field: 'departments', type: String},{field: 'total', type: Number}]}" :style="{width: '1478px', height: '162px', overflow: 'scroll', position: 'absolute', top: '885px', left: '417px'}">
+      <table ref="repeat-table" :style="{width: '100%', maxHeight: '162px'}">
+        <tr ref="header-tr">
+          <th ref="header-th" v-for="(item, key) in results.schema" :key="key" :style="{paddingLeft: '16px', height: '40px', verticalAlign: 'middle', color: '#2e2e2e', fontWeight: 500, textAlign: 'left', fontSize: '14px', backgroundColor: '#EEF6FE'}">
+            {{craneStates.tableKeyMap[item.field]}}
+          </th>
+        </tr>
+        <tr ref="content-tr" v-for="(item, key) in results.data" :key="key">
+          <td :style="{fontSize: '14px', padding: '7px 16px', color: '#666666', lineHeight: '20px', textAlign: 'left', verticalAlign: 'top', width: '1034.6px'}">
+            {{ item[0] }}
+          </td>
+          <td :style="{fontSize: '14px', padding: '7px 16px', color: '#666666', lineHeight: '20px', textAlign: 'left', verticalAlign: 'top', width: '295.6px'}">
+            {{ item[1] }}
+          </td>
+          <td :style="{fontSize: '14px', padding: '7px 16px', color: '#666666', lineHeight: '20px', textAlign: 'left', verticalAlign: 'top', width: '147.8px'}">
+            {{ item[2] }}
+          </td>
+        </tr>
+      </table>
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='${craneStates.filterRange[0]}'&end='${craneStates.filterRange[1]}'`" method="get" :style="{width: '1300px', height: '417px', position: 'absolute', top: '104px', left: '330px'}">
       <v-chart :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}}, legend: {data: Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name}), right: '80px'}, color: ['#15c689','#bb4430', '#ffba08', '#a2aebb', '#1b74ef','#74797f'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: craneStates.echartData.map((item) => {return item.label}), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '天', max: 10, min: 0, boundaryGap: [0.2, 0.2], axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], top: 405, bottom: 0, handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: Object.keys(craneStates.chartLegendsMap).map(item => {return {...craneStates.chartLegendsMap[item], data: craneStates.echartData.map(data => data[item])}})}" />
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '1300px', height: '245px', position: 'absolute', top: '566px', left: '330px'}">
       <v-chart :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}}, color: ['#1b74ef'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#999999'], type: 'dashed'}}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], top: 232, bottom: 0, handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: [{type: 'line', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]}" />
-    </data-loader>
-    <data-loader v-slot="{ results: results }" :url="`/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '330px', height: '290px', position: 'absolute', top: '576px', left: '1570px'}">
-      <vertical-bar v-if="results" :data="results.map((result) => ({label: result[1], count: result[0]}))" labelKey="label" valueKey="count" :mainAxis="{labelStyle: {rotate: -45, size: 14, fill: '#666666'}, labelLength: 7, lineStyle: {stroke: 'transparent'}}" :crossAxis="{range: {count: 5}, lineStyle: {stroke: 'transparent'}, labelStyle: {size: 16, fill: '#666666'}, unit: {content: '件', fill: '#666666'}}" :gap="{outer: 3.3}" :series="['#1b74ef']" :theme="{background: 'transparent'}" />
     </data-loader>
   </div>
 </template>
@@ -94,12 +141,13 @@ export const vis = {
   data () {
     return {
       craneStates: {
+        tableKeyMap: {total: '诉求量（件）', summary: '市民诉求内容', departments: '承办部门'},
+        mockMap: {data: [['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12], ['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12], ['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12], ['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12]], schema: [{field: 'summary', type: 'String'}, {field: 'departments', type: 'String'}, {field: 'total', type: 'Number'}]},
+        reg: /[,，]/g,
         department: '',
         filterRange: ['1991-01-01', '2020-01-07'],
-        donutData: [{label: '表扬', value: 10}, {label: '求助', value: 10}, {label: '咨询', value: 30}, {label: '投诉举报', value: 20}],
-        rankingData: [{label: '东光街道办事处', value: 10}, {label: '牛市口街道办事处', value: 10}, {label: '双桂路街道办事处', value: 30}, {label: '督院街街道办事处', value: 20}],
         echartData: [{label: '公安分局', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2}, {label: '综合行政执法局', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2}, {label: '合江亭街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2}, {label: '成龙路街道办事处', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2}, {label: '退役军人事务局', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2}, {label: '龙舟路街道办事处', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2}, {label: '人社局', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2}, {label: '住房建设和交通运输局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2}, {label: '三圣街道办事处', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4}, {label: '社会事物科', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4}, {label: '公安分局1', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2}, {label: '综合行政执法局1', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2}, {label: '合江亭街道办事处1', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2}, {label: '成龙路街道办事处1', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2}, {label: '退役军人事务局1', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2}, {label: '龙舟路街道办事处1', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2}, {label: '人社局1', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2}, {label: '住房建设和交通运输局1', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2}, {label: '三圣街道办事处1', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4}, {label: '社会事物科1', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4}, {label: '公安分局2', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2}, {label: '综合行政执法局2', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2}, {label: '合江亭街道办事处2', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2}, {label: '成龙路街道办事处2', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2}, {label: '退役军人事务局2', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2}, {label: '龙舟路街道办事处2', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2}, {label: '人社局2', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2}, {label: '住房建设和交通运输局2', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2}, {label: '三圣街道办事处2', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4}, {label: '社会事物科2', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4}],
-        chartLegendsMap: {aa: {name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7}, bb: {name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7}, cc: {name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7}, dd: {name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7}, ee: {name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8}, ff: {name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8}},
+        chartLegendsMap: {aa: {name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, bb: {name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, cc: {name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, dd: {name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, ee: {name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8}, ff: {name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8}},
       },
     }
   },
