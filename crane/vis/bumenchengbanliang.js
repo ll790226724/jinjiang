@@ -9,7 +9,7 @@ module.exports = {
     method: 'get',
     $style: {
       width: '1300px',
-      height: '417px'
+      height: '390px'
     },
   },
   children: [
