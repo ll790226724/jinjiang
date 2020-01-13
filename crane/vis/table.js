@@ -8,8 +8,8 @@ module.exports = {
   },
   position: [417, 885],
   props: {
-    // $url: "`/v1/components/4ea57f76-04f1-44fd-891c-61f3bb696e51/data?name=${craneStates.currentBuilding}`",
-    // method: 'get',
+    $url: "`/v1/components/4ea57f76-04f1-44fd-891c-61f3bb696e51/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`",
+    method: 'get',
     // $data: "{schema: [{}], data:[[]]}",
     $data: "{data: [['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 22],['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 32],['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12],['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12],], schema: [{field: 'summary', type: String},{field: 'departments', type: String},{field: 'total', type: Number}]}",
     $style: {

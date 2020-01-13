@@ -5,7 +5,7 @@ module.exports = {
     results: 'results',
   },
   props: {
-    url: '/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01',
+    $url:"`/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`",
     method: 'get',
     $data: "[{label: '投诉类型', amount: 12}]",
     $style: {
@@ -18,9 +18,9 @@ module.exports = {
       component: '@byzanteam/graphite/vertical-bar',
       props: {
         'v-if': 'results',
-        $data: 'results.map((result) => ({label: result[1], count: result[0]}))',
+        $data: 'results.map((result) => ({label: result[1], amount: result[0]}))',
         labelKey: 'label',
-        valueKey: 'count',
+        valueKey: 'amount',
         $mainAxis: {
           $labelStyle: {
             $rotate: -45,
