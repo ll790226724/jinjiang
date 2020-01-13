@@ -55,7 +55,11 @@ module.exports = {
     },
     {
       id: 'filterRange',
-      value: ['1991-01-01', '2020-01-07']
+      value: ['1991-01-01', new Date().toISOString().slice(0, 10)]
+    },
+    {
+      id: 'defaultFilterRange',
+      value:  ['1991-01-01', new Date().toISOString().slice(0, 10)],
     },
     {
       id: 'echartData',
@@ -171,7 +175,7 @@ module.exports = {
             format: 'yyyy-MM-dd',
             size: 'small',
             $unlinkPanels: 'true',
-            'v-model': 'craneStates.filter_range',
+            'v-model': 'craneStates.filterRange',
             'start-placeholder': '开始日期',
             'end-placeholder': '结束日期',
             'range-separator': ' ',
