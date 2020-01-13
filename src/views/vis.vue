@@ -79,19 +79,19 @@
     <data-loader v-slot="{ results: results }" :url="`/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '投诉类型', amount: 12}]" :style="{width: '384px', height: '290px', position: 'absolute', top: '576px', left: '1530px'}">
       <vertical-bar v-if="results" :data="results.map((result) => ({label: result[1], amount: result[0]}))" labelKey="label" valueKey="amount" :mainAxis="{labelStyle: {rotate: -45, size: 14, fill: '#666666'}, labelLength: 7, lineStyle: {stroke: 'transparent'}}" :crossAxis="{range: {count: 5}, lineStyle: {stroke: 'transparent'}, labelStyle: {size: 16, fill: '#666666'}, unit: {content: '件', fill: '#666666'}}" :gap="{outer: 3}" :series="['#1b74ef']" :theme="{background: 'transparent'}" />
     </data-loader>
-    <data-loader ref="repeat-complain-table" v-slot="{ results: results }" :url="`/v1/components/4ea57f76-04f1-44fd-891c-61f3bb696e51/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="{data: [['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 22],['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 32],['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12],['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12],], schema: [{field: 'summary', type: String},{field: 'departments', type: String},{field: 'total', type: Number}]}" :style="{width: '1478px', height: '162px', overflow: 'scroll', position: 'absolute', top: '885px', left: '417px'}">
+    <data-loader ref="repeat-complain-table" v-slot="{ response: response }" :url="`v1/components/f2b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="{schema: [{}], data:[[]]}" :style="{width: '1478px', height: '162px', overflow: 'scroll', position: 'absolute', top: '885px', left: '417px'}">
       <table ref="repeat-table" :style="{width: '100%', maxHeight: '162px'}">
         <tr ref="header-tr">
-          <th ref="header-th" v-for="(item, key) in results.schema" :key="key" :style="{paddingLeft: '16px', height: '40px', verticalAlign: 'middle', color: '#2e2e2e', fontWeight: 500, textAlign: 'left', fontSize: '14px', backgroundColor: '#EEF6FE'}">
+          <th ref="header-th" v-for="(item, key) in response.schema" :key="key" :style="{paddingLeft: '16px', height: '40px', verticalAlign: 'middle', color: '#2e2e2e', fontWeight: 500, textAlign: 'left', fontSize: '14px', backgroundColor: '#EEF6FE'}">
             {{craneStates.tableKeyMap[item.field]}}
           </th>
         </tr>
-        <tr ref="content-tr" v-for="(item, key) in results.data" :key="key">
+        <tr ref="content-tr" v-for="(item, key) in response.data" :key="key">
           <td :style="{fontSize: '14px', padding: '7px 16px', color: '#666666', lineHeight: '20px', textAlign: 'left', verticalAlign: 'top', width: '1034.6px'}">
             {{ item[0] }}
           </td>
           <td :style="{fontSize: '14px', padding: '7px 16px', color: '#666666', lineHeight: '20px', textAlign: 'left', verticalAlign: 'top', width: '295.6px'}">
-            {{ item[1] }}
+              <span v-html="item[1].replace(craneStates.reg, '<br>')"></span>
           </td>
           <td :style="{fontSize: '14px', padding: '7px 16px', color: '#666666', lineHeight: '20px', textAlign: 'left', verticalAlign: 'top', width: '147.8px'}">
             {{ item[2] }}
@@ -176,7 +176,6 @@ export const vis = {
       handler (value) {
         if (value) {
           this.setState('filterRange', value);
-          alert('有数据', this.craneStates.filterRange)
         } else {
           this.setState('filterRange', this.craneStates.defaultFilterRange);
         }
