@@ -20,6 +20,22 @@ module.exports = {
 
   states: [
     {
+      id: 'percentageDate',
+      value:[['2019-11-11', '2019-12-1'], ['2019-12-01','2019-12-05']]
+    },
+    {
+      id: 'percentageStartDate',
+      value: ['2019-12-1', '2019-12-5']
+    },
+    {
+      id: 'percentageEndDate',
+      value: ['2019-12-6', '2019-12-11']
+    },
+    {
+      id: 'chainArray',
+      value: []
+    },
+    {
       id: 'tableKeyMap',
       value: {
         total: '诉求量（件）',

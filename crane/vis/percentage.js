@@ -8,7 +8,8 @@ module.exports = {
     results: 'results',
   },
   props: {
-    $url: "`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='2019-11-01','2019-11-15'&end='2019-11-01','2019-11-05'`",
+    // $url: "`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='2019-11-01','2019-11-15'&end='2019-11-01','2019-11-05'`",
+    $url: "`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.chainParamsNew}&end=${craneStates.chainParamsOld}`",
     method: 'get',
     $data: "[[0]]",
     $style: {
@@ -47,6 +48,9 @@ module.exports = {
               props: {
                 $style: {
                   fontFamily: 'Oswald-Light',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  flexGrow: 1,
                 },
               },
               content: '{{results[0][2]}}%'

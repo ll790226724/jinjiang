@@ -62,10 +62,10 @@
     <data-loader ref="department-ranking" v-slot="{ results: results }" :url="`/v1/components/c9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '316px', maxHeight: '470px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '576px', left: '33px'}">
       <ranking ref="department-ranking-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" />
     </data-loader>
-    <data-loader ref="percentage-number" v-slot="{ results: results }" :url="`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='2019-11-01','2019-11-15'&end='2019-11-01','2019-11-05'`" method="get" :data="[[0]]" :style="{width: '70px', height: '22px', boxSizing: 'border-box', color: '#FFFFFF', fontSize: '16px', paddingLeft: '4px', paddingRight: '6px', backgroundColor: '#155EC2', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderRadius: '2px', position: 'absolute', top: '80px', left: '259px'}">
+    <data-loader ref="percentage-number" v-slot="{ results: results }" :url="`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.chainParamsNew}&end=${craneStates.chainParamsOld}`" method="get" :data="[[0]]" :style="{width: '70px', height: '22px', boxSizing: 'border-box', color: '#FFFFFF', fontSize: '16px', paddingLeft: '4px', paddingRight: '6px', backgroundColor: '#155EC2', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderRadius: '2px', position: 'absolute', top: '80px', left: '259px'}">
       <brick-tooltip content="窗口办理量下降2%" placement="bottom-right" :style="{borderRadius: '4px', color: '#ffffff', fontFamily: 'Oswald-Light', lineHeight: '1', alignItems: 'center', display: 'flex', flexGrow: '1', justifyContent: 'space-between'}">
         <div :style="{display: 'flex'}">
-          <div ref="percentage-number" :style="{fontFamily: 'Oswald-Light'}">
+          <div ref="percentage-number" :style="{fontFamily: 'Oswald-Light', display: 'flex', justifyContent: 'center', flexGrow: '1'}">
             {{results[0][2]}}%
           </div>
           <img ref="up-icon" v-if="results[0][2] > 0" src="/jinjiang/images/icon-up.svg" />
@@ -149,6 +149,10 @@ export const vis = {
   data () {
     return {
       craneStates: {
+        percentageDate: [['2019-11-11', '2019-12-1'], ['2019-12-01', '2019-12-05']],
+        percentageStartDate: ['2019-12-1', '2019-12-5'],
+        percentageEndDate: ['2019-12-6', '2019-12-11'],
+        chainArray: [],
         tableKeyMap: {total: '诉求量（件）', summary: '市民诉求内容', departments: '承办部门'},
         mockMap: {data: [['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12], ['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12], ['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12], ['长沙市岳麓区，岳北社区B2栋3单元羽婕钢材批发，我们这是居民小区，现在一楼门面管理及差，但是乱象丛生。家中有老年人，由于噪音太大直街导致老人头晕眼花。', '春熙路街道办事处', 12]], schema: [{field: 'summary', type: 'String'}, {field: 'departments', type: 'String'}, {field: 'total', type: 'Number'}]},
         reg: /[,，]/g,
@@ -160,6 +164,8 @@ export const vis = {
       },
     }
   },
+
+
 
   watch: {
     'craneStates.department': {
@@ -176,12 +182,45 @@ export const vis = {
       handler (value) {
         if (value) {
           this.setState('filterRange', value);
+          this.percentageNew(value);
+          this.percentageOld(value)
         } else {
           this.setState('filterRange', this.craneStates.defaultFilterRange);
+          this.percentageNew(value);
+          this.percentageOld(value)
         }
       },
     },
   },
-}
+
+  methods: {
+    // 日期选择器选择的时间段-new
+    percentageNew (value) {
+      let re =  (value.map(item => ("'" + item + "'"))).join(",");
+      this.setState('chainParamsNew', re);
+    },
+    // 对应的环比时间段-old
+    percentageOld(value) {
+      this.craneStates.chainArray = [];
+      let startDateTimestamp =new Date(value[0]).getTime();
+      let endDateTimestamp = new Date(value[1]).getTime();
+      let diffTimestamp = endDateTimestamp - startDateTimestamp;
+      value.map(item => {
+        let timestamp = new Date(item).getTime() - diffTimestamp;
+        let ch = new Date(timestamp);
+        let YY = ch.getFullYear() + '-';
+        let MM = (ch.getMonth() + 1 < 10 ? '0' + (ch.getMonth() + 1) : ch.getMonth() + 1) + '-';
+        let DD = (ch.getDate() < 10 ? '0' + (ch.getDate()) : ch.getDate());
+        let CH = "'" + YY + MM + DD + "'";
+        this.craneStates.chainArray.push(CH);
+      });
+      this.setState('chainParamsOld', this.craneStates.chainArray.join(","));
+    }
+  },
+
+  created () {
+    this.percentageNew(this.craneStates.defaultFilterRange);
+    this.percentageOld(this.craneStates.defaultFilterRange);
+  }};
 export default vis
 </script>
