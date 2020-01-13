@@ -1,3 +1,5 @@
+const { chartTooltipOptions } = require('../share');
+
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
   position: [1530, 576],
@@ -18,9 +20,9 @@ module.exports = {
       component: '@byzanteam/graphite/vertical-bar',
       props: {
         'v-if': 'results',
-        $data: 'results.map((result) => ({label: result[1], amount: result[0]}))',
+        $data: "results.map((result) => ({label: result[1], '数量（件）': result[0]}))",
         labelKey: 'label',
-        valueKey: 'amount',
+        valueKey: '数量（件）',
         $mainAxis: {
           $labelStyle: {
             $rotate: -45,
@@ -55,6 +57,7 @@ module.exports = {
         $theme: {
           background: 'transparent',
         },
+        ...chartTooltipOptions
       }
     }
   ]

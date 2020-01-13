@@ -1,4 +1,4 @@
-const { chartTooltipOptions } = require('../share')
+const { chartTooltipOptions } = require('../share');
 
 module.exports = {
   id: 'demand-donut',
@@ -44,19 +44,7 @@ module.exports = {
           position: 'right',
           $offset: "[-115, 0]",
         },
-        $tooltip: {
-          $text: {
-            align: 'center',
-            baseline: 'middle',
-            fill: '#FFFFFF',
-            $size: 14,
-            $weight: 400
-          },
-          $notation: {
-            name: 'circle-small',
-            $size: 14
-          }
-        },
+        ...chartTooltipOptions
       }
     }
   ]

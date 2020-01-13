@@ -1,3 +1,5 @@
+const { chartTooltipOptions } = require('../share');
+
 module.exports = {
   id: 'department-ranking',
   component: '@byzanteam/vis-components/data-loader',
@@ -46,7 +48,7 @@ module.exports = {
           height: '3px',
           borderRadius: '3px'
         },
-
+        ...chartTooltipOptions
       },
     },
   ],
