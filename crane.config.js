@@ -1,5 +1,5 @@
 const visPage = require('./crane/vis/index')
-
+const departmentPage = require('./crane/department/index');
 module.exports = {
   name: 'jinjiang',
 
@@ -39,5 +39,6 @@ module.exports = {
   // 页面
   pages: [
     visPage,
+    departmentPage
   ],
 }

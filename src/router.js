@@ -13,5 +13,10 @@ export default new Router({
       path: '/vis',
       component: pages.vis,
     },
+    {
+      name: 'department',
+      path: '/department',
+      component: pages.department,
+    },
   ],
 })
