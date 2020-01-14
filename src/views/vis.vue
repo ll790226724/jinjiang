@@ -5,7 +5,7 @@
       锦江区网络理政
     </div>
     <data-loader ref="departments-loader" v-slot="{ results: results }" url="/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01" method="get" :style="{width: '160px', position: 'absolute', top: '12px', left: '1117px'}">
-      <vis-select ref="departments-select" :options="results.map( (item, index) => { return {label: item[0], uuid: index } } )" v-model="craneStates.department" placeholder="所有承办部门" />
+      <vis-select ref="departments-select" :options="results.map( (item, index) => { return {label: item[0], uuid: index } } )" v-model="craneStates.department" valueKey="label"  placeholder="所有承办部门" />
     </data-loader>
     <div ref="datetime-picker-wrapper" :style="{position: 'absolute', top: '12px', left: '1310px'}">
       <date-picker ref="datetime-picker" type="daterange" valueFormat="yyyy-MM-dd" format="yyyy-MM-dd" size="small" :unlinkPanels="true" v-model="craneStates.filterRange" start-placeholder="开始日期" end-placeholder="结束日期" range-separator=" " />
@@ -170,10 +170,8 @@ export const vis = {
   watch: {
     'craneStates.department': {
       handler (value) {
-        if (!value) {
-          this.linkTo('/departments')
-        } else {
-          this.linkTo(`/department?name=${value}`)
+        if (value) {
+          this.linkTo(`/department?department=${value}`)
         }
       },
     },
