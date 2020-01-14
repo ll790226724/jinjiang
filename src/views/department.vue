@@ -99,16 +99,22 @@
         </tr>
       </table>
     </data-loader>
-    <data-loader v-slot="{ results: results }" :url="`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='${craneStates.filterRange[0]}'&end='${craneStates.filterRange[1]}'&department=${craneStates.department}`" method="get" :style="{width: '1300px', height: '390px', position: 'absolute', top: '104px', left: '330px'}">
-      <v-chart :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}}, legend: {data: Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name}), right: '80px'}, color: ['#15c689','#bb4430', '#ffba08', '#a2aebb', '#1b74ef','#74797f'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: craneStates.echartData.map((item) => {return item.label}), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '天', max: 10, min: 0, boundaryGap: [0.2, 0.2], axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], top: 405, bottom: 0, handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: Object.keys(craneStates.chartLegendsMap).map(item => {return {...craneStates.chartLegendsMap[item], data: craneStates.echartData.map(data => data[item])}})}" />
+    <data-loader v-slot="{ results: results }" :url="`/v1/components/06b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}`" method="get" :style="{width: '1300px', height: '390px', position: 'absolute', top: '104px', left: '330px'}">
+        <v-chart :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}}, legend: {data: Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name}), right: '80px'}, color: ['#15c689','#bb4430', '#ffba08', '#a2aebb', '#1b74ef','#74797f'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map((item) => {return {date: item[0], satisfied: item[1], unsatisfied: item[2], basicly: item[3], unknown: item[4], callbacked: item[5], day: item[6]} }).map((item) => {return item.date.slice(0, 10)}), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '天', max: 10, min: 0, boundaryGap: [0.2, 0.2], axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], top: 405, bottom: 0, handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: Object.keys(craneStates.chartLegendsMap).map(item => { return {...craneStates.chartLegendsMap[item], data: results.map((item) => {return {date: item[0], satisfied: item[1], unsatisfied: item[2], basicly: item[3], unknown: item[4], callbacked: item[5], day: item[6]} }).map(data => data[item]) } }) }" />
     </data-loader>
-    <data-loader v-slot="{ results: results }" :url="`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}`" method="get" :style="{width: '1300px', height: '245px', position: 'absolute', top: '566px', left: '330px'}">
+    <data-loader v-slot="{ results: results }" :url="`/v1/components/07b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}`" method="get" :style="{width: '1300px', height: '245px', position: 'absolute', top: '566px', left: '330px'}">
       <v-chart :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}}, color: ['#1b74ef'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], top: 232, bottom: 0, handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: [{type: 'line', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]}" />
     </data-loader>
   </div>
 </template>
 
 <script>
+import ECharts from 'vue-echarts'
+import 'echarts/lib/chart/bar'
+import 'echarts/lib/chart/line'
+import 'echarts/lib/component/tooltip'
+import 'echarts/map/js/world'
+
 import BuiltInMixin from '../mixins/built_in'
 import {
   DataLoader,
@@ -124,11 +130,12 @@ import {
   Donut,
   VerticalBar,
 } from '@byzanteam/graphite'
-import {
-  VChart,
-} from 'vue-echarts'
+// import {
+//   VChart,
+// } from 'vue-echarts'
 
 export const department = {
+
   mixins: [BuiltInMixin],
 
   components: {
@@ -140,7 +147,8 @@ export const department = {
     DatePicker,
     Donut,
     VerticalBar,
-    VChart,
+    // VChart,
+    'v-chart': ECharts,
   },
 
   data () {
@@ -154,7 +162,7 @@ export const department = {
         filterRange: ['1991-01-01', '2020-01-14'],
         defaultFilterRange: ['1991-01-01', '2020-01-14'],
         echartData: [{label: '公安分局', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2}, {label: '综合行政执法局', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2}, {label: '合江亭街道办事处', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2}, {label: '成龙路街道办事处', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2}, {label: '退役军人事务局', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2}, {label: '龙舟路街道办事处', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2}, {label: '人社局', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2}, {label: '住房建设和交通运输局', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2}, {label: '三圣街道办事处', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4}, {label: '社会事物科', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4}, {label: '公安分局1', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2}, {label: '综合行政执法局1', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2}, {label: '合江亭街道办事处1', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2}, {label: '成龙路街道办事处1', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2}, {label: '退役军人事务局1', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2}, {label: '龙舟路街道办事处1', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2}, {label: '人社局1', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2}, {label: '住房建设和交通运输局1', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2}, {label: '三圣街道办事处1', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4}, {label: '社会事物科1', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4}, {label: '公安分局2', aa: 30, bb: 43, cc: 138, dd: 80, ee: 0.34, ff: 1.2}, {label: '综合行政执法局2', aa: 60, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 2.2}, {label: '合江亭街道办事处2', aa: 70, bb: 83, cc: 108, dd: 60, ee: 8.34, ff: 1.2}, {label: '成龙路街道办事处2', aa: 75, bb: 83, cc: 108, dd: 60, ee: 7.03, ff: 0.2}, {label: '退役军人事务局2', aa: 56, bb: 83, cc: 108, dd: 60, ee: 6.01, ff: 0.2}, {label: '龙舟路街道办事处2', aa: 80, bb: 83, cc: 108, dd: 60, ee: 2.04, ff: 0.2}, {label: '人社局2', aa: 34, bb: 83, cc: 108, dd: 60, ee: 1.34, ff: 0.2}, {label: '住房建设和交通运输局2', aa: 70, bb: 83, cc: 108, dd: 60, ee: 5.34, ff: 6.2}, {label: '三圣街道办事处2', aa: 55, bb: 83, cc: 108, dd: 60, ee: 8.84, ff: 7.4}, {label: '社会事物科2', aa: 70, bb: 83, cc: 108, dd: 60, ee: 1.54, ff: 3.4}],
-        chartLegendsMap: {aa: {name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, bb: {name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, cc: {name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, dd: {name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, ee: {name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8}, ff: {name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8}},
+        chartLegendsMap: {satisfied: {name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, unsatisfied: {name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, unknown: {name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, basicly: {name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, callbacked: {name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8}, day: {name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8}},
       },
     }
   },

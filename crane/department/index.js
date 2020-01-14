@@ -103,12 +103,12 @@ module.exports = {
     {
       id: 'chartLegendsMap',
       value: {
-        aa: { name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
-        bb: { name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
-        cc: { name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
-        dd: { name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
-        ee: { name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8 },
-        ff: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
+        satisfied: { name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        unsatisfied: { name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        unknown: { name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        basicly: { name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
+        callbacked: { name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8 },
+        day: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
       }
     },
   ],
