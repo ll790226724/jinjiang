@@ -195,3 +195,6 @@ input::-webkit-input-placeholder{
   color:rgba(46, 46, 46, .7);
   font-weight:500;
 }
+.el-picker-panel .el-picker-panel__icon-btn{
+  color: #2E2E2E !important;
+}
