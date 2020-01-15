@@ -122,8 +122,6 @@ import {
   DigitalRoll,
   Ranking,
 } from '@byzanteam/vis-components'
-
-import { BrickTooltip } from '@byzanteam/brick'
 import {
   DatePicker,
 } from 'element-ui'
@@ -131,6 +129,9 @@ import {
   Donut,
   VerticalBar,
 } from '@byzanteam/graphite'
+import {
+  BrickTooltip,
+} from '@byzanteam/brick'
 
 export const vis = {
   mixins: [BuiltInMixin],
@@ -140,10 +141,10 @@ export const vis = {
     VisSelect,
     DigitalRoll,
     Ranking,
-    BrickTooltip,
     DatePicker,
     Donut,
     VerticalBar,
+    BrickTooltip,
     'v-chart': ECharts,
   },
 
