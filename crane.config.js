@@ -35,6 +35,13 @@ module.exports = {
         path: 'lib/theme-chalk/index.css',
       }
     },
+    '@byzanteam/brick': {
+      version: 'latest',
+      style: {
+        type: 'normal',
+        path: 'src/theme/default.scss'
+      }
+    }
   },
   // 页面
   pages: [

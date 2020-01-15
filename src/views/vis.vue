@@ -121,8 +121,9 @@ import {
   VisSelect,
   DigitalRoll,
   Ranking,
-  BrickTooltip,
 } from '@byzanteam/vis-components'
+
+import { BrickTooltip } from '@byzanteam/brick'
 import {
   DatePicker,
 } from 'element-ui'

@@ -18,7 +18,7 @@ module.exports = {
   },
   children: [
     {
-      component: '@byzanteam/vis-components/brick-tooltip',
+      component: '@byzanteam/brick/brick-tooltip',
       props: {
         'v-if': 'results',
         content: "窗口办理量下降2%",
