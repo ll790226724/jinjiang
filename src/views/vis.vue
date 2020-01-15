@@ -179,8 +179,8 @@ export const vis = {
           this.percentageOld(value)
         } else {
           this.setState('filterRange', this.craneStates.defaultFilterRange);
-          this.percentageNew(value);
-          this.percentageOld(value)
+          this.percentageNew(this.craneStates.defaultFilterRange);
+          this.percentageOld(this.craneStates.defaultFilterRange);
         }
       },
     },
