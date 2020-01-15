@@ -21,7 +21,7 @@ module.exports = {
       props: {
         'v-if': 'results',
         content: "窗口办理量下降2%",
-        placement: "bottom-right",
+        placement: "bottom-end",
         $style: {
           borderRadius: '4px',
           color: '#ffffff',
