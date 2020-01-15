@@ -21,7 +21,7 @@ module.exports = {
       component: '@byzanteam/brick/brick-tooltip',
       props: {
         'v-if': 'results',
-        $content: "results[0][2] === 0 ? '同比不变':'1'+results[0][2] > 0 ? '同比增长'+results[0][2]+'%':'2'+results[0][2]<0 ? '同比下降'+results[0][2]+'%' :'3'",
+        $content: "(results[0][2] === 0 ? '同比不变':'')+(results[0][2] > 0 ? '同比增长'+results[0][2]+'%':'') + (results[0][2]< 0 ? '同比下降'+results[0][2]+'%' :'')",
         placement: "bottom-end",
         $style: {
           borderRadius: '4px',
