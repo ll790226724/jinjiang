@@ -22,6 +22,7 @@ module.exports = {
       id: 'satisfaction-content',
       component: '@byzanteam/vis-components/digital-roll',
       props: {
+        'v-if': 'results',
         titlePosition: 'bottom',
         $content: {
           title: '满意度',

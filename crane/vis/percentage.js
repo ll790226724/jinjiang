@@ -20,6 +20,7 @@ module.exports = {
     {
       component: '@byzanteam/vis-components/brick-tooltip',
       props: {
+        'v-if': 'results',
         content: "窗口办理量下降2%",
         placement: "bottom-right",
         $style: {

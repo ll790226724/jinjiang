@@ -22,6 +22,7 @@ module.exports = {
       id: 'deal-number-total',
       component: '@byzanteam/vis-components/digital-roll',
       props: {
+        'v-if': 'results',
         titlePosition: 'left',
         $content: {
           title: '当月办件数量',

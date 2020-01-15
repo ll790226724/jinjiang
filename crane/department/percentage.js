@@ -8,7 +8,6 @@ module.exports = {
     results: 'results',
   },
   props: {
-    // $url: "`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start='2019-11-01','2019-11-15'&end='2019-11-01','2019-11-05'`",
     $url: "`/v1/components/02b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.chainParamsNew}&end=${craneStates.chainParamsOld}&department=${craneStates.department}`",
     method: 'get',
     $data: "[[0]]",
@@ -20,6 +19,7 @@ module.exports = {
     {
       component: '@byzanteam/vis-components/brick-tooltip',
       props: {
+        'v-if': 'results',
         content: "窗口办理量下降2%",
         placement: "bottom-right",
         $style: {
