@@ -38,7 +38,7 @@ module.exports = {
     '@byzanteam/brick': {
       version: 'latest',
       style: {
-        type: 'normal',
+        type: 'inject',
         path: 'src/theme/default.scss'
       }
     }
