@@ -127,7 +127,7 @@ module.exports = {
             format: 'yyyy-MM-dd',
             size: 'small',
             $unlinkPanels: 'true',
-            'v-model': 'craneStates.filterRange',
+            'v-model': 'craneStates.dateRange',
             'start-placeholder': '开始日期',
             'end-placeholder': '结束日期',
             'range-separator': ' ',

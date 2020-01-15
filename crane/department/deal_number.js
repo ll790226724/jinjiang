@@ -9,7 +9,6 @@ module.exports = {
   },
 
   props: {
-    'v-if': 'results',
     $url: "`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}`",
     method: 'get',
     $data: "[[0]]",
@@ -23,6 +22,7 @@ module.exports = {
       id: 'deal-number-total',
       component: '@byzanteam/vis-components/digital-roll',
       props: {
+        'v-if': 'results',
         titlePosition: 'left',
         $content: {
           title: '当月办件数量',

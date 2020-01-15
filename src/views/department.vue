@@ -8,7 +8,7 @@
       <vis-select ref="departments-select" v-if="results"   :options="results.map( (item, index) => { return {label: item[0], uuid: index } } )" v-model="craneStates.department" valueKey="label"  placeholder="所有承办部门" />
     </data-loader>
     <div ref="datetime-picker-wrapper" :style="{position: 'absolute', top: '12px', left: '1310px'}">
-      <date-picker ref="datetime-picker"  type="daterange" valueFormat="yyyy-MM-dd" format="yyyy-MM-dd" size="small" :unlinkPanels="true" v-model="craneStates.filterRange" start-placeholder="开始日期" end-placeholder="结束日期" range-separator=" " />
+      <date-picker ref="datetime-picker"  type="daterange" valueFormat="yyyy-MM-dd" format="yyyy-MM-dd" size="small" :unlinkPanels="true" v-model="craneStates.dateRange" start-placeholder="开始日期" end-placeholder="结束日期" range-separator=" " />
     </div>
     <div ref="digital-background-top" :style="{height: '120px', width: '330px', backgroundColor: '#1B74EF', borderRadius: '4px', position: 'absolute', top: '26px', left: '26px'}" />
     <div ref="digital-background-bottom" :style="{height: '100px', width: '330px', backgroundColor: '#E9F1FC', borderRadius: '4px', position: 'absolute', top: '147px', left: '26px'}" />
@@ -47,8 +47,8 @@
     <div ref="event-suffix" :style="{color: '#2E2E2E80', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '46px', left: '1681px'}">
       /件
     </div>
-    <data-loader ref="deal-number" v-slot="{ results: results }" v-if="results" :url="`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}`" method="get" :data="[[0]]" :style="{width: '194px', height: '44px', position: 'absolute', top: '61px', left: '63px'}">
-      <digital-roll ref="deal-number-total" titlePosition="left" :content="{title: '当月办件数量', digital: results[0][0], suffix: '件'}" :options="{separator: ''}" :titleStyle="{color: 'rgba(255, 255, 255)', fontSize: '14px', fontWeight: '500'}" :suffixStyle="{fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '36px', color: '#FFFFFF', fontWeight: '400', fontFamily: 'Oswald'}" />
+    <data-loader ref="deal-number" v-slot="{ results: results }" :url="`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}`" method="get" :data="[[0]]" :style="{width: '194px', height: '44px', position: 'absolute', top: '61px', left: '63px'}">
+      <digital-roll v-if="results"  ref="deal-number-total" titlePosition="left" :content="{title: '当月办件数量', digital: results[0][0], suffix: '件'}" :options="{separator: ''}" :titleStyle="{color: 'rgba(255, 255, 255)', fontSize: '14px', fontWeight: '500'}" :suffixStyle="{fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '36px', color: '#FFFFFF', fontWeight: '400', fontFamily: 'Oswald'}" />
     </data-loader>
     <data-loader ref="satisfaction" v-slot="{ results: results }" :url="`/v1/components/03b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}`" method="get" :data="[[0]]" :style="{width: '100px', height: '56px', position: 'absolute', top: '169px', left: '85px'}">
       <digital-roll ref="satisfaction-content" v-if="results" titlePosition="bottom" :content="{title: '满意度', digital: results[0][0], suffix: '%'}" :titleStyle="{color: '#2E2E2E', fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '26px', color: '#2E2E2E', fontFamily: 'Oswald', fontWeight: '400', format: '11.11', letterSpacing: '0.6'}" :suffixStyle="{fontSize: '14px', color: '#8F919F', fontWeight: '400'}" :options="{separator: ',', decimalPlaces: '2'}" />
@@ -171,7 +171,7 @@ export const department = {
       }
     },
 
-    'craneStates.filterRange': {
+    'craneStates.dateRange': {
       immediate: true,
       handler (value) {
         if (value) {
