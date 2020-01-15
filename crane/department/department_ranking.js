@@ -24,7 +24,7 @@ module.exports = {
       component: '@byzanteam/vis-components/ranking',
       props: {
         'v-if': 'results',
-        $data: "results.map(item => { return {label: item[1], amount: item[0] } } )",
+        $data: "results.map(item => { return {label: item[1].slice(0, 10), amount: item[0] } } )",
         $keys: {
           label: 'label',
           value: 'amount',
