@@ -215,7 +215,7 @@ module.exports = {
     {
       id: 'repeat-demand-circle',
       component: 'div',
-      position: [432, 89],
+      position: [432, 96],
       props: {
         $style: {
           boxSizing: 'content-box',
