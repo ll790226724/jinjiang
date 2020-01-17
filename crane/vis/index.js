@@ -147,7 +147,7 @@ module.exports = {
       },
       events: {
         'requestDone': {
-          actions: ["setState('communities', getComponent('date-limit').results[0])"]
+          actions: ["setState('dateRangeLimit', getComponent('date-limit').results[0])"]
         }
       },
     },
