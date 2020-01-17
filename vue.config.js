@@ -1,5 +1,6 @@
 module.exports = {
-  publicPath: '/',
+  publicPath: '/jinjiangwllz',
+  outputDir: 'jinjiang',
   pluginOptions: {
     i18n: {
       locale: 'yes',
