@@ -195,10 +195,8 @@ export const vis = {
       let endDate = new Date(this.craneStates.dateRangeLimit[0]).getTime();
       let startDate = new Date(this.craneStates.dateRangeLimit[1]).getTime();
       const currentTime = value.getTime()
-      if (endDate > currentTime && currentTime > startDate) {
-        return false
-      }
-      return true
+      return !(new Date(this.craneStates.dateRangeLimit[0]).getTime() > value.getTime() && value.getTime() > new Date(this.craneStates.dateRangeLimit[1]).getTime());
+
     },
 
     // 日期选择器选择的时间段-new

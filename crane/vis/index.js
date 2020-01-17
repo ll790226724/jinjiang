@@ -127,6 +127,9 @@ module.exports = {
             format: 'yyyy-MM-dd',
             size: 'small',
             $unlinkPanels: 'true',
+            $pickerOptions: {
+              $disableDate: 'return !(new Date(this.craneStates.dateRangeLimit[0]).getTime() > value.getTime() && value.getTime() > new Date(this.craneStates.dateRangeLimit[1]).getTime())'
+            },
             'v-model': 'craneStates.dateRange',
             'start-placeholder': '开始日期',
             'end-placeholder': '结束日期',
@@ -147,7 +150,7 @@ module.exports = {
       },
       events: {
         'requestDone': {
-          actions: ["setState('dateRangeLimit', getComponent('date-limit').results[0])"]
+          actions: ["setState('dateRangeLimit', getComponent('date-limit').results[0])","setState('defaultFilterRange', getComponent('date-limit').results[0])"]
         }
       },
     },
