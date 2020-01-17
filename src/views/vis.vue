@@ -68,7 +68,7 @@
           <div ref="percentage-number" :style="{fontFamily: 'Oswald-Light', display: 'flex', justifyContent: 'center', flexGrow: '1'}">
             {{results[0][2]}}%
           </div>
-          <img ref="up-icon" v-if="results[0][2] > 0" src="/jinjiang/images/icon-up.svg" />
+          <img ref="up-icon" v-if="results[0][2] > 0" src="/jinjiangwllz/images/icon-up.svg" />
           <img ref="down-icon" v-if="results[0][2] < 0" src="/jinjiangwllz/images/icon-down.svg" />
         </div>
       </brick-tooltip>
