@@ -54,7 +54,7 @@ module.exports = {
         unsatisfied: { name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
         unknown: { name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
         basicly: { name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
-        callbacked: { name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8 },
+        callbacked: { name: '回访情况', type: 'line', yAxisIndex: 0, symbolSize: 8 },
         day: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
       }
     },
@@ -134,6 +134,22 @@ module.exports = {
           },
         },
       ],
+    },
+    {
+      id: 'date-limit',
+      component: '@byzanteam/vis-components/data-loader',
+      exports: {
+        results: 'results',
+      },
+      props: {
+        url: '/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data',
+        method: 'get',
+      },
+      events: {
+        'requestDone': {
+          actions: ["setState('communities', getComponent('date-limit').results[0])"]
+        }
+      },
     },
     {
       id: 'digital-background-top',
