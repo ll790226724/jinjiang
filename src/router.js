@@ -9,6 +9,11 @@ export default new Router({
   base: '/jinjiangwllz',
   routes: [
     {
+      name: '',
+      path: '/',
+      component: pages.vis,
+    },
+    {
       name: 'vis',
       path: '/vis',
       component: pages.vis,
