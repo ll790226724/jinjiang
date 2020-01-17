@@ -1,6 +1,6 @@
 <template>
   <div class="department">
-    <img ref="background" src="/jinjiang/images/bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
+    <img ref="background" src="/jinjiangwllz/images/bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
     <div ref="page-title" :style="{color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px', lineHeight: 1, display: 'inline-block', position: 'absolute', top: '12px', left: '822px'}">
       锦江区网络理政
     </div>
@@ -68,8 +68,8 @@
           <div ref="percentage-number" :style="{fontFamily: 'Oswald-Light', display: 'flex', justifyContent: 'center', flexGrow: '1'}">
             {{results[0][2]}}%
           </div>
-          <img ref="up-icon" v-if="results[0][2] > 0" src="/jinjiang/images/icon-up.svg" />
-          <img ref="down-icon" v-if="results[0][2] < 0" src="/jinjiang/images/icon-down.svg" />
+          <img ref="up-icon" v-if="results[0][2] > 0" src="/jinjiangwllz/images/icon-up.svg" />
+          <img ref="down-icon" v-if="results[0][2] < 0" src="/jinjiangwllz/images/icon-down.svg" />
         </div>
       </brick-tooltip>
     </data-loader>

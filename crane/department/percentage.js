@@ -60,7 +60,7 @@ module.exports = {
               component: 'img',
               props: {
                 'v-if': 'results[0][2] > 0',
-                src: '/jinjiang/images/icon-up.svg',
+                src: '/jinjiangwllz/images/icon-up.svg',
               },
             },
             {
@@ -68,7 +68,7 @@ module.exports = {
               component: 'img',
               props: {
                 'v-if': 'results[0][2] < 0',
-                src: '/jinjiang/images/icon-down.svg',
+                src: '/jinjiangwllz/images/icon-down.svg',
               },
             },
           ],

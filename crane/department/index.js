@@ -66,7 +66,7 @@ module.exports = {
       component: 'img',
       position: [0, 0],
       props: {
-        src: '/jinjiang/images/bg.png'
+        src: '/jinjiangwllz/images/bg.png'
       },
     },
     {

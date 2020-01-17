@@ -1,7 +1,7 @@
 const visPage = require('./crane/vis/index')
 const departmentPage = require('./crane/department/index');
 module.exports = {
-  name: 'jinjiang',
+  name: 'jinjiangwllz',
 
   // i18n 配置
   lang: {},
