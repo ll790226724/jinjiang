@@ -40,10 +40,6 @@ module.exports = {
       value: ''
     },
     {
-      id: 'filterRange',
-      value: ['1991-01-01', new Date().toISOString().slice(0, 10)]
-    },
-    {
       id: 'defaultFilterRange',
       value:  ['1991-01-01', new Date().toISOString().slice(0, 10)],
     },
@@ -141,16 +137,13 @@ module.exports = {
     {
       id: 'date-limit',
       component: '@byzanteam/vis-components/data-loader',
-      exports: {
-        results: 'results',
-      },
       props: {
         url: '/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data',
         method: 'get',
       },
       events: {
         'requestDone': {
-          actions: ["setState('dateRangeLimit', getComponent('date-limit').results[0])","setState('defaultFilterRange', getComponent('date-limit').results[0])"]
+          actions: ["setState('dateRangeLimit', getComponent('date-limit').results[0])","setState('filterRange', getComponent('date-limit').results[0])"]
         }
       },
     },
