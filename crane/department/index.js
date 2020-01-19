@@ -40,12 +40,8 @@ module.exports = {
       value: ''
     },
     {
-      id: 'filterRange',
-      value: ['1991-01-01', new Date().toISOString().slice(0, 10)]
-    },
-    {
       id: 'defaultFilterRange',
-      value:  ['1991-01-01', new Date().toISOString().slice(0, 10)],
+      value:  ['',''],
     },
     {
       id: 'chartLegendsMap',
@@ -127,6 +123,9 @@ module.exports = {
             format: 'yyyy-MM-dd',
             size: 'small',
             $unlinkPanels: 'true',
+            $pickerOptions: {
+              $disabledDate: 'disableDateFunc'
+            },
             'v-model': 'craneStates.dateRange',
             'start-placeholder': '开始日期',
             'end-placeholder': '结束日期',
@@ -134,6 +133,19 @@ module.exports = {
           },
         },
       ],
+    },
+    {
+      id: 'date-limit',
+      component: '@byzanteam/vis-components/data-loader',
+      props: {
+        url: '/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data',
+        method: 'get',
+      },
+      events: {
+        'requestDone': {
+          actions: ["setState('dateRangeLimit', getComponent('date-limit').results[0])"]
+        }
+      },
     },
     {
       id: 'digital-background-top',

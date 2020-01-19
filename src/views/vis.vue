@@ -182,7 +182,6 @@ export const vis = {
           let source = [format,value[0].slice(0,10),];
           this.setState('filterRange', source);
           this.setState('defaultFilterRange', source);
-          console.log(this.craneStates.defaultFilterRange);
           this.percentageNew(source);
           this.percentageOld(source)
         }
@@ -214,9 +213,6 @@ export const vis = {
   methods: {
     disableDateFunc(value) {
       // // 数据源时间范围
-      let endDate = new Date(this.craneStates.dateRangeLimit[0]).getTime();
-      let startDate = new Date(this.craneStates.dateRangeLimit[1]).getTime();
-      const currentTime = value.getTime()
       return !(new Date(this.craneStates.dateRangeLimit[0]).getTime() > value.getTime() && value.getTime() > new Date(this.craneStates.dateRangeLimit[1]).getTime());
 
     },

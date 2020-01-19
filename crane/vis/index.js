@@ -124,7 +124,7 @@ module.exports = {
             size: 'small',
             $unlinkPanels: 'true',
             $pickerOptions: {
-              $disableDate: 'disableDateFunc'
+              $disabledDate: 'disableDateFunc'
             },
             'v-model': 'craneStates.dateRange',
             'start-placeholder': '开始日期',
