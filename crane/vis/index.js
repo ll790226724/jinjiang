@@ -41,7 +41,7 @@ module.exports = {
     },
     {
       id: 'defaultFilterRange',
-      value:  ['1991-01-01', new Date().toISOString().slice(0, 10)],
+      value:  ['', ''],
     },
     {
       id: 'chartLegendsMap',
@@ -124,7 +124,7 @@ module.exports = {
             size: 'small',
             $unlinkPanels: 'true',
             $pickerOptions: {
-              $disableDate: 'return !(new Date(this.craneStates.dateRangeLimit[0]).getTime() > value.getTime() && value.getTime() > new Date(this.craneStates.dateRangeLimit[1]).getTime())'
+              $disableDate: 'disableDateFunc'
             },
             'v-model': 'craneStates.dateRange',
             'start-placeholder': '开始日期',
@@ -143,7 +143,7 @@ module.exports = {
       },
       events: {
         'requestDone': {
-          actions: ["setState('dateRangeLimit', getComponent('date-limit').results[0])","setState('filterRange', getComponent('date-limit').results[0])"]
+          actions: ["setState('dateRangeLimit', getComponent('date-limit').results[0])"]
         }
       },
     },
