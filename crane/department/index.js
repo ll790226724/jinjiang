@@ -90,7 +90,7 @@ module.exports = {
         results: 'results',
       },
       props: {
-        url: '/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01',
+        $url: "`/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`",
         method: 'get',
         $style: {
           width: '160px',
