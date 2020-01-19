@@ -4,8 +4,8 @@
     <div ref="page-title" :style="{color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px', lineHeight: 1, display: 'inline-block', position: 'absolute', top: '12px', left: '822px'}">
       锦江区网络理政
     </div>
-    <data-loader ref="departments-loader" v-slot="{ results: results }" url="/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01" method="get" :style="{width: '160px', position: 'absolute', top: '12px', left: '1117px'}">
-      <vis-select ref="departments-select" v-if="results" :options="results.map( (item, index) => { return {label: item[0], uuid: index } } )" v-model="craneStates.department" valueKey="label"  placeholder="所有承办部门" />
+    <data-loader ref="departments-loader" v-slot="{ results: results }" :url="`/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '160px', position: 'absolute', top: '12px', left: '1117px'}">
+      <vis-select ref="departments-select" v-if="results" :options="results.map( (item, index) => { return {label: item[0], uuid: index } } )" valueKey="label" v-model="craneStates.department" placeholder="所有承办部门" />
     </data-loader>
     <div ref="datetime-picker-wrapper" :style="{position: 'absolute', top: '12px', left: '1310px'}">
       <date-picker ref="datetime-picker" type="daterange" valueFormat="yyyy-MM-dd" format="yyyy-MM-dd" size="small" :unlinkPanels="true" :pickerOptions="{disabledDate: disableDateFunc}" v-model="craneStates.dateRange" start-placeholder="开始日期" end-placeholder="结束日期" range-separator=" " />
