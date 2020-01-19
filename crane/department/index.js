@@ -83,6 +83,20 @@ module.exports = {
       }
     },
     {
+      id: 'source-end-date-content',
+      component: 'div',
+      position: [432, 30],
+      props: {
+        $style: {
+          color: '#2E2E2E',
+          fontSize: '14px',
+          fontWeight: 400,
+          textAlign: 'left'
+        },
+      },
+      content: "{{'*该数据截止时间 ' + craneStates.endRange }}"
+    },
+    {
       id: 'departments-loader',
       component: '@byzanteam/vis-components/data-loader',
       position: [1117, 12],

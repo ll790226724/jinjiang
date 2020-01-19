@@ -4,6 +4,9 @@
     <div ref="page-title" :style="{color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px', lineHeight: 1, display: 'inline-block', position: 'absolute', top: '12px', left: '822px'}">
       锦江区网络理政
     </div>
+    <div ref="source-end-date-content" :style="{color: '#2E2E2E', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '30px', left: '432px'}">
+      {{'*该数据截止时间 ' + craneStates.endRange }}
+    </div>
     <data-loader ref="departments-loader" v-slot="{ results: results }" :url="`/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '160px', position: 'absolute', top: '12px', left: '1117px'}">
       <vis-select ref="departments-select" v-if="results" :options="results.map( (item, index) => { return {label: item[0], uuid: index } } )" v-model="craneStates.department" valueKey="label" placeholder="所有承办部门" />
     </data-loader>
@@ -181,7 +184,14 @@ export const department = {
           this.setState('filterRange', source);
           this.setState('defaultFilterRange', source);
           this.percentageNew(source);
-          this.percentageOld(source)
+          this.percentageOld(source);
+          // 截止时间字符用的时间
+          let eDate = new Date(value[0]);
+          let y = eDate.getFullYear();
+          let m = eDate.getMonth() + 1 ;
+          let d = eDate.getDate();
+          let fMat = y + '年' + m + '月' + d + '日';
+          this.setState('endRange', fMat);
         }
       },
     },
