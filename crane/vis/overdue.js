@@ -9,12 +9,10 @@ module.exports = {
   },
 
   props: {
-    // $url: "`/v1/components/edf35dfd-6576-497f-a240-f507f15802f0/data?name=${craneStates.currentArea}`",
-    $url: "`/v1/components/8bb74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2019-11-01&end=2019-11-22`",
+    $url: "`/v1/components/8bb74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`",
     method: 'get',
     $data: "[[0]]",
     $style: {
-      zIndex: '2',
       width: '120px',
       height: '58px',
     },
@@ -24,7 +22,6 @@ module.exports = {
       id: 'overdue-content',
       component: '@byzanteam/vis-components/digital-roll',
       props: {
-        // 'v-if': 'results',
         titlePosition: 'bottom',
         $content: {
           title: '逾期率',

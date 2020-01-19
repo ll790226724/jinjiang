@@ -8,7 +8,7 @@ module.exports = {
     results: 'results',
   },
   props: {
-    $url: "`/v1/components/c9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`",
+    $url: "`/v1/components/11b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}`",
     method: 'get',
     $data: "[{label: '承办单位', amount: 12}]",
     $style: {
@@ -24,7 +24,7 @@ module.exports = {
       component: '@byzanteam/vis-components/ranking',
       props: {
         'v-if': 'results',
-        $data: "results.map(item => { return {label: item[1], amount: item[0] } } )",
+        $data: "results.map(item => { return {label: item[1].slice(0, 10), amount: item[0] } } )",
         $keys: {
           label: 'label',
           value: 'amount',

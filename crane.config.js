@@ -1,30 +1,10 @@
 const visPage = require('./crane/vis/index')
-
+const departmentPage = require('./crane/department/index');
 module.exports = {
-  name: 'jinjiang',
+  name: 'jinjiangwllz',
 
   // i18n 配置
-  lang: {
-    default: 'zh_CN',
-    locales: {
-      zh_CN: {
-        status: {
-          finished: '已处理',
-          processing: '处理中',
-          cancelled: '已取消',
-          aborted: '终止的',
-          receding: '回退',
-        },
-      },
-      en_US: {
-        status: {
-          finished: 'finished',
-          cancelled: 'cancel',
-          receding: 'receding',
-        },
-      },
-    },
-  },
+  lang: {},
   // 屏幕默认尺寸, 所有页面都继承该值，页面可单独设置
   size: [1920, 1080],
   requestSettings: {
@@ -32,11 +12,14 @@ module.exports = {
   },
   modules: {
     '@byzanteam/vis-components': {
-      version: '../vis-components',
+      version: '../../vis-components',
       style: {
         type: 'normal',
         path: 'dist/index.css',
       },
+    },
+    '@byzanteam/graphite': {
+      version: 'latest',
     },
     '@byzanteam/carbonium': {
       version: 'latest',
@@ -52,12 +35,17 @@ module.exports = {
         path: 'lib/theme-chalk/index.css',
       }
     },
-    '@byzanteam/graphite': {
+    '@byzanteam/brick': {
       version: 'latest',
-    },
+      style: {
+        type: 'injection',
+        path: 'src/theme/default.scss'
+      }
+    }
   },
   // 页面
   pages: [
     visPage,
+    departmentPage
   ],
 }
