@@ -1,7 +1,9 @@
+const { chartTooltipOptions } = require('../share');
+
 module.exports = {
   id: 'event-ranking',
   component: '@byzanteam/vis-components/data-loader',
-  position: [1580, 76],
+  position: [1565, 690],
   exports: {
     results: 'results',
   },
@@ -20,32 +22,31 @@ module.exports = {
   children: [
     {
       id: 'event-ranking-content',
-      component: '@byzanteam/vis-components/ranking',
+      component: '@byzanteam/graphite/donut',
       props: {
         'v-if': 'results',
         $data: "results.map(item => { return {label: item[1], amount: item[0] } } )",
-        $keys: {
-          label: 'label',
-          value: 'amount',
-          tooltip: 'name'
+        labelKey: 'label',
+        valueKey: 'amount',
+        $percentage: true,
+        $hideLabel: true,
+        $theme: {
+          background: 'transparent',
+          $colors: "['#1B74EF', '#15C689', '#FFBA08', '#BB4430']",
+          whitespace: 'nowrap'
         },
-        $labelStyle: {
-          color: '#666666',
-          fontSize: '16px',
-          lineHeight: '24px',
-          fontWeight: '400'
+        $legendOptions: {
+          size: '200px',
+          $align: "['center', 'start']",
+          layout: 'vertical',
+          $label: {
+            fill: '#2E2E2E',
+            $size: 14,
+          },
+          position: 'bottom',
+          // $offset: "[-115, 0]",
         },
-        $valueStyle: {
-          color: '#2E2E2E',
-          fontSize: '16px',
-          lineHeight: '1.5',
-          fontWeight: '400',
-        },
-        $lineStyle: {
-          background: 'rgba(46, 46, 46, 0.05)',
-          $lineColor: "['#1B74EF', '#1B74EF80']",
-        },
-
+        ...chartTooltipOptions
       },
     },
   ],
