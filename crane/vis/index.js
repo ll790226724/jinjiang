@@ -101,7 +101,7 @@ module.exports = {
     {
       id: 'departments-loader',
       component: '@byzanteam/vis-components/data-loader',
-      position: [1117, 12],
+      position: [1195, 14],
       exports: {
         results: 'results',
       },
@@ -128,7 +128,7 @@ module.exports = {
     {
       id: 'datetime-picker-wrapper',
       component: 'div',
-      position: [1310, 12],
+      position: [1387, 14],
       children: [
         {
           id: 'datetime-picker',

@@ -7,10 +7,10 @@
     <div ref="source-end-date-content" :style="{color: '#2E2E2E', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '32px', left: '429px'}">
       {{'*该数据截止时间 ' + craneStates.endRange }}
     </div>
-    <data-loader ref="departments-loader" v-slot="{ results: results }" :url="`/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '160px', position: 'absolute', top: '12px', left: '1117px'}">
+    <data-loader ref="departments-loader" v-slot="{ results: results }" :url="`/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '160px', position: 'absolute', top: '14px', left: '1195px'}">
       <vis-select ref="departments-select" v-if="results" :options="results.map( (item, index) => { return {label: item[0], uuid: index } } )" v-model="craneStates.department" valueKey="label" placeholder="所有承办部门" />
     </data-loader>
-    <div ref="datetime-picker-wrapper" :style="{position: 'absolute', top: '12px', left: '1310px'}">
+    <div ref="datetime-picker-wrapper" :style="{position: 'absolute', top: '14px', left: '1387px'}">
       <date-picker ref="datetime-picker" type="daterange" valueFormat="yyyy-MM-dd" format="yyyy-MM-dd" size="small" :unlinkPanels="true" :pickerOptions="{disabledDate: disableDateFunc}" v-model="craneStates.dateRange" start-placeholder="开始日期" end-placeholder="结束日期" range-separator=" " />
     </div>
     <data-loader ref="date-limit" @requestDone="()=>[setState('dateRangeLimit', getComponent('date-limit').results[0])]" url="/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" />
