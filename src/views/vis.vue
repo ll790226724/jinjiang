@@ -128,6 +128,7 @@ import {
   VisSelect,
   DigitalRoll,
   Ranking,
+  BrickTabs,
 } from '@byzanteam/vis-components'
 import {
   DatePicker,
@@ -138,7 +139,6 @@ import {
 } from '@byzanteam/graphite'
 import {
   BrickTooltip,
-  BrickTabs,
 } from '@byzanteam/brick'
 
 export const vis = {
@@ -149,11 +149,11 @@ export const vis = {
     VisSelect,
     DigitalRoll,
     Ranking,
+    BrickTabs,
     DatePicker,
     Donut,
     VerticalBar,
     BrickTooltip,
-    BrickTabs,
     'v-chart': ECharts,
   },
 
