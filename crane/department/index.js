@@ -227,7 +227,7 @@ module.exports = {
     {
       id: 'department-circle',
       component: 'div',
-      position: [42, 548],
+      position: [1580, 109],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -259,7 +259,7 @@ module.exports = {
     {
       id: 'department-title',
       component: 'div',
-      position: [58, 541],
+      position: [1596, 102],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -290,7 +290,7 @@ module.exports = {
     {
       id: 'demand-bar-circle',
       component: 'div',
-      position: [1580, 548],
+      position: [42, 668],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -307,7 +307,7 @@ module.exports = {
     {
       id: 'demand-bar-title',
       component: 'div',
-      position: [1596, 542],
+      position: [58, 661],
       props: {
         $style: {
           color: '#2E2E2E',
