@@ -109,6 +109,9 @@
     <data-loader v-slot="{ results: results }" :url="`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '1300px', height: '245px', position: 'absolute', top: '566px', left: '330px'}">
       <v-chart v-if="results" :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}}, color: ['#1b74ef'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], grid: {bottom: 80}, dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: [{type: 'line', name: '接件（件）', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]}" />
     </data-loader>
+    <data-loader ref="department-tab" v-slot="{ results: results }" :style="{width: '330px', height: '310px', position: 'absolute', top: '147px', left: '1632px'}">
+      <brick-tabs v-model="craneStates.tabCurrent" />
+    </data-loader>
   </div>
 </template>
 
@@ -135,6 +138,7 @@ import {
 } from '@byzanteam/graphite'
 import {
   BrickTooltip,
+  BrickTabs,
 } from '@byzanteam/brick'
 
 export const vis = {
@@ -149,6 +153,7 @@ export const vis = {
     Donut,
     VerticalBar,
     BrickTooltip,
+    BrickTabs,
     'v-chart': ECharts,
   },
 
@@ -161,6 +166,8 @@ export const vis = {
         department: '',
         defaultFilterRange: ['', ''],
         chartLegendsMap: {satisfied: {name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, unsatisfied: {name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, unknown: {name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, basicly: {name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, callbacked: {name: '回访情况', type: 'line', yAxisIndex: 0, symbolSize: 8}, day: {name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8}},
+        tabNavs: [{uuid: 1, label: '排名情况'}, {uuid: 2, label: '全部部门'}],
+        tabCurrent: {uuid: 1, label: '排名情况'},
       },
     }
   },
