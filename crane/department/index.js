@@ -166,7 +166,7 @@ module.exports = {
     {
       id: 'digital-background-top',
       component: 'div',
-      position: [26, 26],
+      position: [26, 86],
       props: {
         $style: {
           height:'120px',
@@ -180,7 +180,7 @@ module.exports = {
     {
       id: 'digital-background-bottom',
       component: 'div',
-      position: [26, 147],
+      position: [26, 207],
       props: {
         $style: {
           height:'100px',
