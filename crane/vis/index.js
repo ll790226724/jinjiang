@@ -87,7 +87,7 @@ module.exports = {
     {
       id: 'source-end-date-content',
       component: 'div',
-      position: [432, 30],
+      position: [429, 32],
       props: {
         $style: {
           color: '#2E2E2E',
