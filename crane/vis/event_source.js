@@ -1,7 +1,7 @@
 const { chartTooltipOptions } = require('../share');
 
 module.exports = {
-  id: 'event-ranking',
+  id: 'event-source',
   component: '@byzanteam/vis-components/data-loader',
   position: [1565, 690],
   exports: {
@@ -12,11 +12,8 @@ module.exports = {
     method: 'get',
     $data: "[{label: '事件来源', amount: 12}]",
     $style: {
-      boxSizing: 'border-box',
-      width: '300px',
-      maxHeight: '433px',
-      padding: '8px',
-      overflow: 'scroll'
+      width: '330px',
+      height: '310px',
     },
   },
   children: [
@@ -25,7 +22,7 @@ module.exports = {
       component: '@byzanteam/graphite/donut',
       props: {
         'v-if': 'results',
-        $data: "results.map(item => { return {label: item[1], amount: item[0] } } )",
+        $data: "results.map(item => { return {label: item[1], amount: item[0] } } ).slice(0, 4)",
         labelKey: 'label',
         valueKey: 'amount',
         $percentage: true,
