@@ -3,7 +3,7 @@ const {percentage_number_style }= require('../share');
 module.exports = {
   id: 'percentage-number',
   component: '@byzanteam/vis-components/data-loader',
-  position: [259, 80],
+  position: [259, 139],
   exports: {
     results: 'results',
   },
