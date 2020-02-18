@@ -1,10 +1,10 @@
 <template>
   <div class="department">
     <img ref="background" src="/jinjiangwllz/images/bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
-    <div ref="page-title" :style="{color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px', lineHeight: 1, display: 'inline-block', position: 'absolute', top: '12px', left: '822px'}">
-      锦江区网络理政
+    <div ref="page-title" :style="{width: '430px', height: '36px', color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px', lineHeight: 1, display: 'inline-block', position: 'absolute', top: '13px', left: '745px'}">
+      锦江区网络理政大数据分析
     </div>
-    <div ref="source-end-date-content" :style="{color: '#2E2E2E', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '30px', left: '432px'}">
+    <div ref="source-end-date-content" :style="{color: '#2E2E2E', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '32px', left: '429px'}">
       {{'*该数据截止时间 ' + craneStates.endRange }}
     </div>
     <data-loader ref="departments-loader" v-slot="{ results: results }" :url="`/v1/components/d9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '160px', position: 'absolute', top: '12px', left: '1117px'}">

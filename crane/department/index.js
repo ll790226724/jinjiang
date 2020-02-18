@@ -68,10 +68,12 @@ module.exports = {
     {
       id: 'page-title',
       component: 'div',
-      content: '锦江区网络理政',
-      position: [822, 12],
+      content: '锦江区网络理政大数据分析',
+      position: [745, 13],
       props: {
         $style: {
+          width: '430px',
+          height: '36px',
           color: '#2e2e2e',
           fontSize: '34px',
           $fontWeight: 500,
@@ -85,7 +87,7 @@ module.exports = {
     {
       id: 'source-end-date-content',
       component: 'div',
-      position: [432, 30],
+      position: [429, 32],
       props: {
         $style: {
           color: '#2E2E2E',
