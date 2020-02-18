@@ -3,7 +3,7 @@ const {total_count_digital_style} = require('../share');
 module.exports = {
   id: 'overdue',
   component: '@byzanteam/vis-components/data-loader',
-  position: [230, 169],
+  position: [230, 229],
   exports: {
     results: 'results',
   },
