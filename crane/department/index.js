@@ -194,7 +194,7 @@ module.exports = {
     {
       id: 'demand-type-circle',
       component: 'div',
-      position: [42, 284],
+      position: [42, 364],
       props: {
         $style: {
           height:'6px',
@@ -211,7 +211,7 @@ module.exports = {
     {
       id: 'demand-type-title',
       component: 'div',
-      position: [58, 277],
+      position: [58, 357],
       props: {
         $style: {
           color: '#2E2E2E',

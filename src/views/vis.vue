@@ -16,8 +16,8 @@
     <data-loader ref="date-limit" @requestDone="()=>[setState('dateRangeLimit', getComponent('date-limit').results[0])]" url="/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" />
     <div ref="digital-background-top" :style="{height: '120px', width: '330px', backgroundColor: '#1B74EF', borderRadius: '4px', position: 'absolute', top: '86px', left: '26px'}" />
     <div ref="digital-background-bottom" :style="{height: '100px', width: '330px', backgroundColor: '#E9F1FC', borderRadius: '4px', position: 'absolute', top: '207px', left: '26px'}" />
-    <div ref="demand-type-circle" :style="{height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '284px', left: '42px'}" />
-    <div ref="demand-type-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '277px', left: '58px'}">
+    <div ref="demand-type-circle" :style="{height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '364px', left: '42px'}" />
+    <div ref="demand-type-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '357px', left: '58px'}">
       诉求性质
     </div>
     <div ref="department-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '548px', left: '42px'}" />
