@@ -289,11 +289,28 @@ export const vis = {
     tooltipFormatterFunc (params) {
       const str = `<div style='font-size: 9px; line-height: 1.4;'>${params[0].name}</div>`
       const arr = params.map((item) => {
-        var value = `${item.seriesName}: ${item.value}`
+        var value = `${item.seriesName}: ${item.value}`;
         if (item.seriesName === '同昨日下降') {
           value = `${item.seriesName}${item.value}%`
         }
-        return `<div style='display: flex; justify-content: flex-start; align-items: center;'><div style='background-color: ${item.color}; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px;'></div><div style='font-size: 9px; line-height: 1.4'>${value}</div></div>`
+        return `<div
+                  style='display: flex;
+                  justify-content: flex-start;
+                  align-items: center;'
+                  >
+                    <div
+                  style='background-color: ${item.color};
+                  width: 9px; height: 9px; border-radius: 50%;
+                  margin-right: 6px;'
+                    >
+                    </div>
+                    <div
+                  style='font-size: 9px;
+                  line-height: 1.4'
+                    >
+                    ${value}
+                    </div>
+                </div>`
       });
       return str + arr.join('')
     }
