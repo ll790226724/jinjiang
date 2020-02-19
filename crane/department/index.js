@@ -269,7 +269,7 @@ module.exports = {
     {
       id: 'repeat-demand-circle',
       component: 'div',
-      position: [432, 96],
+      position: [432, 107],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -366,7 +366,7 @@ module.exports = {
     {
       id: 'repeat-demand-title',
       component: 'div',
-      position: [448, 89],
+      position: [448, 102],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -381,7 +381,7 @@ module.exports = {
     {
       id: 'repeat-demand-circle',
       component: 'div',
-      position: [432, 547],
+      position: [432, 666],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -397,7 +397,7 @@ module.exports = {
     {
       id: 'repeat-demand-title',
       component: 'div',
-      position: [448, 541],
+      position: [448, 661],
       props: {
         $style: {
           color: '#2E2E2E',
