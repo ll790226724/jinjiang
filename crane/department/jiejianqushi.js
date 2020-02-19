@@ -5,7 +5,7 @@ module.exports = {
     results: 'results',
   },
   props: {
-    $url: '`/v1/components/07b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}`',
+    $url: '`/v1/components/07b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}&format=${craneStates.chartFormat}`',
     method: 'get',
     $style: {
       width: '1300px',
