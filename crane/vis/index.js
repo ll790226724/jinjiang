@@ -297,7 +297,7 @@ module.exports = {
     {
       id: 'department-suffix',
       component: 'div',
-      position: [166, 546],
+      position: [1704, 107],
       props: {
         $style: {
           color: '#2E2E2E80',
