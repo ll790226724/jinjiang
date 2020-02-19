@@ -12,6 +12,7 @@ const jiejianqushi = require('./jiejianqushi');
 const departmentTab = require('./departmentTab');
 const chartTab = require('./chart_tab');
 const rankingRank = require('./ranking_rank');
+const rankingRankEd = require('./ranking_rank_ed');
 
 module.exports = {
   route: {
@@ -530,6 +531,7 @@ module.exports = {
     jiejianqushi,
     departmentTab,
     chartTab,
-    rankingRank
+    rankingRank,
+    rankingRankEd
   ],
 };
