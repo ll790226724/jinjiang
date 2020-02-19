@@ -169,6 +169,7 @@ export const department = {
         tabNavs: [{uuid: 1, label: '排名情况'}, {uuid: 2, label: '全部部门'}],
         tabCurrent: {uuid: 1, label: '排名情况'},
         hideTable: false,
+        rank: true,
       },
     }
   },

@@ -79,6 +79,10 @@ module.exports = {
     {
       id: 'hideTable',
       value: false,
+    },
+    {
+      id: 'rank',
+      value: true
     }
   ],
 
