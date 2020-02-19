@@ -436,7 +436,7 @@ module.exports = {
     {
       id: 'event-source-circle',
       component: 'div',
-      position: [1580, 50],
+      position: [1580, 668],
       props: {
         $style: {
           height:'6px',
@@ -453,7 +453,7 @@ module.exports = {
     {
       id: 'event-title',
       component: 'div',
-      position: [1596, 42],
+      position: [1596, 661],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -469,7 +469,7 @@ module.exports = {
     {
       id: 'event-suffix',
       component: 'div',
-      position: [1681, 46],
+      position: [1681, 663],
       props: {
         $style: {
           color: '#2E2E2E80',
