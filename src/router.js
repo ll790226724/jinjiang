@@ -6,12 +6,22 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  base: '/',
+  base: '/jinjiangwllz',
   routes: [
+    {
+      name: '',
+      path: '/',
+      component: pages.vis,
+    },
     {
       name: 'vis',
       path: '/vis',
       component: pages.vis,
+    },
+    {
+      name: 'department',
+      path: '/department',
+      component: pages.department,
     },
   ],
 })

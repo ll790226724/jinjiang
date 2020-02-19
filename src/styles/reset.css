@@ -4,10 +4,11 @@ body {
 
 .el-picker-panel {
   top: 40px !important;
-  left: 1041px !important;
+  left: 884px !important;
   border: none;
   overflow: hidden;
   box-shadow: none;
+  margin-top: 9px !important;
 }
 
 .el-picker-panel .el-picker-panel__body {
@@ -57,6 +58,7 @@ body {
   height: 32px;
   background-color: #ffffff;
   border: none;
+  width: 13.7rem;
 }
 
 .el-date-editor .el-range__close-icon {
@@ -64,6 +66,7 @@ body {
 }
 
 .el-date-editor.el-input__inner .el-range-input {
+  font-weight: 500;
   color: rgba(46, 46, 46, .7);
   background-color: transparent;
   text-align: left;
@@ -92,21 +95,36 @@ body {
 .select-trigger-inputting .select-trigger-inputting__content {
   color: rgba(46, 46, 46, .7) !important;
   font-weight: 500 !important;
-  max-width: 125px !important;
+  max-width: 145px !important;
+  height: 1.6rem;
+  line-height: 1.6rem;
 }
 
 .select-trigger-inputting .select-trigger-inputting__content div {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  line-height: 27px;
 }
 
 .select-trigger-inputting .select-trigger-inputting__placeholder {
+  font-weight:500;
+  font-size:14px;
+  line-height: 27px;
   color: rgba(46, 46, 46, .7) !important;
 }
 
 .select-trigger-inputting .select-trigger-inputting__icon {
   color: rgba(46, 46, 46, .7) !important;
+}
+
+.select-popover .popover__content {
+  width: 170px !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1) !important;
+}
+
+.select-selection .list .list__item__tail {
+  display: none !important;
 }
 
 .echarts {
@@ -122,18 +140,70 @@ body {
   left: 253.654px !important;
 }
 
+.digital-roll--left > .digital-roll__container{
+  padding-left: 4px;
+}
+
+.ranking {
+  padding: 0 !important;
+}
+
+.ranking__line, .ranking__line-bg{
+  height: 3px !important;
+  border-radius: 1.5px !important;
+}
+
+.ranking__line-bg{
+  margin-top: 2px !important;
+}
+
+
+table tr:nth-child(odd) {
+  background-color: #EEF6FE80;
+}
+
+table {
+  border-spacing: 0;
+}
+
+.carbo-legend__item{
+  padding-left: 0 !important;
+}
+
+.ranking__block{
+  margin-bottom: 18px !important;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 @font-face {
   font-family: 'Oswald-Regular';
   src:
-    url('/fonts/Oswald-Regular.woff') format('woff'),
-    url('/fonts/Oswald-Regular.woff2') format('woff');
+    url('/jinjiangwllz/fonts/Oswald-Regular.woff') format('woff'),
+    url('/jinjiangwllz/fonts/Oswald-Regular.woff2') format('woff');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Oswald-Light';
   src:
-    url('/fonts/Oswald-Light.woff') format('woff'),
-    url('/fonts/Oswald-Light.woff2') format('woff');
+    url('/jinjiangwllz/fonts/Oswald-Light.woff') format('woff'),
+    url('/jinjiangwllz/fonts/Oswald-Light.woff2') format('woff');
   font-weight: normal;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 14px;
+  color:rgba(46, 46, 46, .7);
+  font-weight:500;
+}
+
+.el-picker-panel .el-picker-panel__icon-btn {
+  color: #2E2E2E !important;
+}
+
+.tab-navs{
+  justify-content: center;
 }

@@ -1,14 +1,17 @@
+const { chartTooltipOptions } = require('../share');
+
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [1570, 576],
+  position: [-12, 705],
   exports: {
     results: 'results',
   },
   props: {
-    url: '/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01',
+    $url:"`/v1/components/10b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&department=${craneStates.department}`",
     method: 'get',
+    $data: "[{label: '投诉类型', amount: 12}]",
     $style: {
-      width: '330px',
+      width: '384px',
       height: '290px'
     },
   },
@@ -17,9 +20,9 @@ module.exports = {
       component: '@byzanteam/graphite/vertical-bar',
       props: {
         'v-if': 'results',
-        $data: 'results.map((result) => ({label: result[1], count: result[0]}))',
+        $data: "results.map((result) => ({label: result[1], '数量（件）': result[0]}))",
         labelKey: 'label',
-        valueKey: 'count',
+        valueKey: '数量（件）',
         $mainAxis: {
           $labelStyle: {
             $rotate: -45,
@@ -48,12 +51,13 @@ module.exports = {
           },
         },
         $gap: {
-          $outer: 3.3
+          $outer: 3
         },
         $series: "['#1b74ef']",
         $theme: {
           background: 'transparent',
         },
+        ...chartTooltipOptions
       }
     }
   ]
