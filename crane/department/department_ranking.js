@@ -12,8 +12,8 @@ module.exports = {
     method: 'get',
     $data: "[{label: '承办单位', amount: 12}]",
     $style: {
-      width: '316px',
-      maxHeight: '470px',
+      width: '298px',
+      maxHeight: '413px',
       padding: '8px',
       overflow: 'scroll'
     },
