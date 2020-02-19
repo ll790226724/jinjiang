@@ -194,11 +194,16 @@ table {
   font-weight: normal;
 }
 
-input::-webkit-input-placeholder{
+input::-webkit-input-placeholder {
   font-size: 14px;
   color:rgba(46, 46, 46, .7);
   font-weight:500;
 }
-.el-picker-panel .el-picker-panel__icon-btn{
+
+.el-picker-panel .el-picker-panel__icon-btn {
   color: #2E2E2E !important;
+}
+
+.tab-navs{
+  justify-content: center;
 }
