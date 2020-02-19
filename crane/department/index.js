@@ -297,7 +297,7 @@ module.exports = {
     {
       id: 'repeat-demand-circle',
       component: 'div',
-      position: [432, 107],
+      position: [432, 109],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -394,7 +394,7 @@ module.exports = {
     {
       id: 'repeat-demand-title',
       component: 'div',
-      position: [448, 89],
+      position: [448, 102],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -409,7 +409,7 @@ module.exports = {
     {
       id: 'repeat-demand-circle',
       component: 'div',
-      position: [432, 666],
+      position: [432, 668],
       props: {
         $style: {
           boxSizing: 'content-box',
