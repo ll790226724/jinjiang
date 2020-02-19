@@ -3,7 +3,7 @@ const { chartTooltipOptions } = require('../share');
 module.exports = {
   id: 'demand-donut',
   component: '@byzanteam/vis-components/data-loader',
-  position: [-10, 311],
+  position: [-10, 378],
   exports: {
     results: 'results',
   },
