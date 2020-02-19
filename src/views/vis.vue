@@ -32,7 +32,7 @@
     <div ref="demand-bar-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '661px', left: '58px'}">
       诉求类型
     </div>
-    <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '859px', left: '432px'}" />
+    <div ref="repeat-demand-circle" v-if="craneStates.hideTable" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '859px', left: '432px'}" />
     <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '89px', left: '448px'}">
       部门承办量 & 回访情况 & 平均回复时间
     </div>
@@ -40,7 +40,7 @@
     <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '541px', left: '448px'}">
       接件趋势
     </div>
-    <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '851px', left: '448px'}">
+    <div ref="repeat-demand-title" v-if="craneStates.hideTable" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '851px', left: '448px'}">
       重复投诉统计
     </div>
     <div ref="right-background" :style="{width: '330px', height: '841px', backgroundImage: 'linear-gradient(#1B74EF12, #1B74EF00)', borderRadius: '4px', position: 'absolute', top: '26px', left: '1564px'}" />

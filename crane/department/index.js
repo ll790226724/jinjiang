@@ -351,6 +351,7 @@ module.exports = {
       component: 'div',
       position: [432, 859],
       props: {
+        'v-if': 'craneStates.hideTable',
         $style: {
           boxSizing: 'content-box',
           height:'6px',
@@ -413,6 +414,7 @@ module.exports = {
       component: 'div',
       position: [448, 851],
       props: {
+        'v-if': 'craneStates.hideTable',
         $style: {
           color: '#2E2E2E',
           fontSize: '18px',
