@@ -23,7 +23,7 @@ module.exports = {
       id: 'department-ranking-content',
       component: '@byzanteam/vis-components/ranking',
       props: {
-        'v-if': '!craneStates.rank',
+        'v-if': 'craneStates.rank',
         $data: "results.slice(0, 3).map(item => { return {label: item[1], amount: item[0] } } )",
         $keys: {
           label: 'label',
