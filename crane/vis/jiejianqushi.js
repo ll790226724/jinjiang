@@ -1,6 +1,6 @@
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [330, 566],
+  position: [330, 705],
   exports: {
     results: 'results',
   },
@@ -9,7 +9,7 @@ module.exports = {
     method: 'get',
     $style: {
       width: '1300px',
-      height: '245px'
+      height: '282px'
     },
   },
   children: [

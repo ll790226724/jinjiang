@@ -21,7 +21,7 @@
       诉求性质
     </div>
     <div ref="department-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '109px', left: '1580px'}" />
-    <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '96px', left: '432px'}" />
+    <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '107px', left: '432px'}" />
     <div ref="department-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '102px', left: '1596px'}">
       部门承办量
     </div>
@@ -33,11 +33,11 @@
       诉求类型
     </div>
     <div ref="repeat-demand-circle" v-if="craneStates.hideTable" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '859px', left: '432px'}" />
-    <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '89px', left: '448px'}">
+    <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '102px', left: '448px'}">
       部门承办量 & 回访情况 & 平均回复时间
     </div>
-    <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '547px', left: '432px'}" />
-    <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '541px', left: '448px'}">
+    <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '666px', left: '432px'}" />
+    <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '661px', left: '448px'}">
       接件趋势
     </div>
     <div ref="repeat-demand-title" v-if="craneStates.hideTable" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '851px', left: '448px'}">
@@ -103,10 +103,10 @@
         </tr>
       </table>
     </data-loader>
-    <data-loader v-slot="{ results: results }" :url="`/v1/components/e9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '1300px', height: '390px', position: 'absolute', top: '104px', left: '330px'}">
+    <data-loader v-slot="{ results: results }" :url="`/v1/components/e9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '1300px', height: '427px', position: 'absolute', top: '153px', left: '330px'}">
       <v-chart v-if="results" :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}, formatter: (param) => { return `${param[0].name}<br />` + param.map((serie) => `${serie.marker}${serie.seriesName}(${serie.seriesName === '平均回复时间' ? '天' : '件'}): ${serie.value}<br />`).join('')}}, legend: {data: Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name}), right: '80px'}, color: ['#15c689','#bb4430', '#ffba08', '#a2aebb', '#1b74ef','#74797f'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map((item) => {return {date: item[0], satisfied: item[1], unsatisfied: item[2], basicly: item[3], unknown: item[4], callbacked: item[5], day: item[6].toFixed(2)} }).map((item) => {return item.date}), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '天', boundaryGap: [0.2, 0.2], axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], grid: {bottom: 110}, dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: Object.keys(craneStates.chartLegendsMap).map(item => {return {...craneStates.chartLegendsMap[item], data: results.map((item) => {return {date: item[0], satisfied: item[1], unsatisfied: item[2], basicly: item[3], unknown: item[4], callbacked: item[5], day:  parseFloat(item[6]).toFixed(2) } }).map(data => data[item])}})}" />
     </data-loader>
-    <data-loader v-slot="{ results: results }" :url="`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&format=${craneStates.chartFormat}`" method="get" :style="{width: '1300px', height: '245px', position: 'absolute', top: '566px', left: '330px'}">
+    <data-loader v-slot="{ results: results }" :url="`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&format=${craneStates.chartFormat}`" method="get" :style="{width: '1300px', height: '282px', position: 'absolute', top: '705px', left: '330px'}">
       <v-chart v-if="results" :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}}, color: ['#1b74ef'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], grid: {bottom: 80}, dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: [{type: 'line', name: '接件（件）', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]}" />
     </data-loader>
     <data-loader ref="department-tab" v-slot="{ results: results }" :style="{width: '194px', height: '30px', position: 'absolute', top: '147px', left: '1632px'}">
