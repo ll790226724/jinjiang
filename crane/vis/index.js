@@ -459,7 +459,7 @@ module.exports = {
     {
       id: 'right-background',
       component: 'div',
-      position: [1564, 26],
+      position: [1564, 85],
       props: {
         $style: {
           width: '330px',
