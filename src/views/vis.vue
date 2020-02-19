@@ -112,6 +112,9 @@
     <data-loader ref="department-tab" v-slot="{ results: results }" :style="{width: '194px', height: '30px', position: 'absolute', top: '147px', left: '1632px'}">
       <brick-tabs :tabNavs="craneStates.tabNavs" :activeTab="craneStates.tabCurrent" v-model="craneStates.tabCurrent" />
     </data-loader>
+    <data-loader v-slot="{ results: results }" url="/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01" method="get" :style="{width: '330px', height: '290px', position: 'absolute', top: '576px', left: '1570px'}">
+      <vertical-bar v-if="results" :data="results.map((result) => ({label: result[1], count: result[0]}))" labelKey="label" valueKey="count" :mainAxis="{labelStyle: {rotate: -45, size: 14, fill: '#666666'}, labelLength: 7, lineStyle: {stroke: 'transparent'}}" :crossAxis="{range: {count: 5}, lineStyle: {stroke: 'transparent'}, labelStyle: {size: 16, fill: '#666666'}, unit: {content: '件', fill: '#666666'}}" :gap="{outer: 3.3}" :series="['#1b74ef']" :theme="{background: 'transparent'}" />
+    </data-loader>
   </div>
 </template>
 
