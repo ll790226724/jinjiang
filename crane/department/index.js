@@ -104,6 +104,10 @@ module.exports = {
         uuid: 2,
         label: '日'
       }
+    },
+    {
+      id: 'chartFormat',
+      value: 'YYYY-MM-DD'
     }
   ],
 
