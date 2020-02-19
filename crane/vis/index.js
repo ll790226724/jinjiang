@@ -518,6 +518,25 @@ module.exports = {
       content: '/件',
     },
 
+    {
+      id: 'top-img',
+      component: 'div',
+      position: [1579, 231],
+      props:{
+        $style: {
+          height: '20px'
+        }
+      },
+      children: [
+        {
+          component: 'img',
+          props: {
+            src: '/jinjiangwllz/images/icon-Trophy1.svg'
+          }
+        }
+      ]
+    },
+
     dealNumber,
     satisfaction,
     overdue,
