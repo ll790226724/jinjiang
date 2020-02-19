@@ -9,7 +9,6 @@ const demandTypeBar = require('./demand_type_bar');
 const table = require('./table');
 const bumenchengbanliang = require('./bumenchengbanliang');
 const jiejianqushi = require('./jiejianqushi');
-const departmentTabs = require( './departmentTab');
 const chartTab = require('./chart_tab');
 
 module.exports = {
@@ -527,7 +526,6 @@ module.exports = {
     table,
     bumenchengbanliang,
     jiejianqushi,
-    departmentTabs,
     chartTab
   ],
 };
