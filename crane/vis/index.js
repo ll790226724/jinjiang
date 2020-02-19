@@ -523,6 +523,7 @@ module.exports = {
       component: 'div',
       position: [1579, 231],
       props:{
+        'v-if': 'craneStates.rank',
         $style: {
           height: '20px'
         }
@@ -542,6 +543,7 @@ module.exports = {
       component: 'div',
       position: [1606, 234],
       props: {
+        'v-if': 'craneStates.rank',
         $style: {
           color: '#418CFF',
           fontSize: '14px',
@@ -557,6 +559,7 @@ module.exports = {
       component: 'div',
       position: [1579, 434],
       props:{
+        'v-if': 'craneStates.rank',
         $style: {
           height: '20px'
         }
@@ -576,6 +579,7 @@ module.exports = {
       component: 'div',
       position: [1606, 437],
       props: {
+        'v-if': 'craneStates.rank',
         $style: {
           color: '#418CFF',
           fontSize: '14px',

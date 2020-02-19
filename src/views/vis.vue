@@ -51,16 +51,16 @@
     <div ref="event-suffix" :style="{color: '#2E2E2E80', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '663px', left: '1681px'}">
       /件
     </div>
-    <div ref="top-img" :style="{height: '20px', position: 'absolute', top: '231px', left: '1579px'}">
+    <div ref="top-img" v-if="craneStates.rank" :style="{height: '20px', position: 'absolute', top: '231px', left: '1579px'}">
       <img src="/jinjiangwllz/images/icon-Trophy1.svg" />
     </div>
-    <div ref="top3-text" :style="{color: '#418CFF', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '234px', left: '1606px'}">
+    <div ref="top3-text" v-if="craneStates.rank" :style="{color: '#418CFF', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '234px', left: '1606px'}">
       排名前三
     </div>
-    <div ref="ed-img" :style="{height: '20px', position: 'absolute', top: '434px', left: '1579px'}">
+    <div ref="ed-img" v-if="craneStates.rank" :style="{height: '20px', position: 'absolute', top: '434px', left: '1579px'}">
       <img src="/jinjiangwllz/images/icon-Trophy2.svg" />
     </div>
-    <div ref="ed3-text" :style="{color: '#418CFF', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '437px', left: '1606px'}">
+    <div ref="ed3-text" v-if="craneStates.rank" :style="{color: '#418CFF', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '437px', left: '1606px'}">
       排名后三
     </div>
     <data-loader ref="deal-number" v-slot="{ results: results }" :url="`/v1/components/89b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[[0]]" :style="{width: '194px', height: '44px', position: 'absolute', top: '121px', left: '63px'}">
