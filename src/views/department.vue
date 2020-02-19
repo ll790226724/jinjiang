@@ -226,6 +226,16 @@ export const department = {
         }
       },
     },
+    'craneStates.tabCurrent': {
+      immediate: true,
+      handler (value) {
+        if (value.uuid === 1) {
+          this.setState('rank', true)
+        } else if (value.uuid === 2) {
+          this.setState('rank', false)
+        }
+      }
+    }
   },
 
   methods: {
