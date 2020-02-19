@@ -7,8 +7,9 @@ const percentage = require('./percentage');
 const eventSource = require('./event_source');
 const demandTypeBar = require('./demand_type_bar');
 const table = require('./table');
-const bumenchengbanliang = require('./bumenchengbanliang')
-const jiejianqushi = require('./jiejianqushi')
+const bumenchengbanliang = require('./bumenchengbanliang');
+const jiejianqushi = require('./jiejianqushi');
+const departmentTabs = require( './departmentTab');
 
 module.exports = {
   route: {
@@ -53,6 +54,27 @@ module.exports = {
         callbacked: { name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8 },
         day: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
       }
+    },
+    {
+      id: 'tabNavs',
+      value: [
+        {
+          uuid: 1,
+          label: '排名情况'
+        },
+        {
+          uuid: 2,
+          label: '全部部门'
+        }
+      ]
+    },
+    {
+      id: 'tabCurrent',
+      value:
+        {
+          uuid: 1,
+          label: '排名情况',
+        },
     },
   ],
 
@@ -469,6 +491,7 @@ module.exports = {
     demandTypeBar,
     table,
     bumenchengbanliang,
-    jiejianqushi
+    jiejianqushi,
+    departmentTabs
   ],
 };
