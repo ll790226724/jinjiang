@@ -242,6 +242,16 @@ export const vis = {
           this.setState('rank', false)
         }
       }
+    },
+    'craneStates.chartTabCurrent': {
+      immediate: true,
+      handler (value) {
+        if (value.uuid === 1) {
+          this.setState('chartFormat', 'YYYY-MM')
+        } else if (value.uuid === 2) {
+          this.setState('chartFormat', 'YYYY-MM-DD')
+        }
+      }
     }
   },
 
