@@ -11,6 +11,7 @@ const bumenchengbanliang = require('./bumenchengbanliang');
 const jiejianqushi = require('./jiejianqushi');
 const departmentTab = require('./departmentTab');
 const chartTab = require('./chart_tab');
+const rankingRank = require('./ranking_rank');
 
 module.exports = {
   route: {
@@ -528,6 +529,7 @@ module.exports = {
     bumenchengbanliang,
     jiejianqushi,
     departmentTab,
-    chartTab
+    chartTab,
+    rankingRank
   ],
 };
