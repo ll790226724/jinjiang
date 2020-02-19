@@ -112,6 +112,9 @@
     <data-loader ref="department-tab" v-slot="{ results: results }" :style="{width: '194px', height: '30px', position: 'absolute', top: '147px', left: '1632px'}">
       <brick-tabs :tabNavs="craneStates.tabNavs" :activeTab="craneStates.tabCurrent" v-model="craneStates.tabCurrent" />
     </data-loader>
+    <data-loader ref="department-tab" v-slot="{ results: results }" :style="{width: '106px', height: '30px', position: 'absolute', top: '651px', left: '1391px'}">
+      <brick-tabs :tabNavs="craneStates.chartTabNavs" :activeTab="craneStates.chartTabCurrent" v-model="craneStates.chartTabCurrent" />
+    </data-loader>
   </div>
 </template>
 
@@ -170,6 +173,8 @@ export const department = {
         tabCurrent: {uuid: 1, label: '排名情况'},
         hideTable: false,
         rank: true,
+        chartTabNavs: [{uuid: 1, label: '月'}, {uuid: 2, label: '日'}],
+        chartTabCurrent: {uuid: 2, label: '日'},
       },
     }
   },

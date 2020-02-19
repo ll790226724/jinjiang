@@ -10,6 +10,7 @@ const table = require('./table');
 const bumenchengbanliang = require('./bumenchengbanliang');
 const jiejianqushi = require('./jiejianqushi');
 const departmentTabs = require( './departmentTab');
+const chartTab = require('./chart_tab');
 
 module.exports = {
   route: {
@@ -83,6 +84,26 @@ module.exports = {
     {
       id: 'rank',
       value: true
+    },
+    {
+      id: 'chartTabNavs',
+      value: [
+        {
+          uuid: 1,
+          label: '月'
+        },
+        {
+          uuid: 2,
+          label: '日'
+        },
+      ]
+    },
+    {
+      id: 'chartTabCurrent',
+      value: {
+        uuid: 2,
+        label: '日'
+      }
     }
   ],
 
@@ -502,6 +523,7 @@ module.exports = {
     table,
     bumenchengbanliang,
     jiejianqushi,
-    departmentTabs
+    departmentTabs,
+    chartTab
   ],
 };
