@@ -537,6 +537,24 @@ module.exports = {
       ]
     },
 
+    {
+      id: 'ed-img',
+      component: 'div',
+      position: [1579, 434],
+      props:{
+        $style: {
+          height: '20px'
+        }
+      },
+      children: [
+        {
+          component: 'img',
+          props: {
+            src: '/jinjiangwllz/images/icon-Trophy2.svg'
+          }
+        }
+      ]
+    },
     dealNumber,
     satisfaction,
     overdue,

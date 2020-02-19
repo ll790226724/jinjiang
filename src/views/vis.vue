@@ -54,6 +54,9 @@
     <div ref="top-img" :style="{height: '20px', position: 'absolute', top: '231px', left: '1579px'}">
       <img src="/jinjiangwllz/images/icon-Trophy1.svg" />
     </div>
+    <div ref="ed-img" :style="{height: '20px', position: 'absolute', top: '434px', left: '1579px'}">
+      <img src="/jinjiangwllz/images/icon-Trophy2.svg" />
+    </div>
     <data-loader ref="deal-number" v-slot="{ results: results }" :url="`/v1/components/89b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[[0]]" :style="{width: '194px', height: '44px', position: 'absolute', top: '121px', left: '63px'}">
       <digital-roll ref="deal-number-total" v-if="results" titlePosition="left" :content="{title: '当月办件数量', digital: results[0][0], suffix: '件'}" :options="{separator: ''}" :titleStyle="{color: 'rgba(255, 255, 255)', fontSize: '14px', fontWeight: '500'}" :suffixStyle="{fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '36px', color: '#FFFFFF', fontWeight: '400', fontFamily: 'Oswald'}" />
     </data-loader>
