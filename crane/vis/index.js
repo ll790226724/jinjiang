@@ -538,6 +538,21 @@ module.exports = {
     },
 
     {
+      id: 'top3-text',
+      component: 'div',
+      position: [1606, 234],
+      props: {
+        $style: {
+          color: '#418CFF',
+          fontSize: '14px',
+          fontWeight: 400,
+          textAlign: 'left'
+        }
+      },
+      content: '排名前三'
+    },
+
+    {
       id: 'ed-img',
       component: 'div',
       position: [1579, 434],
@@ -554,6 +569,21 @@ module.exports = {
           }
         }
       ]
+    },
+
+    {
+      id: 'ed3-text',
+      component: 'div',
+      position: [1606, 437],
+      props: {
+        $style: {
+          color: '#418CFF',
+          fontSize: '14px',
+          fontWeight: 400,
+          textAlign: 'left'
+        }
+      },
+      content: '排名后三'
     },
     dealNumber,
     satisfaction,
