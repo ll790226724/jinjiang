@@ -20,13 +20,14 @@ module.exports = {
         $options: {
           tooltip: {
             trigger: 'axis',
+            $formatter: 'tooltipFormatterFunc',
             backgroundColor: '#ffffff',
             $textStyle: {
               color: '#2e2e2e',
               fontSize: '14px',
             }
           },
-          $color: "['#1b74ef']",
+          $color: "['#1b74ef', '#74797f']",
           $xAxis: "[{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}]",
           $yAxis: "[{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}]",
           $grid: "{bottom: 80}",
@@ -40,7 +41,7 @@ module.exports = {
             $startValue: 0,
             $endValue: 19,
           },
-          $series: "[{type: 'line', name: '接件（件）', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]"
+          $series: "[{type: 'line', name: '接件（件）', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}, {type: 'line', name: '同昨日下降', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]"
         },
       }
     }
