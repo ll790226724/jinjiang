@@ -75,7 +75,10 @@ module.exports = {
           label: '排名情况',
         },
     },
-
+    {
+      id: 'hideTable',
+      value: false,
+    }
   ],
 
   components: [
