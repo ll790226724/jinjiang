@@ -194,7 +194,7 @@ export const vis = {
         chartTabNavs: [{uuid: 1, label: '月'}, {uuid: 2, label: '日'}],
         chartTabCurrent: {uuid: 2, label: '日'},
         chartFormat: 'YYYY-MM-DD',
-        showMonthChart: true,
+        showDayChart: true,
       },
     }
   },
