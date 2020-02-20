@@ -107,6 +107,10 @@ module.exports = {
     {
       id: 'chartFormat',
       value: 'YYYY-MM-DD'
+    },
+    {
+      id: 'showDayChart',
+      value: true,
     }
   ],
 
