@@ -10,6 +10,7 @@ const table = require('./table');
 const bumenchengbanliang = require('./bumenchengbanliang');
 const jiejianqushi = require('./jiejianqushi');
 const chartTab = require('./chart_tab');
+const jiejianqushiMonth = require('./jiejianqushiMonth');
 
 module.exports = {
   route: {
@@ -530,6 +531,7 @@ module.exports = {
     table,
     bumenchengbanliang,
     jiejianqushi,
-    chartTab
+    chartTab,
+    jiejianqushiMonth
   ],
 };
