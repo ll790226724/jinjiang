@@ -144,6 +144,28 @@ import {
   BrickTooltip,
 } from '@byzanteam/brick'
 
+const TAB_NAVS = [
+  {
+    uuid: 1,
+    label: '排名情况'
+  },
+  {
+    uuid: 2,
+    label: '全部部门'
+  }
+];
+
+const CHART_TAB_NAVS = [
+  {
+    uuid: 1,
+    label: '月'
+  },
+  {
+    uuid: 2,
+    label: '日'
+  }
+];
+
 export const department = {
   mixins: [BuiltInMixin],
 
@@ -169,12 +191,12 @@ export const department = {
         department: '',
         defaultFilterRange: ['', ''],
         chartLegendsMap: {satisfied: {name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, unsatisfied: {name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, unknown: {name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, basicly: {name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, callbacked: {name: '回访情况', type: 'line', yAxisIndex: 1, symbolSize: 8}, day: {name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8}},
-        tabNavs: [{uuid: 1, label: '排名情况'}, {uuid: 2, label: '全部部门'}],
-        tabCurrent: {uuid: 1, label: '排名情况'},
+        tabNavs: TAB_NAVS,
+        tabCurrent: TAB_NAVS[0],
         hideTable: false,
         rank: true,
-        chartTabNavs: [{uuid: 1, label: '月'}, {uuid: 2, label: '日'}],
-        chartTabCurrent: {uuid: 2, label: '日'},
+        chartTabNavs: CHART_TAB_NAVS,
+        chartTabCurrent: CHART_TAB_NAVS[1],
         chartFormat: 'YYYY-MM-DD',
         showDayChart: true,
       },
