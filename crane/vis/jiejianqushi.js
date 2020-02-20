@@ -16,7 +16,7 @@ module.exports = {
     {
       component: 'vue-echarts/v-chart',
       props: {
-        'v-if': 'results',
+        'v-if': 'craneStates.showDayChart',
         $options: {
           tooltip: {
             trigger: 'axis',
