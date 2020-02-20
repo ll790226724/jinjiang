@@ -266,9 +266,9 @@ export const vis = {
       immediate: true,
       handler (value) {
         if (value.uuid === 1) {
-          this.setState('chartFormat', 'YYYY-MM')
+          this.setState('showDayChart', false)
         } else if (value.uuid === 2) {
-          this.setState('chartFormat', 'YYYY-MM-DD')
+          this.setState('showDayChart', true)
         }
       }
     }
