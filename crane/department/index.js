@@ -109,7 +109,7 @@ module.exports = {
       value: 'YYYY-MM-DD'
     },
     {
-      id: 'showMonth',
+      id: 'showDayChart',
       value: true
     }
   ],
