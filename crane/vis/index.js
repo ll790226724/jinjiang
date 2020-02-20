@@ -9,6 +9,7 @@ const demandTypeBar = require('./demand_type_bar');
 const table = require('./table');
 const bumenchengbanliang = require('./bumenchengbanliang');
 const jiejianqushi = require('./jiejianqushi');
+const jiejianqushiMonth = require('./jiejianqushiMonth');
 const departmentTab = require('./departmentTab');
 const chartTab = require('./chart_tab');
 const rankingRank = require('./ranking_rank');
@@ -604,6 +605,7 @@ module.exports = {
     table,
     bumenchengbanliang,
     jiejianqushi,
+    jiejianqushiMonth,
     departmentTab,
     chartTab,
     rankingRank,
