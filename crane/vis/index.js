@@ -59,27 +59,7 @@ module.exports = {
         day: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
       }
     },
-    {
-      id: 'tabNavs',
-      value: [
-        {
-          uuid: 1,
-          label: '排名情况'
-        },
-        {
-          uuid: 2,
-          label: '全部部门'
-        }
-      ]
-    },
-    {
-      id: 'tabCurrent',
-      value:
-        {
-          uuid: 1,
-          label: '排名情况',
-        },
-    },
+
     {
       id: 'hideTable',
       value: false,
@@ -88,26 +68,7 @@ module.exports = {
       id: 'rank',
       value: true
     },
-    {
-      id: 'chartTabNavs',
-      value: [
-        {
-          uuid: 1,
-          label: '月'
-        },
-        {
-          uuid: 2,
-          label: '日'
-        },
-      ]
-    },
-    {
-      id: 'chartTabCurrent',
-      value: {
-        uuid: 2,
-        label: '日'
-      }
-    },
+
     {
       id: 'chartFormat',
       value: 'YYYY-MM-DD'
