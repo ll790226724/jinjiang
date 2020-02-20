@@ -108,6 +108,10 @@ module.exports = {
       id: 'chartFormat',
       value: 'YYYY-MM-DD'
     },
+    {
+      id: 'showMonth',
+      value: true
+    }
   ],
 
   components: [
