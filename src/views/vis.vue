@@ -165,6 +165,28 @@ import {
   BrickTooltip,
 } from '@byzanteam/brick'
 
+const TAB_NAVS = [
+  {
+    uuid: 1,
+    label: '排名情况'
+  },
+  {
+    uuid: 2,
+    label: '全部部门'
+  }
+];
+
+const CHART_TAB_NAVS = [
+  {
+    uuid: 1,
+    label: '月'
+  },
+  {
+    uuid: 2,
+    label: '日'
+  }
+];
+
 export const vis = {
   mixins: [BuiltInMixin],
 
