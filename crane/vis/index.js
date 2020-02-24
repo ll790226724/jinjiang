@@ -505,7 +505,7 @@ module.exports = {
             $style: {
               height: '20px'
             },
-            src: '/jinjiangwllz/images/icon-Trophy1.svg'
+            src: '/jinjiangwllz/images/Icon-Trophy1.svg'
           }
         }
       ]

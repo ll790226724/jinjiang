@@ -52,7 +52,7 @@
       /件
     </div>
     <div ref="top-img" v-if="craneStates.rank" :style="{position: 'absolute', top: '231px', left: '1579px'}">
-      <img :style="{height: '20px'}" src="/jinjiangwllz/images/icon-Trophy1.svg" />
+      <img :style="{height: '20px'}" src="/jinjiangwllz/images/Icon-Trophy1.svg" />
     </div>
     <div ref="top3-text" v-if="craneStates.rank" :style="{color: '#418CFF', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '234px', left: '1606px'}">
       排名前三
