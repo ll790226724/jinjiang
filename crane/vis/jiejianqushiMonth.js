@@ -41,7 +41,7 @@ module.exports = {
             $startValue: 0,
             $endValue: 19,
           },
-          $series: "[{type: 'line', name: '接件(件)', symbolSize: 8, lineStyle: {width: 3}, yAxisIndex: 0, data: results.map(result => (result[1]))}, {type: 'line', name: '同上月增长:', symbolSize: 8, lineStyle: {width: 3}, yAxisIndex: 1, data: results.map(result => (result[3].toFixed(2)))}]"
+          $series: "[{type: 'line', name: '接件(件)', symbolSize: 8, lineStyle: {width: 3}, yAxisIndex: 0, data: results.map(result => (result[1]))}, {type: 'line', name: '同上月增长', symbolSize: 8, lineStyle: {width: 3}, yAxisIndex: 1, data: results.map(result => (result[3].toFixed(2)))}]"
         },
       }
     }
