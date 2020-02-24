@@ -526,15 +526,15 @@ module.exports = {
       position: [1579, 434],
       props:{
         'v-if': 'craneStates.rank',
-        $style: {
-          height: '20px'
-        }
       },
       children: [
         {
           component: 'img',
           props: {
-            src: '/jinjiangwllz/images/icon-Trophy2.svg'
+            $style: {
+              height: '20px'
+            },
+            src: '/jinjiangwllz/images/Icon-Trophy2.svg'
           }
         }
       ]
