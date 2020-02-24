@@ -127,7 +127,7 @@
     <data-loader ref="department-tab" v-slot="{ results: results }" :style="{width: '194px', height: '30px', position: 'absolute', top: '147px', left: '1632px'}">
       <brick-tabs :tabNavs="craneStates.tabNavs" :activeTab="craneStates.tabCurrent" v-model="craneStates.tabCurrent" />
     </data-loader>
-    <data-loader ref="department-tab" v-slot="{ results: results }" :style="{width: '106px', height: '30px', position: 'absolute', top: '651px', left: '1391px'}">
+    <data-loader ref="department-tab" v-slot="{ results: results }" :style="{width: '126px', height: '30px', position: 'absolute', top: '651px', left: '1391px'}">
       <brick-tabs :tabNavs="craneStates.chartTabNavs" :activeTab="craneStates.chartTabCurrent" v-model="craneStates.chartTabCurrent" />
     </data-loader>
     <data-loader ref="ranking_rank" v-slot="{ results: results }" :url="`/v1/components/f5b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '298px', maxHeight: '131px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '263px', left: '1580px'}">

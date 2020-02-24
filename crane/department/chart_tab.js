@@ -7,7 +7,7 @@ module.exports = {
   },
   props: {
     $style: {
-      width: '106px',
+      width: '126px',
       height: '30px',
     },
   },
