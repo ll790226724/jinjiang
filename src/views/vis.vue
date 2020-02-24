@@ -220,6 +220,7 @@ export const vis = {
         chartTabCurrent: CHART_TAB_NAVS[1],
         chartFormat: 'YYYY-MM-DD',
         showDayChart: true,
+        upDown: '增长',
       },
     }
   },
