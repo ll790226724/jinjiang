@@ -365,7 +365,7 @@ export const vis = {
     },
 
     formatterFunc(param) {
-      return `${param[0].name}<br />`+ `<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#ffba08;"></span><span>总件数(件):</span> ${param[0].value + param[1].value + param[2].value + param[3].value}</br>` + param.map((serie) => `${serie.marker}${serie.seriesName}(${serie.seriesName === '平均回复时间' ? '天' : '件'}): ${serie.value}<br />`).join('')}
+      return `${param[0].name}<br />`+ `<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#4F5E67;"></span><span>总件数(件):</span> ${param[0].value + param[1].value + param[2].value + param[3].value}</br>` + param.map((serie) => `${serie.marker}${serie.seriesName}(${serie.seriesName === '平均回复时间' ? '天' : '件'}): ${serie.value}<br />`).join('')}
   },
 
   created () {
