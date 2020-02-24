@@ -12,7 +12,7 @@ module.exports = {
     method: 'get',
     $data: "[{label: '事件来源', amount: 12}]",
     $style: {
-      width: '330px',
+      width: '300px',
       height: '310px',
     },
   },
@@ -33,7 +33,7 @@ module.exports = {
           whitespace: 'nowrap'
         },
         $legendOptions: {
-          size: '106px',
+          size: '70px',
           $align: "['start', 'start']",
           layout: 'vertical',
           $label: {
@@ -41,7 +41,7 @@ module.exports = {
             $size: 14,
           },
           position: 'bottom',
-          $offset: "[80, 0]",
+          // $offset: "[80, 0]",
         },
         ...chartTooltipOptions
       },
