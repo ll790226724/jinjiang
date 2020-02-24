@@ -3,7 +3,7 @@ const { chartTooltipOptions } = require('../share');
 module.exports = {
   id: 'ranking_rank',
   component: '@byzanteam/vis-components/data-loader',
-  position: [1580, 263],
+  position: [1572, 263],
   exports: {
     results: 'results',
   },
