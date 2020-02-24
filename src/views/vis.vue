@@ -336,7 +336,11 @@ export const vis = {
       const arr = params.map((item) => {
         var value = `${item.seriesName}: ${item.value}`;
         if (item.seriesName === '同上月增长') {
-          value = `${item.seriesName}${item.value}%`
+          if (item.value >= 0) {
+            value = `${item.seriesName}${item.value}%`
+          } else if (item.value < 0) {
+            value = `同上月下降${item.value.slice(1)}%`
+          }
         }
         return `<div
                   style='display: flex;
