@@ -209,7 +209,7 @@ input::-webkit-input-placeholder {
 }
 
 .tab-nav {
-  margin-left: 0 !important;
+  margin-left: 16px !important;
   padding: 8px 16px !important;
 
 }
