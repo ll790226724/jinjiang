@@ -22,7 +22,7 @@ module.exports = {
       component: '@byzanteam/graphite/donut',
       props: {
         'v-if': 'results',
-        $data: "results.map(item => { return {label: item[1], amount: item[0] } } ).slice(0, 4)",
+        $data: "results.map(item => { return {label: item[1], amount: item[0] } } )",
         labelKey: 'label',
         valueKey: 'amount',
         $percentage: true,
