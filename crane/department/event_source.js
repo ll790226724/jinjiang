@@ -33,8 +33,8 @@ module.exports = {
           whitespace: 'nowrap'
         },
         $legendOptions: {
-          size: '200px',
-          $align: "['center', 'start']",
+          size: '106px',
+          $align: "['start', 'center']",
           layout: 'vertical',
           $label: {
             fill: '#2E2E2E',
