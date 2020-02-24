@@ -64,6 +64,7 @@ module.exports = {
       id: 'hideTable',
       value: false,
     },
+
     {
       id: 'rank',
       value: true
@@ -73,9 +74,15 @@ module.exports = {
       id: 'chartFormat',
       value: 'YYYY-MM-DD'
     },
+
     {
       id: 'showDayChart',
       value: true,
+    },
+
+    {
+      id: 'upDown',
+      value: '增长'
     }
   ],
 
