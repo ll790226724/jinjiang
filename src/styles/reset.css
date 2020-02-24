@@ -209,8 +209,8 @@ input::-webkit-input-placeholder {
 }
 
 .tab-nav {
-  margin-left: 32px !important;
-  padding: 8px 0 ;
+  margin-left: 0 !important;
+  padding: 8px 16px !important;
 
 }
 .tab-nav[data-v-2d974332]:first-child {
