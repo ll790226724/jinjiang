@@ -490,14 +490,14 @@ module.exports = {
       position: [1579, 231],
       props:{
         'v-if': 'craneStates.rank',
-        $style: {
-          height: '20px'
-        }
       },
       children: [
         {
           component: 'img',
           props: {
+            $style: {
+              height: '20px'
+            },
             src: '/jinjiangwllz/images/icon-Trophy1.svg'
           }
         }
