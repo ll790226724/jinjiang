@@ -34,14 +34,14 @@ module.exports = {
         },
         $legendOptions: {
           size: '106px',
-          $align: "['start', 'center']",
+          $align: "['start', 'start']",
           layout: 'vertical',
           $label: {
             fill: '#2E2E2E',
             $size: 14,
           },
           position: 'bottom',
-          // $offset: "[-115, 0]",
+          $offset: "[80, 0]",
         },
         ...chartTooltipOptions
       },
