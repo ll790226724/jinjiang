@@ -9,7 +9,8 @@ const demandTypeBar = require('./demand_type_bar');
 const table = require('./table');
 const bumenchengbanliang = require('./bumenchengbanliang');
 const jiejianqushi = require('./jiejianqushi');
-const departmentTabs = require( './departmentTab');
+const chartTab = require('./chart_tab');
+const jiejianqushiMonth = require('./jiejianqushiMonth');
 
 module.exports = {
   route: {
@@ -79,6 +80,38 @@ module.exports = {
     {
       id: 'hideTable',
       value: false,
+    },
+    {
+      id: 'rank',
+      value: true
+    },
+    {
+      id: 'chartTabNavs',
+      value: [
+        {
+          uuid: 1,
+          label: '月'
+        },
+        {
+          uuid: 2,
+          label: '日'
+        },
+      ]
+    },
+    {
+      id: 'chartTabCurrent',
+      value: {
+        uuid: 2,
+        label: '日'
+      }
+    },
+    {
+      id: 'chartFormat',
+      value: 'YYYY-MM-DD'
+    },
+    {
+      id: 'showDayChart',
+      value: true
     }
   ],
 
@@ -269,7 +302,7 @@ module.exports = {
     {
       id: 'repeat-demand-circle',
       component: 'div',
-      position: [432, 96],
+      position: [432, 109],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -366,7 +399,7 @@ module.exports = {
     {
       id: 'repeat-demand-title',
       component: 'div',
-      position: [448, 89],
+      position: [448, 102],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -381,7 +414,7 @@ module.exports = {
     {
       id: 'repeat-demand-circle',
       component: 'div',
-      position: [432, 547],
+      position: [432, 668],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -397,7 +430,7 @@ module.exports = {
     {
       id: 'repeat-demand-title',
       component: 'div',
-      position: [448, 541],
+      position: [448, 661],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -428,7 +461,7 @@ module.exports = {
     {
       id: 'right-background',
       component: 'div',
-      position: [1564, 26],
+      position: [1564, 85],
       props: {
         $style: {
           width: '330px',
@@ -498,6 +531,7 @@ module.exports = {
     table,
     bumenchengbanliang,
     jiejianqushi,
-    departmentTabs
+    chartTab,
+    jiejianqushiMonth
   ],
 };

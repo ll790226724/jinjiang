@@ -1,6 +1,6 @@
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [330, 104],
+  position: [330, 153],
   exports: {
     results: 'results',
   },
@@ -9,7 +9,7 @@ module.exports = {
     method: 'get',
     $style: {
       width: '1300px',
-      height: '390px'
+      height: '427px'
     },
   },
   children: [
@@ -25,7 +25,7 @@ module.exports = {
               color: '#2e2e2e',
               fontSize: '14px',
             },
-            $formatter: "(param) => { return `${param[0].name}<br />` + param.map((serie) => `${serie.marker}${serie.seriesName}(${serie.seriesName === '平均回复时间' ? '天' : '件'}): ${serie.value}<br />`).join('')}",
+            $formatter: 'formatterFunc',
           },
           $legend: {
             $data: 'Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name})',

@@ -12,7 +12,7 @@ module.exports = {
     method: 'get',
     $data: "[{label: '事件来源', amount: 12}]",
     $style: {
-      width: '330px',
+      width: '300px',
       height: '310px',
     },
   },
@@ -22,7 +22,7 @@ module.exports = {
       component: '@byzanteam/graphite/donut',
       props: {
         'v-if': 'results',
-        $data: "results.map(item => { return {label: item[1], amount: item[0] } } ).slice(0, 4)",
+        $data: "results.map(item => { return {label: item[1], amount: item[0] } } )",
         labelKey: 'label',
         valueKey: 'amount',
         $percentage: true,
@@ -33,15 +33,15 @@ module.exports = {
           whitespace: 'nowrap'
         },
         $legendOptions: {
-          size: '200px',
-          $align: "['center', 'start']",
+          size: '50px',
+          $align: "['start', 'center']",
           layout: 'vertical',
           $label: {
             fill: '#2E2E2E',
             $size: 14,
           },
           position: 'bottom',
-          // $offset: "[-115, 0]",
+          // $offset: "[80, 0]",
         },
         ...chartTooltipOptions
       },

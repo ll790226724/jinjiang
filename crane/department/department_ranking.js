@@ -3,7 +3,7 @@ const { chartTooltipOptions } = require('../share');
 module.exports = {
   id: 'department-ranking',
   component: '@byzanteam/vis-components/data-loader',
-  position: [1580, 198],
+  position: [1572, 142],
   exports: {
     results: 'results',
   },
@@ -13,7 +13,7 @@ module.exports = {
     $data: "[{label: '承办单位', amount: 12}]",
     $style: {
       width: '298px',
-      maxHeight: '413px',
+      maxHeight: '440px',
       padding: '8px',
       overflow: 'scroll'
     },
@@ -23,7 +23,7 @@ module.exports = {
       id: 'department-ranking-content',
       component: '@byzanteam/vis-components/ranking',
       props: {
-        'v-if': 'results',
+        'v-if': 'craneStates.rank',
         $data: "results.map(item => { return {label: item[1].slice(0, 10), amount: item[0] } } )",
         $keys: {
           label: 'label',
