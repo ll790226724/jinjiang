@@ -34,7 +34,7 @@ module.exports = {
         },
         $legendOptions: {
           size: '70px',
-          $align: "['start', 'start']",
+          $align: "['start', 'center']",
           layout: 'vertical',
           $label: {
             fill: '#2E2E2E',
