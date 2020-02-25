@@ -2,7 +2,7 @@ const { chartTooltipOptions } = require('../share');
 
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [1530, 576],
+  position: [-12, 705],
   exports: {
     results: 'results',
   },

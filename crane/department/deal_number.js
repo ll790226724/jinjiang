@@ -3,7 +3,7 @@ const {normal_digital_style} = require('../share')
 module.exports = {
   id: 'deal-number',
   component: '@byzanteam/vis-components/data-loader',
-  position: [63, 61],
+  position: [63, 121],
   exports: {
     results: 'results',
   },

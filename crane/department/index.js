@@ -7,8 +7,9 @@ const percentage = require('./percentage');
 const eventSource = require('./event_source');
 const demandTypeBar = require('./demand_type_bar');
 const table = require('./table');
-const bumenchengbanliang = require('./bumenchengbanliang')
-const jiejianqushi = require('./jiejianqushi')
+const bumenchengbanliang = require('./bumenchengbanliang');
+const jiejianqushi = require('./jiejianqushi');
+const departmentTabs = require( './departmentTab');
 
 module.exports = {
   route: {
@@ -54,6 +55,31 @@ module.exports = {
         day: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
       }
     },
+    {
+      id: 'tabNavs',
+      value: [
+        {
+          uuid: 1,
+          label: '排名情况'
+        },
+        {
+          uuid: 2,
+          label: '全部部门'
+        }
+      ]
+    },
+    {
+      id: 'tabCurrent',
+      value:
+        {
+          uuid: 1,
+          label: '排名情况',
+        },
+    },
+    {
+      id: 'hideTable',
+      value: false,
+    }
   ],
 
   components: [
@@ -68,10 +94,12 @@ module.exports = {
     {
       id: 'page-title',
       component: 'div',
-      content: '锦江区网络理政',
-      position: [822, 12],
+      content: '锦江区网络理政大数据分析',
+      position: [745, 13],
       props: {
         $style: {
+          width: '430px',
+          height: '36px',
           color: '#2e2e2e',
           fontSize: '34px',
           $fontWeight: 500,
@@ -85,7 +113,7 @@ module.exports = {
     {
       id: 'source-end-date-content',
       component: 'div',
-      position: [432, 30],
+      position: [429, 32],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -99,7 +127,7 @@ module.exports = {
     {
       id: 'departments-loader',
       component: '@byzanteam/vis-components/data-loader',
-      position: [1117, 12],
+      position: [1195, 14],
       exports: {
         results: 'results',
       },
@@ -126,7 +154,7 @@ module.exports = {
     {
       id: 'datetime-picker-wrapper',
       component: 'div',
-      position: [1310, 12],
+      position: [1387, 14],
       children: [
         {
           id: 'datetime-picker',
@@ -164,7 +192,7 @@ module.exports = {
     {
       id: 'digital-background-top',
       component: 'div',
-      position: [26, 26],
+      position: [26, 86],
       props: {
         $style: {
           height:'120px',
@@ -178,7 +206,7 @@ module.exports = {
     {
       id: 'digital-background-bottom',
       component: 'div',
-      position: [26, 147],
+      position: [26, 207],
       props: {
         $style: {
           height:'100px',
@@ -192,7 +220,7 @@ module.exports = {
     {
       id: 'demand-type-circle',
       component: 'div',
-      position: [42, 284],
+      position: [42, 364],
       props: {
         $style: {
           height:'6px',
@@ -209,7 +237,7 @@ module.exports = {
     {
       id: 'demand-type-title',
       component: 'div',
-      position: [58, 277],
+      position: [58, 357],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -225,7 +253,7 @@ module.exports = {
     {
       id: 'department-circle',
       component: 'div',
-      position: [42, 548],
+      position: [1580, 109],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -257,7 +285,7 @@ module.exports = {
     {
       id: 'department-title',
       component: 'div',
-      position: [58, 541],
+      position: [1596, 102],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -273,7 +301,7 @@ module.exports = {
     {
       id: 'department-suffix',
       component: 'div',
-      position: [166, 546],
+      position: [1704, 107],
       props: {
         $style: {
           color: '#2E2E2E80',
@@ -288,7 +316,7 @@ module.exports = {
     {
       id: 'demand-bar-circle',
       component: 'div',
-      position: [1580, 548],
+      position: [42, 668],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -305,7 +333,7 @@ module.exports = {
     {
       id: 'demand-bar-title',
       component: 'div',
-      position: [1596, 542],
+      position: [58, 661],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -323,6 +351,7 @@ module.exports = {
       component: 'div',
       position: [432, 859],
       props: {
+        'v-if': 'craneStates.hideTable',
         $style: {
           boxSizing: 'content-box',
           height:'6px',
@@ -385,6 +414,7 @@ module.exports = {
       component: 'div',
       position: [448, 851],
       props: {
+        'v-if': 'craneStates.hideTable',
         $style: {
           color: '#2E2E2E',
           fontSize: '18px',
@@ -412,7 +442,7 @@ module.exports = {
     {
       id: 'event-source-circle',
       component: 'div',
-      position: [1580, 50],
+      position: [1580, 668],
       props: {
         $style: {
           height:'6px',
@@ -429,7 +459,7 @@ module.exports = {
     {
       id: 'event-title',
       component: 'div',
-      position: [1596, 42],
+      position: [1596, 661],
       props: {
         $style: {
           color: '#2E2E2E',
@@ -445,7 +475,7 @@ module.exports = {
     {
       id: 'event-suffix',
       component: 'div',
-      position: [1681, 46],
+      position: [1681, 663],
       props: {
         $style: {
           color: '#2E2E2E80',
@@ -467,6 +497,7 @@ module.exports = {
     demandTypeBar,
     table,
     bumenchengbanliang,
-    jiejianqushi
+    jiejianqushi,
+    departmentTabs
   ],
 };

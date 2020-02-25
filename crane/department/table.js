@@ -22,7 +22,7 @@ module.exports = {
       id: 'repeat-table',
       component: 'table',
       props: {
-        'v-if': 'response',
+        'v-if': 'craneStates.hideTable',
         $style: {
           width: '100%',
           maxHeight: '162px',
