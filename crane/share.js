@@ -64,7 +64,6 @@ exports.table_content_style = {
 };
 
 exports.percentage_number_style = {
-  width: '70px',
   height: '22px',
   boxSizing: 'border-box',
   color: '#FFFFFF',
