@@ -243,6 +243,7 @@ export const vis = {
           let Day = sourceTimeDate.getDate();
           let format = year + '-' + month + '-' + Day;
           let source = [format,value[0].slice(0,10),];
+          this.setState('dateRange', source);
           this.setState('filterRange', source);
           this.setState('defaultFilterRange', source);
           this.percentageNew(source);
