@@ -13,7 +13,7 @@ module.exports = {
     $data: "[{label: '承办单位', amount: 12}]",
     $style: {
       width: '298px',
-      maxHeight: '413px',
+      maxHeight: '440px',
       padding: '8px',
       overflow: 'scroll'
     },
