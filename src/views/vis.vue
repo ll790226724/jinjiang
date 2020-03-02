@@ -1,6 +1,6 @@
 <template>
   <div class="vis">
-    <div class="carousel-item">
+    <div class="carousel-item" :style="{transform: `translateX(${1920 * (0 - craneStates.pageIndex)}px)`}">
       <img ref="background" src="/jinjiangwllz/images/bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
       <div ref="page-title" :style="{width: '430px', height: '36px', color: '#2e2e2e', fontSize: '34px', fontWeight: 500, textAlign: 'center', letterSpacing: '1px', lineHeight: 1, display: 'inline-block', position: 'absolute', top: '13px', left: '745px'}">
         锦江区网络理政大数据分析
@@ -138,7 +138,7 @@
         <ranking ref="department-ranking-content" v-if="craneStates.rank" :data="results.slice(3, 6).map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
       </data-loader>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" :style="{transform: `translateX(${1920 * (1 - craneStates.pageIndex)}px)`}">
       <div :style="{height: '955px', width: '1300px', background: 'linear-gradient(180deg, #c0d5e8, rgba(27,116,239, 0))', position: 'absolute', top: '65px', left: '319px'}">
         <div :style="{height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '59px', left: '41px'}" />
         <div :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '50px', left: '69px'}">
@@ -157,10 +157,10 @@
         </data-loader>
       </div>
     </div>
-    <div ref="left-arrow" :style="{width: '74px', height: '74px', borderRadius: '50%', backgroundColor: 'rgba(0, 0, 0, .13)', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', top: '505px', left: '50px'}">
+    <div ref="left-arrow" @click="()=>[setState('pageIndex', craneStates.pageIndex - 1)]" :style="{width: '74px', height: '74px', borderRadius: '50%', backgroundColor: 'rgba(0, 0, 0, .13)', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', position: 'absolute', top: '505px', left: '50px'}">
       <BrickIcon name="chevron-light-left" size="24px" color="white" />
     </div>
-    <div ref="right-arrow" :style="{width: '74px', height: '74px', borderRadius: '50%', backgroundColor: 'rgba(0, 0, 0, .13)', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', top: '505px', left: '1796px'}">
+    <div ref="right-arrow" @click="()=>[setState('pageIndex', craneStates.pageIndex + 1)]" :style="{width: '74px', height: '74px', borderRadius: '50%', backgroundColor: 'rgba(0, 0, 0, .13)', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', position: 'absolute', top: '505px', left: '1796px'}">
       <BrickIcon name="chevron-light-right" size="24px" color="white" />
     </div>
   </div>

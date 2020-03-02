@@ -98,7 +98,7 @@ module.exports = {
       props: {
         class: 'carousel-item',
         $style: {
-          $transform: 'translateX(1920 * ${craneStates.pageIndex}px)'
+          $transform: "`translateX(${1920 * (0 - craneStates.pageIndex)}px)`"
         }
       },
       children: [

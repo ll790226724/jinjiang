@@ -5,7 +5,7 @@ module.exports = {
   props: {
     class: 'carousel-item',
     $style: {
-      $transform: 'translateX(1920 * ${craneStates.pageIndex + 1}px)'
+      $transform: "`translateX(${1920 * (1 - craneStates.pageIndex)}px)`"
     }
   },
   children: [

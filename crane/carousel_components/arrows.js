@@ -11,7 +11,13 @@ module.exports = [
         backgroundColor: 'rgba(0, 0, 0, .13)',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        cursor: 'pointer'
+      }
+    },
+    events: {
+      'click': {
+        actions: ["setState('pageIndex', craneStates.pageIndex - 1)"]
       }
     },
     children: [
@@ -37,7 +43,13 @@ module.exports = [
         backgroundColor: 'rgba(0, 0, 0, .13)',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        cursor: 'pointer'
+      }
+    },
+    events: {
+      'click': {
+        actions: ["setState('pageIndex', craneStates.pageIndex + 1)"]
       }
     },
     children: [
