@@ -14,6 +14,7 @@ const departmentTab = require('./departmentTab');
 const chartTab = require('./chart_tab');
 const rankingRank = require('./ranking_rank');
 const rankingRankEd = require('./ranking_rank_ed');
+const arrows = require('../carousel_components/arrows')
 
 module.exports = {
   route: {
@@ -577,6 +578,7 @@ module.exports = {
     departmentTab,
     chartTab,
     rankingRank,
-    rankingRankEd
+    rankingRankEd,
+    ...arrows
   ],
 };

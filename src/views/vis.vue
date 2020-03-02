@@ -136,6 +136,12 @@
     <data-loader ref="ranking_rank" v-slot="{ results: results }" :url="`/v1/components/f5b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '298px', maxHeight: '124px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '466px', left: '1572px'}">
       <ranking ref="department-ranking-content" v-if="craneStates.rank" :data="results.slice(3, 6).map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
     </data-loader>
+    <div ref="left-arrow" :style="{width: '74px', height: '74px', borderRadius: '50%', backgroundColor: 'rgba(0, 0, 0, .13)', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', top: '505px', left: '50px'}">
+      <BrickIcon name="chevron-light-left" size="24px" color="white" />
+    </div>
+    <div ref="right-arrow" :style="{width: '74px', height: '74px', borderRadius: '50%', backgroundColor: 'rgba(0, 0, 0, .13)', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', top: '505px', left: '1796px'}">
+      <BrickIcon name="chevron-light-right" size="24px" color="white" />
+    </div>
   </div>
 </template>
 
@@ -163,6 +169,7 @@ import {
 } from '@byzanteam/graphite'
 import {
   BrickTooltip,
+  BrickIcon,
 } from '@byzanteam/brick'
 
 const TAB_NAVS = [
@@ -201,6 +208,7 @@ export const vis = {
     VerticalBar,
     BrickTooltip,
     'v-chart': ECharts,
+    BrickIcon
   },
 
   data () {
