@@ -138,6 +138,17 @@
         <ranking ref="department-ranking-content" v-if="craneStates.rank" :data="results.slice(3, 6).map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
       </data-loader>
     </div>
+    <div class="carousel-item" :style="{position: 'relative', background: 'linear-gradient(180deg, rgba(27, 116, 239, 1), rgba(27,116,239, 0))'}">
+      <div :style="{position: 'absolute', top: '65px', left: '319px'}">
+        <div ref="demand-type-circle" :style="{height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '124px', left: '360px'}" />
+        <div ref="demand-type-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '115px', left: '384px'}">
+          诉求性质
+        </div>
+        <data-loader ref="demand-donut" v-slot="{ results: results }" :url="`/v1/components/b9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '投诉性质', amount: 12}]" :style="{width: '490px', height: '200px', position: 'absolute', top: '156px', left: '420px'}">
+          <donut ref="demand-donut-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" labelKey="label" valueKey="amount" :innerRadius="0.53" :percentage="true" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1B74EF', '#15C689', '#FFBA08', '#BB4430', '#A2AEBB', '#7B92B5'], whitespace: 'nowrap'}" :legendOptions="{size: '100px', align: ['center', 'start'], layout: 'vertical', label: {fill: '#2E2E2E', size: 14}, position: 'right', offset: [-115, 0]}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
+        </data-loader>
+      </div>
+    </div>
     <div ref="left-arrow" :style="{width: '74px', height: '74px', borderRadius: '50%', backgroundColor: 'rgba(0, 0, 0, .13)', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', top: '505px', left: '50px'}">
       <BrickIcon name="chevron-light-left" size="24px" color="white" />
     </div>
