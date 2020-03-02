@@ -215,6 +215,8 @@ const CHART_TAB_NAVS = [
   }
 ];
 
+const MAX_PAGE_INDEX = document.querySelectorAll('.carousel-item').length - 1
+
 export const vis = {
   mixins: [BuiltInMixin],
 
@@ -329,6 +331,11 @@ export const vis = {
         } else if (value.uuid === 2) {
           this.setState('showDayChart', true)
         }
+      }
+    },
+    'craneStates.pageIndex' (value) {
+      if (value > MAX_PAGE_INDEX || value < 0) {
+        this.craneStates.pageIndex = 0
       }
     }
   },
