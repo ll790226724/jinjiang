@@ -51,14 +51,17 @@ module.exports = {
           },
           content: '接件趋势',
         },
+        // 接件-月
         {
+          id: 'jiejianqushi-month',
           component: '@byzanteam/vis-components/data-loader',
-          position: [210, 181],
+          position: [210, 199],
           exports: {
             results: 'results',
           },
           props: {
-            $url: "`/v1/components/e9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`",
+            'v-if': '!craneStates.showDayChart',
+            $url: '`/v1/components/f6b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`',
             method: 'get',
             $style: {
               width: '1500px',
@@ -67,104 +70,113 @@ module.exports = {
           },
           children: [
             {
-              component: '@byzanteam/vis-components/data-loader',
-              position: [210, 199],
-              exports: {
-                results: 'results',
-              },
+              component: 'vue-echarts/v-chart',
               props: {
-                'v-if': 'craneStates.showDayChart',
-                $url: '`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&format=${craneStates.chartFormat}`',
-                method: 'get',
-                $style: {
-                  width: '1500px',
-                  height: '708px'
-                },
-              },
-              children: [
-                {
-                  id: 'jiejianqushi-day',
-                  component: 'vue-echarts/v-chart',
-                  props: {
-                    $options: {
-                      tooltip: {
-                        trigger: 'axis',
-                        $formatter: 'tooltipFormatterFunc',
-                        backgroundColor: '#ffffff',
-                        $textStyle: {
-                          color: '#2e2e2e',
-                          fontSize: '14px',
-                        }
-                      },
-                      $color: "['#1b74ef', '#74797f']",
-                      $xAxis: "[{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '18px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}]",
-                      $yAxis: "[{type: 'value', axisLabel: {color: '#2e2e2e', fontSize: '16px'}, scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}]",
-                      $grid: "{bottom: 80}",
-                      $dataZoom: {
-                        type: 'slider',
-                        show: true,
-                        $xAxisIndex: "[0]",
-                        $handleStyle: {
-                          color: '#1b74ef'
-                        },
-                        $startValue: 0,
-                        $endValue: 19,
-                      },
-                      $series: "[{type: 'line', name: '接件（件）', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}, {type: 'line', name: '同昨日下降', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]"
+                $options: {
+                  tooltip: {
+                    trigger: 'axis',
+                    $formatter: 'tooltipFormatterFunc',
+                    backgroundColor: '#ffffff',
+                    $textStyle: {
+                      color: '#2e2e2e',
+                      fontSize: '14px',
+                    }
+                  },
+                  $color: "['#1b74ef', '#74797f']",
+                  $xAxis: "[{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '18px'}, data: results.map(result => (new Date(result[0]).toISOString().slice(0, 7))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}]",
+                  $yAxis: "[{type: 'value', axisLabel: {color: '#2e2e2e', fontSize: '16px'}, scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '%', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}]",
+                  $grid: "{bottom: 80}",
+                  $dataZoom: {
+                    type: 'slider',
+                    show: true,
+                    $xAxisIndex: "[0]",
+                    $handleStyle: {
+                      color: '#1b74ef'
                     },
-                  }
-                }
-              ]
+                    $startValue: 0,
+                    $endValue: 19,
+                  },
+                  $series: "[{type: 'line', name: '接件(件)', symbolSize: 5.5, lineStyle: {width: 3}, yAxisIndex: 0, data: results.map(result => (result[1]))}, {type: 'line', name: '同上月增长', symbolSize: 8, lineStyle: {width: 3}, yAxisIndex: 1, data: results.map(result => (result[3].toFixed(2)))}]"
+                },
+              }
+            }
+          ]
+        },
+        // 接件-日
+        {
+          id: 'jiejianqushi-day',
+          component: '@byzanteam/vis-components/data-loader',
+          position: [210, 199],
+          exports: {
+            results: 'results',
+          },
+          props: {
+            'v-if': 'craneStates.showDayChart',
+            $url: '`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&format=${craneStates.chartFormat}`',
+            method: 'get',
+            $style: {
+              width: '1500px',
+              height: '708px'
             },
+          },
+          children: [
             {
-              id: 'jiejianqushi-month',
-              component: '@byzanteam/vis-components/data-loader',
-              position: [210, 199],
-              exports: {
-                results: 'results',
+              component: 'vue-echarts/v-chart',
+              props: {
+                $options: {
+                  tooltip: {
+                    trigger: 'axis',
+                    $formatter: 'tooltipFormatterFunc',
+                    backgroundColor: '#ffffff',
+                    $textStyle: {
+                      color: '#2e2e2e',
+                      fontSize: '14px',
+                    }
+                  },
+                  $color: "['#1b74ef', '#74797f']",
+                  $xAxis: "[{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '18px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}]",
+                  $yAxis: "[{type: 'value', axisLabel: {color: '#2e2e2e', fontSize: '16px'}, scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}]",
+                  $grid: "{bottom: 80}",
+                  $dataZoom: {
+                    type: 'slider',
+                    show: true,
+                    $xAxisIndex: "[0]",
+                    $handleStyle: {
+                      color: '#1b74ef'
+                    },
+                    $startValue: 0,
+                    $endValue: 19,
+                  },
+                  $series: "[{type: 'line', name: '接件（件）', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}, {type: 'line', name: '同昨日下降', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]"
+                },
+              }
+            }
+          ]
+        },
+        // tab
+        {
+          id: 'page2-chart-tab',
+          component: '@byzanteam/vis-components/data-loader',
+          position: [1575, 112],
+          exports: {
+            results: 'results',
+          },
+          props: {
+            $style: {
+              width: '126px',
+              height: '48px',
+            },
+          },
+          children: [
+            {
+              component: '@byzanteam/vis-components/brick-tabs',
+              directive: {
+                model: 'craneStates.chartTabCurrent',
               },
               props: {
-                'v-if': '!craneStates.showDayChart',
-                $url: '`/v1/components/f6b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`',
-                method: 'get',
-                $style: {
-                  width: '1500px',
-                  height: '708px'
-                },
-              },
-              children: [
-                {
-                  component: 'vue-echarts/v-chart',
-                  props: {
-                    $options: {
-                      tooltip: {
-                        trigger: 'axis',
-                        $formatter: 'tooltipFormatterFunc',
-                        backgroundColor: '#ffffff',
-                        $textStyle: {
-                          color: '#2e2e2e',
-                          fontSize: '14px',
-                        }
-                      },
-                      $color: "['#1b74ef', '#74797f']",
-                      $xAxis: "[{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '18px'}, data: results.map(result => (new Date(result[0]).toISOString().slice(0, 7))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}]",
-                      $yAxis: "[{type: 'value', axisLabel: {color: '#2e2e2e', fontSize: '16px'}, scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '%', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}]",
-                      $grid: "{bottom: 80}",
-                      $dataZoom: {
-                        type: 'slider',
-                        show: true,
-                        $xAxisIndex: "[0]",
-                        $handleStyle: {
-                          color: '#1b74ef'
-                        },
-                        $startValue: 0,
-                        $endValue: 19,
-                      },
-                      $series: "[{type: 'line', name: '接件(件)', symbolSize: 5.5, lineStyle: {width: 3}, yAxisIndex: 0, data: results.map(result => (result[1]))}, {type: 'line', name: '同上月增长', symbolSize: 8, lineStyle: {width: 3}, yAxisIndex: 1, data: results.map(result => (result[3].toFixed(2)))}]"
-                    },
-                  }
-                }
-              ]
+                $tabNavs: 'craneStates.chartTabNavs',
+                $activeTab: 'craneStates.chartTabCurrent'
+              }
             }
           ]
         }
