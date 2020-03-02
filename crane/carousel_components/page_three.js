@@ -1,5 +1,3 @@
-const { chartTooltipOptions } = require('../share');
-
 module.exports = {
   id: 'page_three',
   component: 'div',
@@ -17,11 +15,11 @@ module.exports = {
         $style: {
           height: '955px',
           width: '1600px',
-          background: "linear-gradient(180deg, #c0d5e8, rgba(27,116,239, 0))"
+          background: "linear-gradient(180deg, #c0d5e8, rgba(27,116,239, 0))",
+          borderRadius: '4px'
         }
       },
       children: [
-        // 部门承办量 & 回访情况 & 平均时间
         {
           id: 'page-2-chart-bar-circle',
           component: 'div',

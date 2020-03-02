@@ -14,8 +14,8 @@ const departmentTab = require('./departmentTab');
 const chartTab = require('./chart_tab');
 const rankingRank = require('./ranking_rank');
 const rankingRankEd = require('./ranking_rank_ed');
-const arrows = require('../carousel_components/arrows')
-const pageone = require('../carousel_components/page_one')
+const arrows = require('../carousel_components/arrows');
+const pageone = require('../carousel_components/page_one');
 
 module.exports = {
   route: {
