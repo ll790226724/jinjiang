@@ -33,6 +33,21 @@
     vue-i18n "^8.14.0"
     vue-router "^3.0.1"
 
+"@byzanteam/brick@latest":
+  version "0.4.16"
+  resolved "https://registry.npm.taobao.org/@byzanteam/brick/download/@byzanteam/brick-0.4.16.tgz#3cb39af708f083c52e8e207e915e539b20c01348"
+  integrity sha1-PLOa9wjwg8UujiB+kV5TmyDAE0g=
+  dependencies:
+    autosize "^4.0.2"
+    dayjs "^1.8.11"
+    lodash "^4.17.11"
+    node-polyglot "^2.3.0"
+    tiptap "^1.21.1"
+    tiptap-extensions "^1.20.1"
+    vue "^2.6.10"
+    vue-i18n "^8.14.0"
+    vue-router "^3.0.1"
+
 "@byzanteam/carbonium-timer@^0.1.1":
   version "0.1.1"
   resolved "https://registry.npmjs.org/@byzanteam/carbonium-timer/-/carbonium-timer-0.1.1.tgz#ded726d2de50f90b801bdc06508b2c81492bf993"
@@ -1575,6 +1590,11 @@ core-js@^2.4.0, core-js@^2.6.5:
   version "2.6.11"
   resolved "https://registry.npmjs.org/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
+
+core-js@^3.4.4:
+  version "3.6.4"
+  resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.6.4.tgz?cache=0&sync_timestamp=1578957195899&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-3.6.4.tgz#440a83536b458114b9cb2ac1580ba377dc470647"
+  integrity sha1-RAqDU2tFgRS5yyrBWAujd9xHBkc=
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -7490,11 +7510,12 @@ vue-countup-v2@^4.0.0:
   resolved "https://registry.npmjs.org/vue-countup-v2/-/vue-countup-v2-4.0.0.tgz#061a1ac8ee4aa207bb9d23d2bcc1d53a5f7c3675"
   integrity sha512-XjKeHo1ndRlJtXvHd6B1eWOpbrJDdNU3rdYZwVPv2YlUXbvthsBT4kms5Fc/mn9RdXPrMX2H/ktAAQtKjWFisw==
 
-vue-echarts@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/vue-echarts/-/vue-echarts-4.1.0.tgz#ff4828aaa599e7aaaac95e35297d964192a3af0d"
-  integrity sha512-am2vsAjEYGz3JqqMaSqIR35HIxr/TjxYPoKWTorgi10rzwl7+f+uBvpj7AkCJ6HVL8zR3exYpyo881aG+24Rfg==
+vue-echarts@latest:
+  version "5.0.0-beta.0"
+  resolved "https://registry.npm.taobao.org/vue-echarts/download/vue-echarts-5.0.0-beta.0.tgz#438dd4b0fc5ccea281709c1f7c6321b05352bdf4"
+  integrity sha1-Q43UsPxczqKBcJwffGMhsFNSvfQ=
   dependencies:
+    core-js "^3.4.4"
     lodash "^4.17.15"
     resize-detector "^0.1.10"
 

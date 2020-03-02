@@ -20,6 +20,7 @@ module.exports = {
         $options: {
           tooltip: {
             trigger: 'axis',
+            $formatter: 'tooltipFormatterFunc',
             backgroundColor: '#ffffff',
             $textStyle: {
               color: '#2e2e2e',
@@ -40,7 +41,7 @@ module.exports = {
             $startValue: 0,
             $endValue: 19,
           },
-          $series: "[{type: 'line', name: '接件（件）', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]"
+          $series: "[{type: 'line', name: '接件（件）', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}, {type: 'line', name: '同昨日下降', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]"
         },
       }
     }
