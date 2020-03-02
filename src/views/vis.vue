@@ -250,6 +250,7 @@ export const vis = {
         chartFormat: 'YYYY-MM-DD',
         showDayChart: true,
         upDown: '增长',
+        pageIndex: 0,
       },
     }
   },

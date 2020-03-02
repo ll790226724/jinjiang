@@ -85,6 +85,10 @@ module.exports = {
     {
       id: 'upDown',
       value: '增长'
+    },
+    {
+      id: 'pageIndex',
+      value: 0,
     }
   ],
 
@@ -92,7 +96,10 @@ module.exports = {
     {
       component: 'div',
       props: {
-        class: 'carousel-item'
+        class: 'carousel-item',
+        $style: {
+          $transform: 'translateX(1920 * ${craneStates.pageIndex}px)'
+        }
       },
       children: [
         {

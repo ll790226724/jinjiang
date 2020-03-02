@@ -4,6 +4,9 @@ module.exports = {
   component: 'div',
   props: {
     class: 'carousel-item',
+    $style: {
+      $transform: 'translateX(1920 * ${craneStates.pageIndex + 1}px)'
+    }
   },
   children: [
     {
