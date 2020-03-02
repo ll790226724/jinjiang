@@ -251,6 +251,8 @@ export const vis = {
         showDayChart: true,
         upDown: '增长',
         pageIndex: 0,
+        timer: 0,
+        carouselTimr: '',
       },
     }
   },
@@ -396,12 +398,41 @@ export const vis = {
     },
 
     formatterFunc(param) {
-      return `${param[0].name}<br />`+ `<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#4F5E67;"></span><span>总件数(件):</span> ${param[0].value + param[1].value + param[2].value + param[3].value}</br>` + param.map((serie) => `${serie.marker}${serie.seriesName}(${serie.seriesName === '平均回复时间' ? '天' : '件'}): ${serie.value}<br />`).join('')}
+      return `${param[0].name}<br />`+ `<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#4F5E67;"></span><span>总件数(件):</span> ${param[0].value + param[1].value + param[2].value + param[3].value}</br>` + param.map((serie) => `${serie.marker}${serie.seriesName}(${serie.seriesName === '平均回复时间' ? '天' : '件'}): ${serie.value}<br />`).join('')
+    },
+
+    bodyEventsWatcher () {
+      document.body.addEventListener("click",this.eventsFunc);
+      document.body.addEventListener("keydown",this.eventsFunc);
+      document.body.addEventListener("mousemove",this.eventsFunc);
+      document.body.addEventListener("mousewheel",this.eventsFunc);
+    },
+
+    eventsFunc () {
+      this.craneStates.timer = 0
+    },
+
+    setCarouselTimr () {
+      this.craneStates.carouselTimr = setInterval(() => {
+        this.craneStates.timer += 1
+        if(this.craneStates.timer >= 10) {
+          this.craneStates.pageIndex += 1
+          this.craneStates.timer = 0
+        }
+      }, 1000);
+    }
   },
 
   created () {
     this.percentageNew(this.craneStates.defaultFilterRange);
     this.percentageOld(this.craneStates.defaultFilterRange);
-  }};
+    this.bodyEventsWatcher(),
+    this.setCarouselTimr()
+  },
+
+  destroyed() {
+    clearInterval(this.craneStates.carouselTimr);
+  },
+};
 export default vis
 </script>

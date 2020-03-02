@@ -89,6 +89,14 @@ module.exports = {
     {
       id: 'pageIndex',
       value: 0,
+    },
+    {
+      id: 'timer',
+      value: 0,
+    },
+    {
+      id: 'carouselTimr',
+      value: ''
     }
   ],
 
