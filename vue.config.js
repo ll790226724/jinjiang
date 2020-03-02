@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/jinjiangwllz/',
+  publicPath: '/jinjiangwllzv2/',
   outputDir: 'jinjiang',
   pluginOptions: {
     i18n: {

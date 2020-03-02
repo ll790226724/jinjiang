@@ -1,22 +1,22 @@
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [330, 705],
+  position: [330, 673],
   exports: {
     results: 'results',
   },
   props: {
-    $url: '`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`',
+    'v-if': 'craneStates.showDayChart',
+    $url: '`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&format=${craneStates.chartFormat}`',
     method: 'get',
     $style: {
       width: '1300px',
-      height: '282px'
+      height: '308px'
     },
   },
   children: [
     {
       component: 'vue-echarts/v-chart',
       props: {
-        'v-if': 'results',
         $options: {
           tooltip: {
             trigger: 'axis',

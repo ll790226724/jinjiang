@@ -21,7 +21,7 @@
       诉求性质
     </div>
     <div ref="department-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '109px', left: '1580px'}" />
-    <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '107px', left: '432px'}" />
+    <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '109px', left: '432px'}" />
     <div ref="department-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '102px', left: '1596px'}">
       部门承办量
     </div>
@@ -36,20 +36,32 @@
     <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '102px', left: '448px'}">
       部门承办量 & 回访情况 & 平均回复时间
     </div>
-    <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '666px', left: '432px'}" />
+    <div ref="repeat-demand-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '668px', left: '432px'}" />
     <div ref="repeat-demand-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '661px', left: '448px'}">
       接件趋势
     </div>
     <div ref="repeat-demand-title" v-if="craneStates.hideTable" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '851px', left: '448px'}">
       重复投诉统计
     </div>
-    <div ref="right-background" :style="{width: '330px', height: '841px', backgroundImage: 'linear-gradient(#1B74EF12, #1B74EF00)', borderRadius: '4px', position: 'absolute', top: '26px', left: '1564px'}" />
+    <div ref="right-background" :style="{width: '330px', height: '841px', backgroundImage: 'linear-gradient(#1B74EF12, #1B74EF00)', borderRadius: '4px', position: 'absolute', top: '85px', left: '1564px'}" />
     <div ref="event-source-circle" :style="{height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '668px', left: '1580px'}" />
     <div ref="event-title" :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '661px', left: '1596px'}">
       事件来源
     </div>
     <div ref="event-suffix" :style="{color: '#2E2E2E80', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '663px', left: '1681px'}">
       /件
+    </div>
+    <div ref="top-img" v-if="craneStates.rank" :style="{position: 'absolute', top: '231px', left: '1579px'}">
+      <img :style="{height: '20px'}" src="/jinjiangwllz/images/Icon-Trophy1.svg" />
+    </div>
+    <div ref="top3-text" v-if="craneStates.rank" :style="{color: '#418CFF', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '234px', left: '1606px'}">
+      排名前三
+    </div>
+    <div ref="ed-img" v-if="craneStates.rank" :style="{position: 'absolute', top: '434px', left: '1579px'}">
+      <img :style="{height: '20px'}" src="/jinjiangwllz/images/Icon-Trophy2.svg" />
+    </div>
+    <div ref="ed3-text" v-if="craneStates.rank" :style="{color: '#418CFF', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '437px', left: '1606px'}">
+      排名后三
     </div>
     <data-loader ref="deal-number" v-slot="{ results: results }" :url="`/v1/components/89b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[[0]]" :style="{width: '194px', height: '44px', position: 'absolute', top: '121px', left: '63px'}">
       <digital-roll ref="deal-number-total" v-if="results" titlePosition="left" :content="{title: '当月办件数量', digital: results[0][0], suffix: '件'}" :options="{separator: ''}" :titleStyle="{color: 'rgba(255, 255, 255)', fontSize: '14px', fontWeight: '500'}" :suffixStyle="{fontSize: '14px', fontWeight: '400'}" :digitalStyle="{fontSize: '36px', color: '#FFFFFF', fontWeight: '400', fontFamily: 'Oswald'}" />
@@ -63,22 +75,22 @@
     <data-loader ref="demand-donut" v-slot="{ results: results }" :url="`/v1/components/b9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '投诉性质', amount: 12}]" :style="{width: '490px', height: '200px', position: 'absolute', top: '378px', left: '-10px'}">
       <donut ref="demand-donut-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" labelKey="label" valueKey="amount" :innerRadius="0.53" :percentage="true" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1B74EF', '#15C689', '#FFBA08', '#BB4430', '#A2AEBB', '#7B92B5'], whitespace: 'nowrap'}" :legendOptions="{size: '100px', align: ['center', 'start'], layout: 'vertical', label: {fill: '#2E2E2E', size: 14}, position: 'right', offset: [-115, 0]}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
     </data-loader>
-    <data-loader ref="department-ranking" v-slot="{ results: results }" :url="`/v1/components/c9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '298px', maxHeight: '413px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '198px', left: '1580px'}">
-      <ranking ref="department-ranking-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
+    <data-loader ref="department-ranking" v-slot="{ results: results }" :url="`/v1/components/c9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '298px', maxHeight: '413px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '198px', left: '1572px'}">
+      <ranking ref="department-ranking-content" v-if="!craneStates.rank" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
     </data-loader>
-    <data-loader ref="percentage-number" v-slot="{ results: results }" :url="`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.chainParamsNew}&end=${craneStates.chainParamsOld}`" method="get" :data="[[0]]" :style="{width: '70px', height: '22px', boxSizing: 'border-box', color: '#FFFFFF', fontSize: '16px', paddingLeft: '4px', paddingRight: '6px', backgroundColor: '#155EC2', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderRadius: '2px', position: 'absolute', top: '139px', left: '259px'}">
+    <data-loader ref="percentage-number" v-slot="{ results: results }" :url="`/v1/components/a9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.chainParamsNew}&end=${craneStates.chainParamsOld}`" method="get" :data="[[0]]" :style="{minWidth: '70px', height: '22px', boxSizing: 'border-box', color: '#FFFFFF', fontSize: '16px', paddingLeft: '4px', paddingRight: '6px', backgroundColor: '#155EC2', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderRadius: '2px', position: 'absolute', top: '139px', left: '259px'}">
       <brick-tooltip v-if="results" :content="(results[0][2] === 0 ? '同比不变':'')+(results[0][2] > 0 ? '同比增长'+results[0][2]+'%':'') + (results[0][2]< 0 ? '同比下降'+results[0][2]+'%' :'')" placement="bottom-end" :style="{borderRadius: '4px', color: '#ffffff', fontFamily: 'Oswald-Light', lineHeight: '1', alignItems: 'center', display: 'flex', flexGrow: '1', justifyContent: 'space-between'}">
         <div :style="{display: 'flex'}">
           <div ref="percentage-number" :style="{fontFamily: 'Oswald-Light', display: 'flex', justifyContent: 'center', flexGrow: '1'}">
             {{results[0][2]}}%
           </div>
-          <img ref="up-icon" v-if="results[0][2] > 0" src="/jinjiangwllz/images/icon-up.svg" />
-          <img ref="down-icon" v-if="results[0][2] < 0" src="/jinjiangwllz/images/icon-down.svg" />
+          <img ref="up-icon" v-if="results[0][2] > 0" :style="{paddingLeft: '6px'}" src="/jinjiangwllz/images/icon-up.svg" />
+          <img ref="down-icon" v-if="results[0][2] < 0" :style="{paddingLeft: '6px'}" src="/jinjiangwllz/images/icon-down.svg" />
         </div>
       </brick-tooltip>
     </data-loader>
-    <data-loader ref="event-source" v-slot="{ results: results }" :url="`/v1/components/f3b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '事件来源', amount: 12}]" :style="{width: '330px', height: '310px', position: 'absolute', top: '690px', left: '1565px'}">
-      <donut ref="event-ranking-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } ).slice(0, 4)" labelKey="label" valueKey="amount" :percentage="true" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1B74EF', '#15C689', '#FFBA08', '#BB4430'], whitespace: 'nowrap'}" :legendOptions="{size: '200px', align: ['center', 'start'], layout: 'vertical', label: {fill: '#2E2E2E', size: 14}, position: 'bottom'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
+    <data-loader ref="event-source" v-slot="{ results: results }" :url="`/v1/components/f3b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '事件来源', amount: 12}]" :style="{width: '300px', height: '310px', position: 'absolute', top: '690px', left: '1565px'}">
+      <donut ref="event-ranking-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" labelKey="label" valueKey="amount" :percentage="true" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1B74EF', '#15C689', '#FFBA08', '#BB4430'], whitespace: 'nowrap'}" :legendOptions="{size: '70px', align: ['start', 'center'], layout: 'vertical', label: {fill: '#2E2E2E', size: 14}, position: 'bottom'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '投诉类型', amount: 12}]" :style="{width: '384px', height: '290px', position: 'absolute', top: '705px', left: '-12px'}">
       <vertical-bar v-if="results" :data="results.map((result) => ({label: result[1], '数量（件）': result[0]}))" labelKey="label" valueKey="数量（件）" :mainAxis="{labelStyle: {rotate: -45, size: 14, fill: '#666666'}, labelLength: 7, lineStyle: {stroke: 'transparent'}}" :crossAxis="{range: {count: 5}, lineStyle: {stroke: 'transparent'}, labelStyle: {size: 16, fill: '#666666'}, unit: {content: '件', fill: '#666666'}}" :gap="{outer: 3}" :series="['#1b74ef']" :theme="{background: 'transparent'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
@@ -104,16 +116,25 @@
       </table>
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/e9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '1300px', height: '427px', position: 'absolute', top: '153px', left: '330px'}">
-      <v-chart v-if="results" :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}, formatter: (param) => { return `${param[0].name}<br />` + param.map((serie) => `${serie.marker}${serie.seriesName}(${serie.seriesName === '平均回复时间' ? '天' : '件'}): ${serie.value}<br />`).join('')}}, legend: {data: Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name}), right: '80px'}, color: ['#15c689','#bb4430', '#ffba08', '#a2aebb', '#1b74ef','#74797f'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map((item) => {return {date: item[0], satisfied: item[1], unsatisfied: item[2], basicly: item[3], unknown: item[4], callbacked: item[5], day: item[6].toFixed(2)} }).map((item) => {return item.date}), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '天', boundaryGap: [0.2, 0.2], axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], grid: {bottom: 110}, dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: Object.keys(craneStates.chartLegendsMap).map(item => {return {...craneStates.chartLegendsMap[item], data: results.map((item) => {return {date: item[0], satisfied: item[1], unsatisfied: item[2], basicly: item[3], unknown: item[4], callbacked: item[5], day:  parseFloat(item[6]).toFixed(2) } }).map(data => data[item])}})}" />
+      <v-chart v-if="results" :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}, formatter: formatterFunc}, legend: {data: Object.keys(craneStates.chartLegendsMap).map((item) => {return craneStates.chartLegendsMap[item].name}), right: '80px'}, color: ['#15c689','#bb4430', '#ffba08', '#a2aebb', '#1b74ef','#74797f'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map((item) => {return {date: item[0], satisfied: item[1], unsatisfied: item[2], basicly: item[3], unknown: item[4], callbacked: item[5], day: item[6].toFixed(2)} }).map((item) => {return item.date}), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '天', boundaryGap: [0.2, 0.2], axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], grid: {bottom: 110}, dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: Object.keys(craneStates.chartLegendsMap).map(item => {return {...craneStates.chartLegendsMap[item], data: results.map((item) => {return {date: item[0], satisfied: item[1], unsatisfied: item[2], basicly: item[3], unknown: item[4], callbacked: item[5], day:  parseFloat(item[6]).toFixed(2) } }).map(data => data[item])}})}" />
     </data-loader>
-    <data-loader v-slot="{ results: results }" :url="`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '1300px', height: '282px', position: 'absolute', top: '705px', left: '330px'}">
-      <v-chart v-if="results" :options="{tooltip: {trigger: 'axis', formatter: tooltipFormatterFunc, backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}}, color: ['#1b74ef', '#74797f'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], grid: {bottom: 80}, dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: [{type: 'line', name: '接件（件）', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}, {type: 'line', name: '同昨日下降', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]}" />
+    <data-loader v-slot="{ results: results }" v-if="craneStates.showDayChart" :url="`/v1/components/f1b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}&format=${craneStates.chartFormat}`" method="get" :style="{width: '1300px', height: '308px', position: 'absolute', top: '673px', left: '330px'}">
+      <v-chart :options="{tooltip: {trigger: 'axis', backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}}, color: ['#1b74ef', '#74797f'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map(result => (new Date(result[1]).toISOString().slice(0, 10))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], grid: {bottom: 80}, dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: [{type: 'line', name: '接件（件）', symbolSize: 8, lineStyle: {width: 3}, data: results.map(result => (result[0]))}]}" />
+    </data-loader>
+    <data-loader v-slot="{ results: results }" v-if="!craneStates.showDayChart" :url="`/v1/components/f6b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :style="{width: '1300px', height: '308px', position: 'absolute', top: '673px', left: '330px'}">
+      <v-chart :options="{tooltip: {trigger: 'axis', formatter: tooltipFormatterFunc, backgroundColor: '#ffffff', textStyle: {color: '#2e2e2e', fontSize: '14px'}}, color: ['#1b74ef', '#74797f'], xAxis: [{type: 'category', axisLabel: {rotate: 20, interval: 0, color: '#2e2e2e', fontSize: '14px'}, data: results.map(result => (new Date(result[0]).toISOString().slice(0, 7))), axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: true, lineStyle: {color: ['#666666'], type: 'dashed'}}}], yAxis: [{type: 'value', scale: true, name: '件', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}, {type: 'value', scale: true, name: '%', axisLine: {show: false}, axisTick: {show: false}, splitLine: {show: false}}], grid: {bottom: 80}, dataZoom: {type: 'slider', show: 'true', xAxisIndex: [0], handleStyle: {color: '#1b74ef'}, startValue: 0, endValue: 19}, series: [{type: 'line', name: '接件(件)', symbolSize: 8, lineStyle: {width: 3}, yAxisIndex: 0, data: results.map(result => (result[1]))}, {type: 'line', name: '同上月增长', symbolSize: 8, lineStyle: {width: 3}, yAxisIndex: 1, data: results.map(result => (result[3].toFixed(2)))}]}" />
     </data-loader>
     <data-loader ref="department-tab" v-slot="{ results: results }" :style="{width: '194px', height: '30px', position: 'absolute', top: '147px', left: '1632px'}">
       <brick-tabs :tabNavs="craneStates.tabNavs" :activeTab="craneStates.tabCurrent" v-model="craneStates.tabCurrent" />
     </data-loader>
-    <data-loader v-slot="{ results: results }" url="/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=2018-01-01&end=2020-01-01" method="get" :style="{width: '330px', height: '290px', position: 'absolute', top: '576px', left: '1570px'}">
-      <vertical-bar v-if="results" :data="results.map((result) => ({label: result[1], count: result[0]}))" labelKey="label" valueKey="count" :mainAxis="{labelStyle: {rotate: -45, size: 14, fill: '#666666'}, labelLength: 7, lineStyle: {stroke: 'transparent'}}" :crossAxis="{range: {count: 5}, lineStyle: {stroke: 'transparent'}, labelStyle: {size: 16, fill: '#666666'}, unit: {content: '件', fill: '#666666'}}" :gap="{outer: 3.3}" :series="['#1b74ef']" :theme="{background: 'transparent'}" />
+    <data-loader ref="department-tab" v-slot="{ results: results }" :style="{width: '126px', height: '30px', position: 'absolute', top: '651px', left: '1391px'}">
+      <brick-tabs :tabNavs="craneStates.chartTabNavs" :activeTab="craneStates.chartTabCurrent" v-model="craneStates.chartTabCurrent" />
+    </data-loader>
+    <data-loader ref="ranking_rank" v-slot="{ results: results }" :url="`/v1/components/f5b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '298px', maxHeight: '131px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '263px', left: '1572px'}">
+      <ranking ref="department-ranking-content" v-if="craneStates.rank" :data="results.slice(0, 3).map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
+    </data-loader>
+    <data-loader ref="ranking_rank" v-slot="{ results: results }" :url="`/v1/components/f5b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '298px', maxHeight: '124px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '466px', left: '1572px'}">
+      <ranking ref="department-ranking-content" v-if="craneStates.rank" :data="results.slice(3, 6).map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '16px', lineHeight: '24px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '16px', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '3px', borderRadius: '3px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
     </data-loader>
   </div>
 </template>
@@ -144,6 +165,28 @@ import {
   BrickTooltip,
 } from '@byzanteam/brick'
 
+const TAB_NAVS = [
+  {
+    uuid: 1,
+    label: '排名情况'
+  },
+  {
+    uuid: 2,
+    label: '全部部门'
+  }
+];
+
+const CHART_TAB_NAVS = [
+  {
+    uuid: 1,
+    label: '月'
+  },
+  {
+    uuid: 2,
+    label: '日'
+  }
+];
+
 export const vis = {
   mixins: [BuiltInMixin],
 
@@ -169,9 +212,15 @@ export const vis = {
         department: '',
         defaultFilterRange: ['', ''],
         chartLegendsMap: {satisfied: {name: '满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, unsatisfied: {name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, unknown: {name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, basicly: {name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5}, callbacked: {name: '回访情况', type: 'line', yAxisIndex: 0, symbolSize: 8}, day: {name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8}},
-        tabNavs: [{uuid: 1, label: '排名情况'}, {uuid: 2, label: '全部部门'}],
-        tabCurrent: {uuid: 1, label: '排名情况'},
+        tabNavs: TAB_NAVS,
+        tabCurrent: TAB_NAVS[0],
         hideTable: false,
+        rank: true,
+        chartTabNavs: CHART_TAB_NAVS,
+        chartTabCurrent: CHART_TAB_NAVS[1],
+        chartFormat: 'YYYY-MM-DD',
+        showDayChart: true,
+        upDown: '增长',
       },
     }
   },
@@ -194,6 +243,7 @@ export const vis = {
           let Day = sourceTimeDate.getDate();
           let format = year + '-' + month + '-' + Day;
           let source = [format,value[0].slice(0,10),];
+          this.setState('dateRange', source);
           this.setState('filterRange', source);
           this.setState('defaultFilterRange', source);
           this.percentageNew(source);
@@ -229,6 +279,26 @@ export const vis = {
         }
       },
     },
+    'craneStates.tabCurrent': {
+      immediate: true,
+      handler (value) {
+        if (value.uuid === 1) {
+          this.setState('rank', true)
+        } else if (value.uuid === 2) {
+          this.setState('rank', false)
+        }
+      }
+    },
+    'craneStates.chartTabCurrent': {
+      immediate: true,
+      handler (value) {
+        if (value.uuid === 1) {
+          this.setState('showDayChart', false)
+        } else if (value.uuid === 2) {
+          this.setState('showDayChart', true)
+        }
+      }
+    }
   },
 
   methods: {
@@ -265,14 +335,38 @@ export const vis = {
     tooltipFormatterFunc (params) {
       const str = `<div style='font-size: 9px; line-height: 1.4;'>${params[0].name}</div>`
       const arr = params.map((item) => {
-        var value = `${item.seriesName}: ${item.value}`
-        if (item.seriesName === '同昨日下降') {
-          value = `${item.seriesName}${item.value}%`
+        var value = `${item.seriesName}: ${item.value}`;
+        if (item.seriesName === '同上月增长') {
+          if (item.value >= 0) {
+            value = `${item.seriesName}${item.value}%`
+          } else if (item.value < 0) {
+            value = `同上月下降${item.value.slice(1)}%`
+          }
         }
-        return `<div style='display: flex; justify-content: flex-start; align-items: center;'><div style='background-color: ${item.color}; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px;'></div><div style='font-size: 9px; line-height: 1.4'>${value}</div></div>`
-      })
+        return `<div
+                  style='display: flex;
+                  justify-content: flex-start;
+                  align-items: center;'
+                  >
+                    <div
+                  style='background-color: ${item.color};
+                  width: 9px; height: 9px; border-radius: 50%;
+                  margin-right: 6px;'
+                    >
+                    </div>
+                    <div
+                  style='font-size: 9px;
+                  line-height: 1.4'
+                    >
+                    ${value}
+                    </div>
+                </div>`
+      });
       return str + arr.join('')
-    }
+    },
+
+    formatterFunc(param) {
+      return `${param[0].name}<br />`+ `<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#4F5E67;"></span><span>总件数(件):</span> ${param[0].value + param[1].value + param[2].value + param[3].value}</br>` + param.map((serie) => `${serie.marker}${serie.seriesName}(${serie.seriesName === '平均回复时间' ? '天' : '件'}): ${serie.value}<br />`).join('')}
   },
 
   created () {

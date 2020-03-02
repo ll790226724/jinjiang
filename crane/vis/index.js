@@ -9,7 +9,12 @@ const demandTypeBar = require('./demand_type_bar');
 const table = require('./table');
 const bumenchengbanliang = require('./bumenchengbanliang');
 const jiejianqushi = require('./jiejianqushi');
+const jiejianqushiMonth = require('./jiejianqushiMonth');
 const departmentTab = require('./departmentTab');
+const chartTab = require('./chart_tab');
+const rankingRank = require('./ranking_rank');
+const rankingRankEd = require('./ranking_rank_ed');
+
 module.exports = {
   route: {
     name: 'vis',
@@ -54,30 +59,30 @@ module.exports = {
         day: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
       }
     },
-    {
-      id: 'tabNavs',
-      value: [
-        {
-          uuid: 1,
-          label: '排名情况'
-        },
-        {
-          uuid: 2,
-          label: '全部部门'
-        }
-      ]
-    },
-    {
-      id: 'tabCurrent',
-      value:
-        {
-          uuid: 1,
-          label: '排名情况',
-        },
-    },
+
     {
       id: 'hideTable',
       value: false,
+    },
+
+    {
+      id: 'rank',
+      value: true
+    },
+
+    {
+      id: 'chartFormat',
+      value: 'YYYY-MM-DD'
+    },
+
+    {
+      id: 'showDayChart',
+      value: true,
+    },
+
+    {
+      id: 'upDown',
+      value: '增长'
     }
   ],
 
@@ -268,7 +273,7 @@ module.exports = {
     {
       id: 'repeat-demand-circle',
       component: 'div',
-      position: [432, 107],
+      position: [432, 109],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -380,7 +385,7 @@ module.exports = {
     {
       id: 'repeat-demand-circle',
       component: 'div',
-      position: [432, 666],
+      position: [432, 668],
       props: {
         $style: {
           boxSizing: 'content-box',
@@ -427,7 +432,7 @@ module.exports = {
     {
       id: 'right-background',
       component: 'div',
-      position: [1564, 26],
+      position: [1564, 85],
       props: {
         $style: {
           width: '330px',
@@ -486,6 +491,77 @@ module.exports = {
       content: '/件',
     },
 
+    {
+      id: 'top-img',
+      component: 'div',
+      position: [1579, 231],
+      props:{
+        'v-if': 'craneStates.rank',
+      },
+      children: [
+        {
+          component: 'img',
+          props: {
+            $style: {
+              height: '20px'
+            },
+            src: '/jinjiangwllz/images/Icon-Trophy1.svg'
+          }
+        }
+      ]
+    },
+
+    {
+      id: 'top3-text',
+      component: 'div',
+      position: [1606, 234],
+      props: {
+        'v-if': 'craneStates.rank',
+        $style: {
+          color: '#418CFF',
+          fontSize: '14px',
+          fontWeight: 400,
+          textAlign: 'left'
+        }
+      },
+      content: '排名前三'
+    },
+
+    {
+      id: 'ed-img',
+      component: 'div',
+      position: [1579, 434],
+      props:{
+        'v-if': 'craneStates.rank',
+      },
+      children: [
+        {
+          component: 'img',
+          props: {
+            $style: {
+              height: '20px'
+            },
+            src: '/jinjiangwllz/images/Icon-Trophy2.svg'
+          }
+        }
+      ]
+    },
+
+    {
+      id: 'ed3-text',
+      component: 'div',
+      position: [1606, 437],
+      props: {
+        'v-if': 'craneStates.rank',
+        $style: {
+          color: '#418CFF',
+          fontSize: '14px',
+          fontWeight: 400,
+          textAlign: 'left'
+        }
+      },
+      content: '排名后三'
+    },
     dealNumber,
     satisfaction,
     overdue,
@@ -497,6 +573,10 @@ module.exports = {
     table,
     bumenchengbanliang,
     jiejianqushi,
-    departmentTab
+    jiejianqushiMonth,
+    departmentTab,
+    chartTab,
+    rankingRank,
+    rankingRankEd
   ],
 };

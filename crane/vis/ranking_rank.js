@@ -1,19 +1,19 @@
 const { chartTooltipOptions } = require('../share');
 
 module.exports = {
-  id: 'department-ranking',
+  id: 'ranking_rank',
   component: '@byzanteam/vis-components/data-loader',
-  position: [1572, 198],
+  position: [1572, 263],
   exports: {
     results: 'results',
   },
   props: {
-    $url: "`/v1/components/c9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`",
+    $url: "`/v1/components/f5b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`",
     method: 'get',
     $data: "[{label: '承办单位', amount: 12}]",
     $style: {
       width: '298px',
-      maxHeight: '413px',
+      maxHeight: '131px',
       padding: '8px',
       overflow: 'scroll'
     },
@@ -23,8 +23,8 @@ module.exports = {
       id: 'department-ranking-content',
       component: '@byzanteam/vis-components/ranking',
       props: {
-        'v-if': '!craneStates.rank',
-        $data: "results.map(item => { return {label: item[1], amount: item[0] } } )",
+        'v-if': 'craneStates.rank',
+        $data: "results.slice(0, 3).map(item => { return {label: item[1], amount: item[0] } } )",
         $keys: {
           label: 'label',
           value: 'amount',

@@ -60,6 +60,9 @@ module.exports = {
               component: 'img',
               props: {
                 'v-if': 'results[0][2] > 0',
+                $style: {
+                  paddingLeft: '6px'
+                },
                 src: '/jinjiangwllz/images/icon-up.svg',
               },
             },
@@ -68,6 +71,9 @@ module.exports = {
               component: 'img',
               props: {
                 'v-if': 'results[0][2] < 0',
+                $style: {
+                  paddingLeft: '6px'
+                },
                 src: '/jinjiangwllz/images/icon-down.svg',
               },
             },
