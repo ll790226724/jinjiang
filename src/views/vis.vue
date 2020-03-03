@@ -141,19 +141,19 @@
     <div class="carousel-item" :style="{transform: `translateX(${1920 * (1 - craneStates.pageIndex)}px)`}">
       <div :style="{height: '955px', width: '1300px', background: 'linear-gradient(180deg, #c0d5e8, rgba(27,116,239, 0))', position: 'absolute', top: '65px', left: '319px'}">
         <div :style="{height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '59px', left: '41px'}" />
-        <div :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '50px', left: '69px'}">
+        <div :style="{color: '#2E2E2E', fontSize: '26px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '50px', left: '69px'}">
           诉求性质
         </div>
         <data-loader v-slot="{ results: results }" :url="`/v1/components/b9b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '投诉性质', amount: 12}]" :style="{width: '860px', height: '369px', position: 'absolute', top: '91px', left: '101px'}">
-          <donut v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" labelKey="label" valueKey="amount" :innerRadius="0.53" :percentage="true" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1B74EF', '#15C689', '#FFBA08', '#BB4430', '#A2AEBB', '#7B92B5'], whitespace: 'nowrap'}" :legendOptions="{size: '100px', align: ['center', 'start'], layout: 'vertical', label: {fill: '#2E2E2E', size: 14}, position: 'right', offset: [-115, 0]}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
+          <donut v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" labelKey="label" valueKey="amount" :innerRadius="0.53" :percentage="true" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1B74EF', '#15C689', '#FFBA08', '#BB4430', '#A2AEBB', '#7B92B5'], whitespace: 'nowrap'}" :legendOptions="{size: '120px', align: ['center', 'start'], layout: 'vertical', label: {fill: '#2E2E2E', size: 20}, position: 'right', offset: [0, 0]}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
         </data-loader>
         <div :style="{height: '1px', width: '1200px', borderBottom: '1px solid #2e2e2e', opacity: '.1', position: 'absolute', top: '477px', left: '49px'}" />
         <div :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '537px', left: '42px'}" />
-        <div :style="{color: '#2E2E2E', fontSize: '18px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '528px', left: '65px'}">
+        <div :style="{color: '#2E2E2E', fontSize: '26px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '528px', left: '65px'}">
           诉求类型
         </div>
         <data-loader v-slot="{ results: results }" :url="`/v1/components/f4b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '投诉类型', amount: 12}]" :style="{width: '1200px', height: '370px', position: 'absolute', top: '584px', left: '41px'}">
-          <vertical-bar v-if="results" :data="results.map((result) => ({label: result[1], '数量（件）': result[0]}))" labelKey="label" valueKey="数量（件）" :mainAxis="{labelStyle: {rotate: -45, size: 14, fill: '#666666'}, labelLength: 7, lineStyle: {stroke: 'transparent'}}" :crossAxis="{range: {count: 5}, lineStyle: {stroke: 'transparent'}, labelStyle: {size: 16, fill: '#666666'}, unit: {content: '件', fill: '#666666'}}" :gap="{outer: 3}" :series="['#1b74ef']" :theme="{background: 'transparent'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
+          <vertical-bar v-if="results" :data="results.map((result) => ({label: result[1], '数量（件）': result[0]}))" labelKey="label" valueKey="数量（件）" :mainAxis="{labelStyle: {rotate: -45, size: 18, fill: '#666666'}, labelLength: 7, lineStyle: {stroke: 'transparent'}}" :crossAxis="{range: {count: 5}, lineStyle: {stroke: 'transparent'}, labelStyle: {size: 16, fill: '#666666'}, unit: {content: '件', fill: '#666666'}}" :gap="{outer: 4.7}" :series="['#1b74ef']" :theme="{background: 'transparent'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
         </data-loader>
       </div>
     </div>
@@ -329,7 +329,12 @@ export const vis = {
     this.craneStates.maxPageIndex = document.querySelectorAll('.carousel-item').length - 1
   },
 
-
+  created () {
+    this.percentageNew(this.craneStates.defaultFilterRange);
+    this.percentageOld(this.craneStates.defaultFilterRange);
+    this.bodyEventsWatcher(),
+    this.setCarouselTimr()
+  },
 
   watch: {
     'craneStates.dateRangeLimit': {
@@ -404,7 +409,6 @@ export const vis = {
       }
     },
     'craneStates.pageIndex' (value) {
-      console.log(value, this.craneStates.maxPageIndex)
       if (value > this.craneStates.maxPageIndex || value < 0) {
         this.craneStates.pageIndex = 0
       }
@@ -475,7 +479,6 @@ export const vis = {
     },
 
     formatterFunc(param) {
-
       return `${param[0].name}<br />`+ `<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#4F5E67;"></span><span>总件数(件):</span> ${param[0].value + param[1].value + param[2].value + param[3].value}</br>` + param.map((serie) => `${serie.marker}${serie.seriesName}(${serie.seriesName === '平均回复时间' ? '天' : '件'}): ${serie.value}<br />`).join('')
     },
 
@@ -499,13 +502,6 @@ export const vis = {
         }
       }, 1000);
     }
-  },
-
-  created () {
-    this.percentageNew(this.craneStates.defaultFilterRange);
-    this.percentageOld(this.craneStates.defaultFilterRange);
-    this.bodyEventsWatcher(),
-    this.setCarouselTimr()
   },
 
   destroyed() {

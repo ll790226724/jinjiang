@@ -40,7 +40,7 @@ module.exports = {
           props: {
             $style: {
               color: '#2E2E2E',
-              fontSize: '18px',
+              fontSize: '26px',
               fontWeight: '500',
               textAlign: 'left',
               letterSpacing: '0.9',
@@ -80,15 +80,15 @@ module.exports = {
                   whitespace: 'nowrap'
                 },
                 $legendOptions: {
-                  size: '100px',
+                  size: '120px',
                   $align: "['center', 'start']",
                   layout: 'vertical',
                   $label: {
                     fill: '#2E2E2E',
-                    $size: 14,
+                    $size: 20,
                   },
                   position: 'right',
-                  $offset: "[-115, 0]",
+                  $offset: "[0, 0]",
                 },
                 ...chartTooltipOptions
               }
@@ -128,7 +128,7 @@ module.exports = {
           props: {
             $style: {
               color: '#2E2E2E',
-              fontSize: '18px',
+              fontSize: '26px',
               fontWeight: '500',
               textAlign: 'left',
               letterSpacing: '0.9',
@@ -162,7 +162,7 @@ module.exports = {
                 $mainAxis: {
                   $labelStyle: {
                     $rotate: -45,
-                    $size: 14,
+                    $size: 18,
                     fill: '#666666',
                   },
                   $labelLength: 7,
@@ -187,7 +187,7 @@ module.exports = {
                   },
                 },
                 $gap: {
-                  $outer: 3
+                  $outer: 4.7
                 },
                 $series: "['#1b74ef']",
                 $theme: {
