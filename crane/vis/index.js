@@ -16,6 +16,9 @@ const rankingRank = require('./ranking_rank');
 const rankingRankEd = require('./ranking_rank_ed');
 const arrows = require('../carousel_components/arrows');
 const pageone = require('../carousel_components/page_one');
+const pageTwo = require('../carousel_components/page_two');
+const pageThree = require('../carousel_components/page_three');
+const pageFour = require('../carousel_components/page_four');
 
 module.exports = {
   route: {
@@ -608,6 +611,9 @@ module.exports = {
       ]
     },
     pageone,
+    pageTwo,
+    pageThree,
+    pageFour,
     ...arrows
   ],
 };

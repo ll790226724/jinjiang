@@ -4,9 +4,9 @@ module.exports = {
   id: 'page_two',
   component: 'div',
   props: {
-    class: 'carousel-item_2',
+    class: 'carousel-item',
     $style: {
-      $transform: "`translateX(${1920 * (1 - craneStates.pageIndex)}px)`"
+      $transform: "`translateX(${1920 * (2 - craneStates.pageIndex)}px)`"
     }
   },
   children: [
