@@ -169,9 +169,21 @@
       <data-loader ref="ranking_rank" v-slot="{ results: results }" :url="`/v1/components/f5b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '436px', maxHeight: '186px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '349px', left: '417px'}">
         <ranking ref="department-ranking-content" v-if="craneStates.rank" :data="results.slice(0, 3).map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '20px', lineHeight: '30px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '20px', lineHeight: '30px', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '4px', borderRadius: '2px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
       </data-loader>
+      <div ref="top-icon" v-if="craneStates.rank" :style="{position: 'absolute', top: '310px', left: '423px'}">
+        <img :style="{height: '20px'}" src="/jinjiangwllz/images/Icon-Trophy1.svg" />
+      </div>
+      <div ref="page2-top3-text" v-if="craneStates.rank" :style="{color: '#418CFF', fontSize: '20px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '307px', left: '450px'}">
+        排名前三
+      </div>
       <data-loader ref="ranking_rank_ed" v-slot="{ results: results }" :url="`/v1/components/f5b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '承办单位', amount: 12}]" :style="{width: '436px', maxHeight: '186px', padding: '8px', overflow: 'scroll', position: 'absolute', top: '669px', left: '417px'}">
         <ranking ref="department-ranking-content" v-if="craneStates.rank" :data="results.slice(3, 6).map(item => { return {label: item[1], amount: item[0] } } )" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#666666', fontSize: '20px', lineHeight: '30px', fontWeight: '400'}" :valueStyle="{color: '#2E2E2E', fontSize: '20px', lineHeight: '30px', fontWeight: '400'}" :lineStyle="{background: 'rgba(46, 46, 46, 0.05)', lineColor: ['#1B74EF', '#1B74EF80'], height: '4px', borderRadius: '2px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
       </data-loader>
+      <div ref="ed-icon" v-if="craneStates.rank" :style="{position: 'absolute', top: '630px', left: '423px'}">
+        <img :style="{height: '20px'}" src="/jinjiangwllz/images/Icon-Trophy2.svg" />
+      </div>
+      <div ref="ed3-text" v-if="craneStates.rank" :style="{color: '#418CFF', fontSize: '20px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '627px', left: '450px'}">
+        排名后三
+      </div>
       <div ref="page-2-event-source-circle" :style="{boxSizing: 'content-box', height: '6px', width: '6px', borderRadius: '5px', borderWidth: '2px', borderColor: '#2E2E2E', borderStyle: 'solid', position: 'absolute', top: '126px', left: '1010px'}" />
       <div ref="page-2-event-source-title" :style="{color: '#2E2E2E', fontSize: '26px', fontWeight: '500', textAlign: 'left', letterSpacing: '0.9', position: 'absolute', top: '115px', left: '1034px'}">
         事件来源
@@ -179,7 +191,7 @@
       <div ref="page-2-event-source-suffix" :style="{color: '#2E2E2E80', fontSize: '18px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '122px', left: '1155px'}">
         /件
       </div>
-      <data-loader ref="page-2-event-source" v-slot="{ results: results }" :url="`/v1/components/f3b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '事件来源', amount: 12}]" :style="{width: '649px', height: '553px', position: 'absolute', top: '690px', left: '1565px'}">
+      <data-loader ref="page-2-event-source" v-slot="{ results: results }" :url="`/v1/components/f3b74ddd-39de-493f-84ab-9d87fcf23fee/data?start=${craneStates.filterRange[0]}&end=${craneStates.filterRange[1]}`" method="get" :data="[{label: '事件来源', amount: 12}]" :style="{width: '649px', height: '553px', position: 'absolute', top: '254px', left: '960px'}">
         <donut ref="event-ranking-content" v-if="results" :data="results.map(item => { return {label: item[1], amount: item[0] } } )" labelKey="label" valueKey="amount" :percentage="true" :hideLabel="true" :theme="{background: 'transparent', colors: ['#1B74EF', '#15C689', '#FFBA08', '#BB4430'], whitespace: 'nowrap'}" :legendOptions="{size: '120px', align: ['start', 'center'], layout: 'vertical', label: {fill: '#2E2E2E', size: 20}, position: 'bottom', offset: [0, 78]}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#007AFE', name: 'circle-small', size: 14}}" :tooltipOptions="{background: 'rgba(60, 71, 89, 0.9)', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
       </data-loader>
       <data-loader ref="page-2-department-tab" v-slot="{ results: results }" :style="{width: '245px', height: '48px', position: 'absolute', top: '194px', left: '513px'}">

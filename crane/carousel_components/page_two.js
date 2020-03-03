@@ -67,6 +67,7 @@ module.exports = {
       },
       content: '/件',
     },
+    // ranking及标题
     {
       id: 'ranking_rank',
       component: '@byzanteam/vis-components/data-loader',
@@ -121,6 +122,40 @@ module.exports = {
       ],
     },
     {
+      id: 'top-icon',
+      component: 'div',
+      position: [423, 310],
+      props:{
+        'v-if': 'craneStates.rank',
+      },
+      children: [
+        {
+          component: 'img',
+          props: {
+            $style: {
+              height: '20px'
+            },
+            src: '/jinjiangwllz/images/Icon-Trophy1.svg'
+          }
+        }
+      ]
+    },
+    {
+      id: 'page2-top3-text',
+      component: 'div',
+      position: [450, 307],
+      props: {
+        'v-if': 'craneStates.rank',
+        $style: {
+          color: '#418CFF',
+          fontSize: '20px',
+          fontWeight: 400,
+          textAlign: 'left'
+        }
+      },
+      content: '排名前三'
+    },
+    {
       id: 'ranking_rank_ed',
       component: '@byzanteam/vis-components/data-loader',
       position: [417, 669],
@@ -173,6 +208,40 @@ module.exports = {
         },
       ],
     },
+    {
+      id: 'ed-icon',
+      component: 'div',
+      position: [423, 630],
+      props:{
+        'v-if': 'craneStates.rank',
+      },
+      children: [
+        {
+          component: 'img',
+          props: {
+            $style: {
+              height: '20px'
+            },
+            src: '/jinjiangwllz/images/Icon-Trophy2.svg'
+          }
+        }
+      ]
+    },
+    {
+      id: 'ed3-text',
+      component: 'div',
+      position: [450, 627],
+      props: {
+        'v-if': 'craneStates.rank',
+        $style: {
+          color: '#418CFF',
+          fontSize: '20px',
+          fontWeight: 400,
+          textAlign: 'left'
+        }
+      },
+      content: '排名后三'
+    },
     // 事件来源
     {
       id: 'page-2-event-source-circle',
@@ -222,7 +291,7 @@ module.exports = {
     {
       id: 'page-2-event-source',
       component: '@byzanteam/vis-components/data-loader',
-      position: [1565, 690],
+      position: [960, 254],
       exports: {
         results: 'results',
       },
