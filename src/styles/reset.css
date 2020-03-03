@@ -1,3 +1,5 @@
+@import './carousel.css';
+
 body {
   background-color: #dde8f3;
 }
@@ -213,8 +215,12 @@ input::-webkit-input-placeholder {
   padding: 8px 16px !important;
 
 }
+
 .tab-nav[data-v-2d974332]:first-child {
   margin-left: 0 !important;
 }
 
-@import './carousel.css'
+#page-2-department-tab {
+  font-size: 20px !important;
+  line-height: 30px !important;
+}

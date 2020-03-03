@@ -14,8 +14,8 @@ const departmentTab = require('./departmentTab');
 const chartTab = require('./chart_tab');
 const rankingRank = require('./ranking_rank');
 const rankingRankEd = require('./ranking_rank_ed');
-const arrows = require('../carousel_components/arrows')
-const pageone = require('../carousel_components/page_one')
+const arrows = require('../carousel_components/arrows');
+const pageone = require('../carousel_components/page_one');
 
 module.exports = {
   route: {
@@ -57,8 +57,8 @@ module.exports = {
         unsatisfied: { name: '不满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
         unknown: { name: '无法判断满意状况', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
         basicly: { name: '基本满意', type: 'bar', yAxisIndex: 0, stack: true, barWidth: 7.5 },
-        callbacked: { name: '回访情况', type: 'line', yAxisIndex: 0, symbolSize: 8 },
-        day: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 8 }
+        callbacked: { name: '回访情况', type: 'line', yAxisIndex: 0, symbolSize: 5.5 },
+        day: { name: '平均回复时间', type: 'line', yAxisIndex: 1, symbolSize: 5.5 }
       }
     },
 
@@ -377,6 +377,7 @@ module.exports = {
           content: '诉求类型',
         },
 
+
         {
           id: 'repeat-demand-circle',
           component: 'div',
@@ -573,7 +574,6 @@ module.exports = {
             }
           ]
         },
-
         {
           id: 'ed3-text',
           component: 'div',
