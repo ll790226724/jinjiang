@@ -11,7 +11,11 @@ const bumenchengbanliang = require('./bumenchengbanliang');
 const jiejianqushi = require('./jiejianqushi');
 const chartTab = require('./chart_tab');
 const jiejianqushiMonth = require('./jiejianqushiMonth');
-const arrows = require('../carousel_department/arrows')
+const arrows = require('../carousel_department/arrows');
+const pageone = require('../carousel_department/page_one');
+const pageTwo = require('../carousel_department/page_two');
+const pageThree = require('../carousel_department/page_three');
+const pageFour = require('../carousel_department/page_four');
 
 module.exports = {
   route: {
@@ -561,6 +565,10 @@ module.exports = {
         jiejianqushiMonth
       ],
     },
+    pageone,
+    pageTwo,
+    pageThree,
+    pageFour,
     ...arrows
   ]
 };
