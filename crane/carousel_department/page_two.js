@@ -199,7 +199,7 @@ module.exports = {
               whitespace: 'nowrap'
             },
             $legendOptions: {
-              size: '120px',
+              size: '150px',
               $align: "['start', 'center']",
               layout: 'vertical',
               $label: {
