@@ -97,6 +97,10 @@ module.exports = {
     {
       id: 'carouselTimr',
       value: ''
+    },
+    {
+      id: 'maxPageIndex',
+      value: 0
     }
   ],
 

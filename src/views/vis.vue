@@ -215,8 +215,6 @@ const CHART_TAB_NAVS = [
   }
 ];
 
-const MAX_PAGE_INDEX = document.querySelectorAll('.carousel-item').length - 1
-
 export const vis = {
   mixins: [BuiltInMixin],
 
@@ -255,8 +253,13 @@ export const vis = {
         pageIndex: 0,
         timer: 0,
         carouselTimr: '',
+        maxPageIndex: 0,
       },
     }
+  },
+
+  mounted() {
+    this.craneStates.maxPageIndex = document.querySelectorAll('.carousel-item').length - 1
   },
 
 
@@ -334,7 +337,8 @@ export const vis = {
       }
     },
     'craneStates.pageIndex' (value) {
-      if (value > MAX_PAGE_INDEX || value < 0) {
+      console.log(value, this.craneStates.maxPageIndex)
+      if (value > this.craneStates.maxPageIndex || value < 0) {
         this.craneStates.pageIndex = 0
       }
     }
@@ -344,7 +348,6 @@ export const vis = {
     disableDateFunc(value) {
       // // 数据源时间范围
       return !(new Date(this.craneStates.dateRangeLimit[0]).getTime() > value.getTime() && value.getTime() > new Date(this.craneStates.dateRangeLimit[1]).getTime());
-
     },
 
     // 日期选择器选择的时间段-new
