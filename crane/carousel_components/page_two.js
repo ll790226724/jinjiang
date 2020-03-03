@@ -4,7 +4,7 @@ module.exports = {
   id: 'page_two',
   component: 'div',
   props: {
-    class: 'carousel-item',
+    class: 'carousel-item_2',
     $style: {
       $transform: "`translateX(${1920 * (1 - craneStates.pageIndex)}px)`"
     }
