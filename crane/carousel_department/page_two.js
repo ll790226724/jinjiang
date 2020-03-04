@@ -71,7 +71,7 @@ module.exports = {
     {
       id: 'ranking_rank',
       component: '@byzanteam/vis-components/data-loader',
-      position: [417, 309],
+      position: [417, 242],
       exports: {
         results: 'results',
       },
@@ -81,7 +81,7 @@ module.exports = {
         $data: "[{label: '承办单位', amount: 12}]",
         $style: {
           width: '436px',
-          maxHeight: '440px',
+          maxHeight: '613px',
           padding: '8px',
           overflow: 'scroll'
         },
@@ -214,32 +214,5 @@ module.exports = {
         },
       ],
     },
-    // tab
-    {
-      id: 'page-2-department-tab',
-      component: '@byzanteam/vis-components/data-loader',
-      position: [513, 194],
-      exports: {
-        results: 'results',
-      },
-      props: {
-        $style: {
-          width: '245px',
-          height: '48px',
-        },
-      },
-      children: [
-        {
-          component: '@byzanteam/vis-components/brick-tabs',
-          directive: {
-            model: 'craneStates.tabCurrent',
-          },
-          props: {
-            $tabNavs: 'craneStates.tabNavs',
-            $activeTab: 'craneStates.tabCurrent'
-          }
-        }
-      ]
-    }
   ]
 }
