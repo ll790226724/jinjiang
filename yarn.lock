@@ -33,6 +33,25 @@
     vue-i18n "^8.14.0"
     vue-router "^3.0.1"
 
+"@byzanteam/brick@latest":
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/@byzanteam/brick/-/brick-0.5.6.tgz#a39db151304ec900024f2828be21676316f9a041"
+  integrity sha512-4rlAAWS0QKvN/r5ker8lfPIPnmtpsyId8opR1KjnXrTGnbE4SUjJwITQbxD+VEqDlaanLOAHB3GBh0s1zbDsww==
+  dependencies:
+    "@byzanteam/jet-icon" "^0.1.0-alpha.1602754233"
+    "@popperjs/core" "^2.5.3"
+    autosize "^4.0.2"
+    core-js "^3.6.5"
+    dayjs "^1.8.11"
+    lodash "^4.17.11"
+    node-polyglot "^2.3.0"
+    tiptap "^1.21.1"
+    tiptap-extensions "^1.20.1"
+    vue "^2.6.10"
+    vue-i18n "^8.14.0"
+    vue-resize "^0.5.0"
+    vue-router "^3.0.1"
+
 "@byzanteam/carbonium-timer@^0.1.1":
   version "0.1.1"
   resolved "https://registry.npmjs.org/@byzanteam/carbonium-timer/-/carbonium-timer-0.1.1.tgz#ded726d2de50f90b801bdc06508b2c81492bf993"
@@ -60,6 +79,11 @@
     lodash "^4.17.15"
     vue "^2.6.10"
     vue-property-decorator "^8.1.0"
+
+"@byzanteam/jet-icon@^0.1.0-alpha.1602754233":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@byzanteam/jet-icon/-/jet-icon-0.1.0.tgz#c32c2a27b92efbac339df9628556de69027a821d"
+  integrity sha512-pwxsmL2Oz7tc7nGDM9iK/HJKWXm/uBlIYTvi7Sqkgqw8t/CLQ1XVxtPS36x2yAQQBk8A/niXrkpD7gQkuYPupA==
 
 "@byzanteam/vis-components@../../vis-components":
   version "0.1.6"
@@ -133,6 +157,11 @@
   version "1.1.3"
   resolved "https://registry.npmjs.org/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
+
+"@popperjs/core@^2.5.3":
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
+  integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
 
 "@soda/friendly-errors-webpack-plugin@^1.7.1":
   version "1.7.1"
@@ -687,7 +716,7 @@ async-foreach@^0.1.3:
 
 async-limiter@~1.0.0:
   version "1.0.1"
-  resolved "https://registry.npmjs.org/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
+  resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
   integrity sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
 
 async-validator@~1.8.1:
@@ -1575,6 +1604,11 @@ core-js@^2.4.0, core-js@^2.6.5:
   version "2.6.11"
   resolved "https://registry.npmjs.org/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
+
+core-js@^3.6.5:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.14.0.tgz#62322b98c71cc2018b027971a69419e2425c2a6c"
+  integrity sha512-3s+ed8er9ahK+zJpp9ZtuVcDoFzHNiZsPbNAAE4KXgrRHbjSqqNN6xGSXq6bq7TZIbKj4NLrLb6bJ5i+vSVjHA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -6206,10 +6240,10 @@ requires-port@^1.0.0:
   resolved "https://registry.npmjs.org/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-resize-detector@^0.1.10:
-  version "0.1.10"
-  resolved "https://registry.npmjs.org/resize-detector/-/resize-detector-0.1.10.tgz#1da3f961aa5f914ccbcfd3752d52fd45beeb692c"
-  integrity sha512-iLcXC8A6Fb0DfA+TRiywrK/0A22bFqkhntjMJMEzXDA4XkcEkfwpNbv7W8iewUiD0xYIaeiXOfiEehTqGKsUFw==
+resize-detector@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/resize-detector/-/resize-detector-0.3.0.tgz#fe495112e184695500a8f51e0389f15774cb1cfc"
+  integrity sha512-R/tCuvuOHQ8o2boRP6vgx8hXCCy87H1eY9V5imBYeVNyNVpuL9ciReSccLj2gDcax9+2weXy3bc8Vv+NRXeEvQ==
 
 resize-observer-polyfill@^1.5.0, resize-observer-polyfill@^1.5.1:
   version "1.5.1"
@@ -7490,13 +7524,18 @@ vue-countup-v2@^4.0.0:
   resolved "https://registry.npmjs.org/vue-countup-v2/-/vue-countup-v2-4.0.0.tgz#061a1ac8ee4aa207bb9d23d2bcc1d53a5f7c3675"
   integrity sha512-XjKeHo1ndRlJtXvHd6B1eWOpbrJDdNU3rdYZwVPv2YlUXbvthsBT4kms5Fc/mn9RdXPrMX2H/ktAAQtKjWFisw==
 
-vue-echarts@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/vue-echarts/-/vue-echarts-4.1.0.tgz#ff4828aaa599e7aaaac95e35297d964192a3af0d"
-  integrity sha512-am2vsAjEYGz3JqqMaSqIR35HIxr/TjxYPoKWTorgi10rzwl7+f+uBvpj7AkCJ6HVL8zR3exYpyo881aG+24Rfg==
+vue-demi@^0.7.4:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.5.tgz#88dee7492fc99a0f911ff03fc02c658fa2a79af8"
+  integrity sha512-eFSQSvbQdY7C9ujOzvM6tn7XxwLjn0VQDXQsiYBLBwf28Na+2nTQR4BBBcomhmdP6mmHlBKAwarq6a0BPG87hQ==
+
+vue-echarts@latest:
+  version "6.0.0-rc.5"
+  resolved "https://registry.yarnpkg.com/vue-echarts/-/vue-echarts-6.0.0-rc.5.tgz#4e06289927d03d289c368fa09b740d82e6ded528"
+  integrity sha512-qG7jM4tz2Ipygn5r88s2nHFftakQyWpoM2IXwpzWrQwl/UZIQ1bbqyyLHqMLtgzEU/QhD/maFG9tnMkjVR75sg==
   dependencies:
-    lodash "^4.17.15"
-    resize-detector "^0.1.10"
+    resize-detector "^0.3.0"
+    vue-demi "^0.7.4"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
@@ -7537,6 +7576,11 @@ vue-property-decorator@^8.1.0, vue-property-decorator@^8.3.0:
   integrity sha512-77YtTbZHd5CNiPzbqv51kEgL48yvD2dUDfF28vEyw3MbQ9bBAb/tDyFzskcqjNRbWyXk1vq4oM2CK/LfhxuIBg==
   dependencies:
     vue-class-component "^7.1.0"
+
+vue-resize@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-0.5.0.tgz#f55bb2b721a0ebcdfad8f3c14dfd00e3fd0fd913"
+  integrity sha512-k5gOOwTIGSoWZb133Gx3IfSeiiAmve5GyWI7+pU8CvbNntpSAlrCYwZ26GB63NpxcLPK94+m0BDl5TxuZUI+Hw==
 
 vue-router@^3.0.1, vue-router@^3.0.3:
   version "3.1.3"
@@ -7822,9 +7866,9 @@ wrappy@1:
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
 ws@^6.0.0, ws@^6.2.1:
-  version "6.2.1"
-  resolved "https://registry.npmjs.org/ws/-/ws-6.2.1.tgz#442fdf0a47ed64f59b6a5d8ff130f4748ed524fb"
-  integrity sha512-GIyAXC2cB7LjvpgMt9EKS2ldqr0MTrORaleiOno6TweZ6r3TKtoFQWay/2PceJ3RuBasOHzXNn5Lrw1X0bEjqA==
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-6.2.2.tgz#dd5cdbd57a9979916097652d78f1cc5faea0c32e"
+  integrity sha512-zmhltoSR8u1cnDsD43TX59mzoMZsLKqUweyYBAIvTngR3shc0W6aOZylZmq/7hqyVxPdi+5Ud2QInblgyE72fw==
   dependencies:
     async-limiter "~1.0.0"
 
